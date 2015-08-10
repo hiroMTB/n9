@@ -55,7 +55,7 @@ void cApp::setup(){
     cam.setCenterOfInterestPoint( Vec3f(0,0,0) );
     camUi.setCurrentCam( cam );
 
-   mExp.startRender();
+   //mExp.startRender();
 }
 
 void cApp::update(){

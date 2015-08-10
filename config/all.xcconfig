@@ -30,11 +30,11 @@ LD_FLAG_CSOUND = -lcsnd6.6.0
 
 
 // TBB
-HEADER_TBB = ../../myBlocks/tbb/include
-LIB_PATH_TBB = ../../myBlocks/tbb/lib/libc++
+HEADER_TBB = $(CINDER_PATH)/blocks/tbb/include
+LIB_PATH_TBB = $(CINDER_PATH)/blocks/tbb/lib/libc++
 LD_FLAG_TBB = -ltbb
 
 // libsnd
-HEADER_SNDFILE = ../../myBlocks/libsndfile
-LIB_PATH_SNDFILE = ../../myBlocks/libsndfile
+HEADER_SNDFILE = $(CINDER_PATH)/blocks/libsndfile
+LIB_PATH_SNDFILE = $(CINDER_PATH)/blocks/libsndfile
 LD_FLAG_SNDFILE = -lsndfile

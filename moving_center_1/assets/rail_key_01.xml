@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rail_sequence>
+<rail id="0">
+    <key>
+        <frame>1</frame>
+        <pos>
+            <x>160</x>
+            <y>960</y>
+        </pos>
+     </key>
+    
+    <key>
+        <frame>500</frame>
+        <pos>
+            <x>760</x>
+            <y>960</y>
+        </pos>
+    </key>
+</rail>
+
+<rail id="1">
+    <key>
+        <frame>1</frame>
+        <pos>
+            <x>4160</x>
+            <y>960</y>
+        </pos>
+    </key>
+    
+    <key>
+        <frame>500</frame>
+        <pos>
+            <x>3560</x>
+            <y>960</y>
+        </pos>
+    </key>
+    
+</rail>
+
+</rail_sequence>

@@ -1,0 +1,40 @@
+//
+//  ALL LIBRARY
+//
+
+
+// CINDER
+CINDER_PATH = ../../..
+HEADER_CINDER = $(CINDER_PATH)/include
+LIB_PATH_CINDER = $(CINDER_PATH)/lib
+LDFLAG_CINDER_D = -lcinder_d
+LDFLAG_CINDER_R = -lcinder
+
+// boost
+HEADER_BOOST = $(CINDER_PATH)/boost
+
+// Cairo
+HEADER_CAIRO = $(CINDER_PATH)/blocks/Cairo/include/macosx $(CINDER_PATH)/blocks/Cairo/include
+LIB_PATH_CAIRO = $(CINDER_PATH)/blocks/Cairo/lib/macosx
+LDFLAG_CAIRO = -lcairo -lpixman-1 -lpng16
+
+// OpenCV
+HEADER_CV = $(CINDER_PATH)/blocks/OpenCV/include/opencv2 $(CINDER_PATH)/blocks/OpenCV/include
+LIB_PATH_CV = $(CINDER_PATH)/blocks/OpenCV/lib/macosx/
+LDFLAG_CV = -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_nonfree -lopencv_objdetect -opencv_ocl -lopencv_photo -lopencv_stitching -lopencv_superres -lopencv_ts -lopencv_video -lopencv_videostab
+
+// CSound
+HEADER_CSOUND = /Library/Frameworks/CsoundLib64.framework/Headers
+LIB_PATH_CSOUND = /Library/Frameworks/CsoundLib64.framework/Versions/6.0
+LD_FLAG_CSOUND = -lcsnd6.6.0
+
+
+// TBB
+HEADER_TBB = ../../myBlocks/tbb/include
+LIB_PATH_TBB = ../../myBlocks/tbb/lib/libc++
+LD_FLAG_TBB = -ltbb
+
+// libsnd
+HEADER_SNDFILE = ../../myBlocks/libsndfile
+LIB_PATH_SNDFILE = ../../myBlocks/libsndfile
+LD_FLAG_SNDFILE = -lsndfile

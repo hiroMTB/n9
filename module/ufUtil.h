@@ -47,8 +47,8 @@ namespace uf {
         cout << "Render Image : " << frame << endl;
     }
     
-    fs::path getRenderPath(){
-        return expandPath("../../../_render/")/getTimeStamp();
+    fs::path getRenderPath( string subdir_name="" ){
+        return expandPath("../../../_render") / getTimeStamp() / subdir_name ;
     }
     
     fs::path getProjectPath(){

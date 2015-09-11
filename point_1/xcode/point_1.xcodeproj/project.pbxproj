@@ -222,7 +222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f ../../myBlocks/tbb/lib/libc++/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libtbb.dylib\";\n\ninstall_name_tool -change libtbb.dylib @executable_path/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n\n\n\n\n\n\n";
+			shellScript = "cp -f ../../../blocks/tbb/lib/libc++/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libtbb.dylib\";\n\ninstall_name_tool -change libtbb.dylib @executable_path/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n\n\n\n\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

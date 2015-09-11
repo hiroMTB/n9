@@ -101,7 +101,7 @@ void cApp::setup(){
     
     guide = loadImage( loadAsset("img/guide/laser_guide_01.png") );
     
-    mExp.startRender();
+    // mExp.startRender();
 }
 
 void cApp::loadColorSample( string fileName, vector<Colorf>& col){

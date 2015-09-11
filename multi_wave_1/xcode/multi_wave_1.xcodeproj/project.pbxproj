@@ -14,6 +14,9 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		6AC7B8C91B974C580013E7CC /* gaussianBlur_frag.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7B8C71B974C580013E7CC /* gaussianBlur_frag.glsl */; };
+		6AC7B8CA1B974C580013E7CC /* passThru_vert.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7B8C81B974C580013E7CC /* passThru_vert.glsl */; };
+		6AC7B8CE1B97573A0013E7CC /* cinder_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7B8CD1B97573A0013E7CC /* cinder_logo.png */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 /* End PBXBuildFile section */
@@ -30,14 +33,16 @@
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		6A4775BE1B7835150024692D /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TbbNpFinder.h; path = ../src/TbbNpFinder.h; sourceTree = "<group>"; };
-		6A4775BF1B7835240024692D /* RfImporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterBin.h; sourceTree = "<group>"; };
 		6A5344941AF7AC0500EB5383 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
 		6A5344971AF7AC0500EB5383 /* ufUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ufUtil.h; sourceTree = "<group>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
-		6AE0154D1B72D0ED00597BFF /* DataGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataGroup.h; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* point_0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = point_0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AC7B8C71B974C580013E7CC /* gaussianBlur_frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gaussianBlur_frag.glsl; sourceTree = "<group>"; };
+		6AC7B8C81B974C580013E7CC /* passThru_vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = passThru_vert.glsl; sourceTree = "<group>"; };
+		6AC7B8CB1B974D7E0013E7CC /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../src/Resources.h; sourceTree = "<group>"; };
+		6AC7B8CC1B974D7E0013E7CC /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../src/Wave.h; sourceTree = "<group>"; };
+		6AC7B8CD1B97573A0013E7CC /* cinder_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cinder_logo.png; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* multi_wave_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = multi_wave_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95CFCBE1AFA244A19A93A224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +99,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* point_0.app */,
+				8D1107320486CEB800E47090 /* multi_wave_1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,7 +110,7 @@
 				6AAB06D01B12587200AC8B49 /* debug.xcconfig */,
 				6AAB06D31B1258B500AC8B49 /* release.xcconfig */,
 				95CFCBE1AFA244A19A93A224 /* Info.plist */,
-				6AD4AD471B72451E003F6480 /* assets */,
+				6AC7B8C61B974C580013E7CC /* shader */,
 				29B97315FDCFA39411CA2CEA /* src */,
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -117,8 +122,9 @@
 		29B97315FDCFA39411CA2CEA /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6AC7B8CB1B974D7E0013E7CC /* Resources.h */,
+				6AC7B8CC1B974D7E0013E7CC /* Wave.h */,
 				444894A18C4C457A91266DCA /* cApp.cpp */,
-				6A4775BE1B7835150024692D /* TbbNpFinder.h */,
 				6A5344911AF7AC0500EB5383 /* module */,
 			);
 			name = src;
@@ -136,8 +142,6 @@
 		6A5344911AF7AC0500EB5383 /* module */ = {
 			isa = PBXGroup;
 			children = (
-				6A4775BF1B7835240024692D /* RfImporterBin.h */,
-				6AE0154D1B72D0ED00597BFF /* DataGroup.h */,
 				6A5344941AF7AC0500EB5383 /* Exporter.h */,
 				6A5344971AF7AC0500EB5383 /* ufUtil.h */,
 			);
@@ -145,33 +149,36 @@
 			path = ../../module;
 			sourceTree = "<group>";
 		};
-		6AD4AD471B72451E003F6480 /* assets */ = {
+		6AC7B8C61B974C580013E7CC /* shader */ = {
 			isa = PBXGroup;
 			children = (
+				6AC7B8C71B974C580013E7CC /* gaussianBlur_frag.glsl */,
+				6AC7B8C81B974C580013E7CC /* passThru_vert.glsl */,
+				6AC7B8CD1B97573A0013E7CC /* cinder_logo.png */,
 			);
-			name = assets;
+			name = shader;
+			path = ../shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* point_0 */ = {
+		8D1107260486CEB800E47090 /* multi_wave_1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_0" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "multi_wave_1" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				6A9A9CC11B73A0B500DADB0C /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = point_0;
+			name = multi_wave_1;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 8D1107320486CEB800E47090 /* point_0.app */;
+			productReference = 8D1107320486CEB800E47090 /* multi_wave_1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +188,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_0" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "multi_wave_1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -195,7 +202,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* point_0 */,
+				8D1107260486CEB800E47090 /* multi_wave_1 */,
 			);
 		};
 /* End PBXProject section */
@@ -205,26 +212,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AC7B8CA1B974C580013E7CC /* passThru_vert.glsl in Resources */,
+				6AC7B8C91B974C580013E7CC /* gaussianBlur_frag.glsl in Resources */,
+				6AC7B8CE1B97573A0013E7CC /* cinder_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6A9A9CC11B73A0B500DADB0C /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cp -f ../../../blocks/tbb/lib/libc++/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libtbb.dylib\";\n\ninstall_name_tool -change libtbb.dylib @executable_path/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n\n\n\n\n\n\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -257,7 +251,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
-				PRODUCT_NAME = point_0;
+				PRODUCT_NAME = multi_wave_1;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				WRAPPER_EXTENSION = app;
@@ -284,7 +278,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
-				PRODUCT_NAME = point_0;
+				PRODUCT_NAME = multi_wave_1;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
@@ -336,7 +330,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_0" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "multi_wave_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -345,7 +339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_0" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "multi_wave_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

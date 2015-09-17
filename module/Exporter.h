@@ -23,7 +23,7 @@ public:
     
     Exporter(){}
     
-    void setup( int width, int height, int exitFrame, GLenum colorInternalFormat, fs::path path, int aaSample ){
+    void setup( int width, int height, int exitFrame, GLenum colorInternalFormat, fs::path path, int aaSample, bool aFlip=false ){
         bRender = false;
         bSnap = false;
         mFrame = 1;
@@ -38,7 +38,7 @@ public:
         format.setColorInternalFormat( colorInternalFormat );
         format.setSamples( aaSample );
         mFbo = gl::Fbo( width, height, format );
-        //mFbo.getTexture(0).setFlipped(true);
+        mFbo.getTexture(0).setFlipped(aFlip);
         mRenderPath = path;
         
         mImgWOption.quality(1);

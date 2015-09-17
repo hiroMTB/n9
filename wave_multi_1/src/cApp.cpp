@@ -18,6 +18,8 @@
 #include "Resources.h"
 #include "Exporter.h"
 
+//#define RENDER
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -68,8 +70,8 @@ void cApp::setup(){
         mExp.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, uf::getRenderPath( "line" ), 0);
         mExp2.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, uf::getRenderPath( "point" ), 0);
         
-        loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
-        loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
+        uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
+        uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
     }
     
     {
@@ -97,38 +99,17 @@ void cApp::setup(){
     
    	mAngle = 0.0f;
     
-    mExp.startRender();
-    mExp2.startRender();
+#ifdef RENDER
+
+    //mExp.startRender();
+    //mExp2.startRender();
+#endif
 
 }
-
-void cApp::loadColorSample( string fileName, vector<vector<Colorf>>& col){
-    Surface sur( loadImage( loadAsset(fileName) ) );
-    Surface::Iter itr = sur.getIter();
-    
-    int w = sur.getWidth();
-    int h = sur.getHeight();
-
-    col.assign( w, vector<Colorf>(h) );
-    
-    while ( itr.line() ) {
-        
-        while ( itr.pixel() ) {
-            float r = itr.r() / 255.0f;
-            float g = itr.g() / 255.0f;
-            float b = itr.b() / 255.0f;
-    
-            Vec2i pos = itr.getPos();
-            col[pos.x][pos.y].set( r, g, b );
-        }
-    }
-    cout << "Load Success: " << col.size() << " ColorSample" << endl;
-}
-
 
 void cApp::update(){
     for( int i=0; i<mWaves.size(); i++ ){
-        mWaves[i].update( Vec2f(0.5f, 80*i) );
+        mWaves[i].update( Vec2f(0.5f, 80*(i+1)) );
         
         int blockw = 64;
         

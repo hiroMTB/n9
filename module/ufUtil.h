@@ -107,4 +107,28 @@ namespace uf {
         } glEnd();
         gl::popMatrices();
     }
- }
+
+
+    void loadColorSample( string fileName, vector<vector<Colorf>>& col){
+        Surface sur( loadImage( loadAsset(fileName) ) );
+        Surface::Iter itr = sur.getIter();
+        
+        int w = sur.getWidth();
+        int h = sur.getHeight();
+        
+        col.assign( w, vector<Colorf>(h) );
+        
+        while ( itr.line() ) {
+            
+            while ( itr.pixel() ) {
+                float r = itr.r() / 255.0f;
+                float g = itr.g() / 255.0f;
+                float b = itr.b() / 255.0f;
+                
+                Vec2i pos = itr.getPos();
+                col[pos.x][pos.y].set( r, g, b );
+            }
+        }
+        cout << "Load Success: " << col.size() << " ColorSample" << endl;
+    }
+}

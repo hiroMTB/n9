@@ -2,6 +2,11 @@
 #include "cinder/gl/gl.h"
 #include "cinder/gl/Texture.h"
 
+#include "Exporter.h"
+#include "ufUtil.h"
+
+//#define RENDER
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -17,11 +22,22 @@ class cApp : public AppNative {
     void mouseDown( MouseEvent event );
     void mouseDrag( MouseEvent event );
     void resize();
+    
+    Exporter mExp;
+    const int mW = 4320; // 1080*4
+    const int mH = 1920;
+    const float mScale = 0.5;
 };
 
 void cApp::setup(){
-    setWindowSize( 1920, 1080 );
     setWindowPos( 0, 0 );
+    setWindowSize( mW*mScale, mH*mScale );
+    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, uf::getRenderPath(), 0, true);
+    
+    
+#ifdef RENDER
+    mExp.startRender();
+#endif
 }
 
 void cApp::update(){
@@ -29,8 +45,18 @@ void cApp::update(){
 
 void cApp::draw(){
 
-    gl::clear();
+    mExp.begin();
+    {
+        gl::clear( Colorf(1,1,1) );
+        gl::color( Colorf(0,0,1) );
+        gl::drawSolidRect( Rectf(100,100,300,300) );
+    }
+    mExp.end();
     
+
+    gl::clear( Colorf(1,1,1) );
+    gl::color( Colorf(1,1,1) );
+    mExp.draw();
 }
 
 void cApp::keyDown( KeyEvent event ){

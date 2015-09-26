@@ -9,6 +9,10 @@
 #include "cinder/audio/Utilities.h"
 
 #include "ufUtil.h"
+#include "AudioDrawUtils.h"
+#include "SoundWriter.h"
+#include "ConsoleColor.h"
+#include "MonitorNodeNL.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -25,78 +29,158 @@ class cApp : public AppNative {
     void mouseDown( MouseEvent event );
     void mouseDrag( MouseEvent event );
     void resize();
-    
-    audio::BufferPlayerNodeRef mPlayer;
-  	audio::MonitorSpectralNodeRef mMonitor;
-    audio::BufferRef buf;
-    
+ 
+    const int mFpb = 512;   // frames per block(audio buffer)
+    int fftSize = 8;
+    float smoothingFactor = 0.9;
+    audio::dsp::WindowType windowType = audio::dsp::WindowType::BLACKMAN; //HAMMING; //BLACKMAN HAMMING, HANN, RECT
+
     vector<float> mSpc;
+    vector< vector<float> > fftWaves;
+    audio::BufferPlayerNodeRef mPlayer;
+    audio::BufferRef buf;
+    SpectrumPlot mSpectrumPlot;
+    audio::MonitorSpectralNodeNLRef mMonitor;
+    
+    float * ch0;
+    float * ch1;
 
 };
 
 void cApp::setup(){
     
-    setFrameRate(25);
-    setWindowSize( 1920, 1080 );
+    setFrameRate(60);
+    setWindowSize( 720, 560 );
     setWindowPos( 0, 0 );
     gl::enableVerticalSync();
     
-    auto ctx = audio::Context::master();
-    
-    audio::SourceFileRef sourceFile = audio::load( loadAsset( "snd/test/3s1e.wav" ), ctx->getSampleRate() );
-    buf = sourceFile->loadBuffer();
+    {
+        // Audio Setup
+        auto ctx = audio::Context::master();
+        audio::DeviceRef device = audio::Device::getDefaultOutput();
+        audio::Device::Format format;
+        format.sampleRate( 192000 );
+        format.framesPerBlock( mFpb );
+        device->updateFormat( format );
+        
+        cout << "--- Audio Setting --- " << endl;
+        cout << "device name      : " << device->getName() << endl;
+        cout << "Sample Rate      : " << ctx->getSampleRate() << endl;
+        cout << "frames per Block : " << ctx->getFramesPerBlock() << endl;
+        
+        audio::SourceFileRef sourceFile = audio::load( loadAsset( "snd/test/3s1e_192k.wav" ), ctx->getSampleRate() );
+        buf = sourceFile->loadBuffer();
+        
+        ch0 = buf->getChannel(0);
+        ch1 = buf->getChannel(1);
 
-    mPlayer = ctx->makeNode( new audio::BufferPlayerNode(buf) );
-    auto monitorFormat = audio::MonitorSpectralNode::Format().fftSize( 2048 ).windowSize( 1024 );
-    mMonitor = ctx->makeNode( new audio::MonitorSpectralNode( monitorFormat ) );
+        mPlayer = ctx->makeNode( new audio::BufferPlayerNode(buf) );
+        auto monitorFormat = audio::MonitorSpectralNodeNL::Format().fftSize( fftSize ).windowSize( fftSize/2 ).windowType( windowType);
+        mMonitor = ctx->makeNode( new audio::MonitorSpectralNodeNL( monitorFormat ) );
+        mMonitor->setSmoothingFactor( smoothingFactor );
+        
+        mPlayer >> ctx->getOutput();
 
-    mPlayer >> ctx->getOutput();
-    mPlayer >> mMonitor;
-
-    mPlayer->start();
-    mPlayer->seekToTime( 100 );
-    
-    ctx->enable();
-
+        
+        //
+        //      need to conenct to initialize SpectramNodeNL
+        //
+        mPlayer >> mMonitor;
+        //mPlayer->start();
+        //mPlayer->seekToTime( mPlayer->getNumSeconds() );
+        
+        ctx->enable();
+        
+        fftWaves.assign( fftSize/2, vector<float>() );
+    }
 }
 
 void cApp::update(){
     
-    mSpc = mMonitor->getMagSpectrum();
+    int audioPos = 0;
+    int loop = 0;
+    
+    while( audioPos < buf->getNumFrames() ){
+
+        audioPos = loop * fftSize;
+        
+        float * fftch0 = new float[fftSize];
+        float * fftch1 = new float[fftSize];
+        
+        memcpy( fftch0, ch0+audioPos, sizeof(float)*fftSize);
+        memcpy( fftch1, ch1+audioPos, sizeof(float)*fftSize);
+        
+        audio::Buffer fftBlock(fftSize, 2);
+        fftBlock.copyChannel( 0, fftch0 );
+        fftBlock.copyChannel( 1, fftch1 );
+        
+        // This line calculate FFT
+        mSpc = mMonitor->getMagSpectrum( fftBlock );
+        
+        for( int i=0; i<mSpc.size(); i++){
+            float m = mSpc[i];
+            float mD = audio::linearToDecibel(m)/100.0f;
+            mD = ( mD-0.5 ) * 2.0;
+            fftWaves[i].push_back( mD );
+        }
+        
+        loop++;
+    }
+    
+        
+    //
+    //      write audio file at end of frame
+    //
+    {
+        cout << "Write audio file ;" << endl;
+        fs::path dir = uf::getRenderPath();
+        createDirectories( dir.string()+"/" );
+        
+        for( int i=0; i<fftWaves.size(); i++ ){
+            string fileName = "fft_" + toString(i) + ".wav";
+            string path = dir.string() + "/" + fileName;
+            
+            int nCh = 1;
+            int samplingRate = 48000;
+            if( SoundWriter::writeWav32f(fftWaves[i], nCh, samplingRate, fftWaves[i].size()/nCh, path) ){
+                ccout::b("wav write OK :" + path + ", " + toString(fftWaves[i].size()) + "frames");
+            }else{
+                ccout::r("wav write ERROR :" + path);
+            }
+        }
+        
+        quit();
+        
+    }
+    
 }
 
+//
+//      debug use
+//
 void cApp::draw(){
 
-    auto ctx = audio::Context::master();
-    const audio::Buffer * cBuffer = ctx->getOutput()->getInternalBuffer();
-
-    int nFrames = cBuffer->getNumFrames();
-    const float * ch0 = cBuffer->getChannel( 0 );
-    const float * ch1 = cBuffer->getChannel( 1 );
-
     gl::clear( Color(0,0,0) );
-    
+
     glPushMatrix(); {
-        glTranslatef( 50, getWindowHeight()/2, 0 );
-        glPointSize(1);
-        glColor4f(1,1,1,0.7);
-
+        glTranslatef( 50, 0, 0 );
+        float scalex = 0.5;
+        float scaley = 20;
+        
+        std::vector<ci::Vec2f>	verts;
+        std::vector<ci::ColorA>	colors;
+        
+        glColor3f( 0, 1, 0 );
+        glPointSize( 1 );
         glBegin( GL_POINTS );
-        for ( int i=0; i<nFrames; i++) {
-            float l = ch0[i];
-            glVertex3f( i*3.0f, l*100.0f - 200.0f, 0);
+        for( int i=0; i<fftWaves.size(); i++){
+            for( int j=0; j<fftWaves[i].size(); j++ ){
+                Vec2f v(j*scalex, -fftWaves[i][j]*scaley + (scaley*2.2)*i);
+                glVertex2f( v );
+            }
         }
         glEnd();
-
-        glBegin( GL_POINTS );
-        for ( int i=0; i<nFrames; i++) {
-            float l = ch1[i];
-            glVertex3f( i*3.0f, l*100.0f + 200.0f, 0);
-        }
-        glEnd();
-
     } glPopMatrix();
-    
 }
 
 void cApp::keyDown( KeyEvent event ){

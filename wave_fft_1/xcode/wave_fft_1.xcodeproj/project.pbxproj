@@ -14,6 +14,8 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		6A30AF681BB4B55A00A7D772 /* AudioDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A30AF661BB4B55A00A7D772 /* AudioDrawUtils.cpp */; };
+		6AA208721BB5F00E003EADDB /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AA208701BB5F00E003EADDB /* MonitorNodeNL.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 /* End PBXBuildFile section */
@@ -30,8 +32,14 @@
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		6A30AF661BB4B55A00A7D772 /* AudioDrawUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioDrawUtils.cpp; path = ../src/AudioDrawUtils.cpp; sourceTree = "<group>"; };
+		6A30AF671BB4B55A00A7D772 /* AudioDrawUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDrawUtils.h; path = ../src/AudioDrawUtils.h; sourceTree = "<group>"; };
+		6A30AF691BB4BECE00A7D772 /* SoundWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundWriter.h; sourceTree = "<group>"; };
+		6A30AF6A1BB4CF6E00A7D772 /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleColor.h; sourceTree = "<group>"; };
 		6A5344941AF7AC0500EB5383 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
 		6A5344971AF7AC0500EB5383 /* ufUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ufUtil.h; sourceTree = "<group>"; };
+		6AA208701BB5F00E003EADDB /* MonitorNodeNL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MonitorNodeNL.cpp; path = ../src/MonitorNodeNL.cpp; sourceTree = "<group>"; };
+		6AA208711BB5F00E003EADDB /* MonitorNodeNL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MonitorNodeNL.h; path = ../src/MonitorNodeNL.h; sourceTree = "<group>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* wave_fft_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave_fft_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				444894A18C4C457A91266DCA /* cApp.cpp */,
+				6A30AF661BB4B55A00A7D772 /* AudioDrawUtils.cpp */,
+				6A30AF671BB4B55A00A7D772 /* AudioDrawUtils.h */,
 				6A5344911AF7AC0500EB5383 /* module */,
+				6AA208701BB5F00E003EADDB /* MonitorNodeNL.cpp */,
+				6AA208711BB5F00E003EADDB /* MonitorNodeNL.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -131,6 +143,8 @@
 		6A5344911AF7AC0500EB5383 /* module */ = {
 			isa = PBXGroup;
 			children = (
+				6A30AF6A1BB4CF6E00A7D772 /* ConsoleColor.h */,
+				6A30AF691BB4BECE00A7D772 /* SoundWriter.h */,
 				6A5344941AF7AC0500EB5383 /* Exporter.h */,
 				6A5344971AF7AC0500EB5383 /* ufUtil.h */,
 			);
@@ -165,6 +179,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0640;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "wave_fft_1" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -200,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A30AF681BB4B55A00A7D772 /* AudioDrawUtils.cpp in Sources */,
 				CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */,
+				6AA208721BB5F00E003EADDB /* MonitorNodeNL.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +283,6 @@
 			baseConfigurationReference = 6AAB06D01B12587200AC8B49 /* debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = i386;
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -276,6 +292,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -287,7 +304,6 @@
 			baseConfigurationReference = 6AAB06D31B1258B500AC8B49 /* release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = i386;
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";

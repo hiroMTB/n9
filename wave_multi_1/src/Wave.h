@@ -34,7 +34,7 @@ public:
         
         player >> ctx->getOutput();
         player >> monitor;
-        player->start();
+        //player->start();
         
         
         gl::VboMesh::Layout layout;

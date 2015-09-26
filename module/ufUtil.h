@@ -21,6 +21,14 @@ namespace uf {
         return layout;
     }
     
+    long getSeed(){
+        time_t curr;
+        tm local;
+        time(&curr);
+        local =*(localtime(&curr));
+        return local.tm_gmtoff;
+    }
+    
     string getTimeStamp(){        
         time_t curr;
         tm local;
@@ -48,7 +56,10 @@ namespace uf {
     }
     
     fs::path getRenderPath( string subdir_name="" ){
-        return expandPath("../../../_render") / getTimeStamp() / subdir_name ;
+        if(subdir_name!="")
+            return expandPath("../../../_render") / getTimeStamp() / subdir_name ;
+        else
+            return expandPath("../../../_render") / getTimeStamp();
     }
     
     fs::path getProjectPath(){

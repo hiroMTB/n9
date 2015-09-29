@@ -32,7 +32,7 @@ class cApp : public AppNative {
  
     const int mFpb = 512;   // frames per block(audio buffer)
     int fftSize = 8;
-    float smoothingFactor = 0.9;
+    float smoothingFactor = 0.5;
     audio::dsp::WindowType windowType = audio::dsp::WindowType::BLACKMAN; //HAMMING; //BLACKMAN HAMMING, HANN, RECT
 
     vector<float> mSpc;
@@ -49,7 +49,7 @@ class cApp : public AppNative {
 
 void cApp::setup(){
     
-    setFrameRate(60);
+    setFrameRate(10);
     setWindowSize( 720, 560 );
     setWindowPos( 0, 0 );
     gl::enableVerticalSync();
@@ -63,13 +63,17 @@ void cApp::setup(){
         format.framesPerBlock( mFpb );
         device->updateFormat( format );
         
-        cout << "--- Audio Setting --- " << endl;
-        cout << "device name      : " << device->getName() << endl;
-        cout << "Sample Rate      : " << ctx->getSampleRate() << endl;
-        cout << "frames per Block : " << ctx->getFramesPerBlock() << endl;
+        cout << "--- Audio Setting --- \n";
+        cout << "device name      : " << device->getName() << "\n";
+        cout << "Sample Rate      : " << ctx->getSampleRate() << "\n";
+        cout << "frames per Block : " << ctx->getFramesPerBlock() << "\n" << endl;
         
         audio::SourceFileRef sourceFile = audio::load( loadAsset( "snd/test/3s1e_192k.wav" ), ctx->getSampleRate() );
         buf = sourceFile->loadBuffer();
+
+        cout << "--- Load audio file --- \n";
+        cout << "sample num : " << buf->getNumFrames() << "\n";
+        cout << "duration   : " << (float)buf->getNumFrames()/sourceFile->getSampleRate() << " sec\n"<< endl;
         
         ch0 = buf->getChannel(0);
         ch1 = buf->getChannel(1);
@@ -80,7 +84,6 @@ void cApp::setup(){
         mMonitor->setSmoothingFactor( smoothingFactor );
         
         mPlayer >> ctx->getOutput();
-
         
         //
         //      need to conenct to initialize SpectramNodeNL
@@ -100,7 +103,7 @@ void cApp::update(){
     int audioPos = 0;
     int loop = 0;
     
-    while( audioPos < buf->getNumFrames() ){
+    while( (audioPos+fftSize) < buf->getNumFrames() ){
 
         audioPos = loop * fftSize;
         
@@ -120,7 +123,7 @@ void cApp::update(){
         for( int i=0; i<mSpc.size(); i++){
             float m = mSpc[i];
             float mD = audio::linearToDecibel(m)/100.0f;
-            mD = ( mD-0.5 ) * 2.0;
+            //mD = ( mD-0.5 ) * 2.0;
             fftWaves[i].push_back( mD );
         }
         
@@ -141,9 +144,13 @@ void cApp::update(){
             string path = dir.string() + "/" + fileName;
             
             int nCh = 1;
-            int samplingRate = 48000;
+            
+            // fftSize= 8, 24kHz
+            // fftSize=16, 12kHz
+            // fftSize=32,  6kHz
+            int samplingRate = 192000/fftSize;
             if( SoundWriter::writeWav32f(fftWaves[i], nCh, samplingRate, fftWaves[i].size()/nCh, path) ){
-                ccout::b("wav write OK :" + path + ", " + toString(fftWaves[i].size()) + "frames");
+                ccout::b("wav write OK :" + path + ", " + toString(fftWaves[i].size()) + " frames");
             }else{
                 ccout::r("wav write ERROR :" + path);
             }

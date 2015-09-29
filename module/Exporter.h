@@ -106,23 +106,11 @@ public:
     }
     
     void draw(){
-
-//        float win_w = getWindowWidth();
-//        float win_h = getWindowHeight();
-//        float win_aspect = win_w/win_h;
-//        float fbo_aspect = mFbo.getAspectRatio();
-//        Area area(0,0,0,0);
-//        if( win_aspect >= fbo_aspect ){
-//            float scale = mFbo.getHeight()/win_h;
-//            area.set(0, 0, win_w * scale, win_h);
-//        }else{
-//            float scale = mFbo.getWidth() / win_w;
-//            area.set(0, 0, win_w, win_h*scale);
-//        }
-
         gl::pushMatrices();
         gl::setMatricesWindow( mFbo.getSize() );
         gl::setViewport(getWindowBounds() );
+        gl::scale(1,-1,1);
+        gl::translate( 0, -mFbo.getHeight() );
         gl::draw( mFbo.getTexture() );
         gl::popMatrices();
     }

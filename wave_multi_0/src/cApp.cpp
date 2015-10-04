@@ -1,4 +1,4 @@
-#define RENDER
+//#define RENDER
 
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/gl.h"
@@ -37,7 +37,6 @@ class cApp : public AppNative {
     void resize();
     void loadColorSample( string fileName, vector<vector<Colorf>>& col );
     
-    const int mFpb = 2048*2;
     const int win_w = 4320;
     const int win_h = 1920;
 
@@ -56,14 +55,18 @@ class cApp : public AppNative {
     vector<Vec2f> adder;
     vector<ColorAf> colorAdder;
     
-    float fftWaveSamplingRate;
-    float origWaveSampingRate;
+    float fftWaveSamplingRate = 6000;
+    float origWaveSampingRate = 192000;
+    
+    int mFpb = 2048*2;
+    int fpbOrig =mFpb * origWaveSampingRate/fftWaveSamplingRate;
+
 };
 
 void cApp::setup(){
     
     setFrameRate(25);
-    setWindowSize( win_w*0.58, win_h*0.58 );
+    setWindowSize( win_w*0.5, win_h*0.5 );
     setWindowPos( 0, 0 );
     gl::enableVerticalSync();
     
@@ -78,7 +81,6 @@ void cApp::setup(){
     }
     
     {
-        
         mWaves.assign( 16, Wave() );
         
         for( int i=0; i<mWaves.size(); i++ ){
@@ -86,12 +88,10 @@ void cApp::setup(){
             mWaves[i].pos.assign( mFpb, Vec3f(0,0,0) );
             mWaves[i].color.assign( mFpb, ColorAf(0,0,0,1) );
         }
-        fftWaveSamplingRate = mWaves[0].samplingRate;
 
         orig.create( "snd/test/3s1e_192k.wav" );
-        orig.pos.assign( mFpb, Vec3f(0,0,0) );
-        orig.color.assign( mFpb, ColorAf(0,0,0,1) );
-        origWaveSampingRate = orig.samplingRate;
+        orig.pos.assign( fpbOrig, Vec3f(0,0,0) );
+        orig.color.assign( fpbOrig, ColorAf(0,0,0,1) );
     }
     
 #ifdef RENDER
@@ -103,62 +103,50 @@ void cApp::setup(){
 void cApp::update(){
 
     
-    adder.clear();
-    colorAdder.clear();
-    
     frame++;
-    const int audioPos = frame * mFpb;
-
-    Vec3f scale( (float)(win_w-100)/mFpb, -300, 0);
     
-    for( int w=0; w<mWaves.size(); w++ ){
+    {
+        int audioPos = frame * mFpb;
+        Vec3f scale( (float)(win_w-100)/mFpb, -300, 0);
         
-        const float * ch0 = mWaves[w].buf->getChannel( 0 );
-
-        for ( int i=0; i<mFpb; i++) {
-            float l = ch0[audioPos + i];
-            Vec3f newL = Vec3f(i*scale.x, l*scale.y, scale.z);
-            mWaves[w].pos[i] = newL;
+        for( int w=0; w<mWaves.size(); w++ ){
             
-            for( int a=0; a<additional; a++ ){
-                Vec2f add = mPln.dfBm( a, frame*100 )*400.0*randFloat(0.5,1.0);
-                add.y *= 1.3f;
-                add.x += newL.x;
-                add.y += newL.y;
-                adder.push_back( add );
+            const float * ch0 = mWaves[w].buf->getChannel( 0 );
+            
+            for ( int i=0; i<mFpb; i++) {
+                float l = ch0[audioPos + i];
+                Vec3f newL = Vec3f(i*scale.x, l*scale.y, scale.z);
+                mWaves[w].pos[i] = newL;
             }
-        }
-    
-        // color
-        for( int i=0; i<mWaves[w].color.size(); i++ ){
-            Vec2f noise = mPln.dfBm( frame*0.1, w+i*0.1 );
-            noise = (noise+Vec2f(1.0f, 1.0f)) * 0.4f;
-            int x = noise.x*mColorSample1[0].size()-1;
-            int y = noise.y*mColorSample1.size()-1;
-            x = MAX(x, 0);
-            y = MAX(y, 0);
-
-            x = MIN(x, mColorSample1[0].size());
-            y = MIN(y, mColorSample1.size());
-
-            mWaves[w].color[i] =  mColorSample1[x][y];
             
-            for( int a=0; a<additional; a++ ){
-                colorAdder.push_back( mColorSample2[x][y] );
+            // color
+            for( int i=0; i<mWaves[w].color.size(); i++ ){
+                Vec2f noise = mPln.dfBm( frame*0.1, w+i*0.1 );
+                noise = (noise+Vec2f(1.0f, 1.0f)) * 0.4f;
+                int x = noise.x*mColorSample1[0].size()-1;
+                int y = noise.y*mColorSample1.size()-1;
+                x = MAX(x, 0);
+                y = MAX(y, 0);
+                x = MIN(x, mColorSample1[0].size());
+                y = MIN(y, mColorSample1.size());
+                
+                mWaves[w].color[i] =  mColorSample1[x][y];
             }
         }
     }
     
-    
-    // update original wave
-    
-    const int fpbOrig = mFpb * origWaveSampingRate/fftWaveSamplingRate;
-    const float * ch0 = orig.buf->getChannel( 0 );
-
-    for ( int i=0; i<fpbOrig; i++) {
-        float l = ch0[audioPos + i];
-        Vec3f newL = Vec3f(i*scale.x, l*scale.y, scale.z);
-        orig.pos[i] = newL;
+    {
+        // update original wave
+        int audioPos = frame * fpbOrig;
+        const float * ch0 = orig.buf->getChannel( 0 );
+        
+        Vec3f scale( (float)(win_w-100)/fpbOrig, -300, 0);
+        
+        for ( int i=0; i<fpbOrig; i++) {
+            float l = ch0[audioPos + i];
+            Vec3f newL = Vec3f(i*scale.x, l*scale.y, scale.z);
+            orig.pos[i] = newL;
+        }
     }
 }
 

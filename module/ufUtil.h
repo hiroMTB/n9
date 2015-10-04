@@ -140,6 +140,6 @@ namespace uf {
                 col[pos.x][pos.y].set( r, g, b );
             }
         }
-        cout << "Load Success: " << col.size() << " ColorSample" << endl;
+        cout << "ColorSample Load Success: w:" << w << ", h " << h << endl;
     }
 }

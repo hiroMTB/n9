@@ -33,6 +33,7 @@ DerivedData
 *.wav
 *.app/
 
+_render/*
 
 # Compiled Object files
 *.slo

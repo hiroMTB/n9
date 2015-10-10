@@ -37,7 +37,7 @@ void cApp::setup(){
     
     vector<fs::path> pList;
     
-    fs::path dir = loadAsset("snd/rhythm/")->getFilePath();
+    fs::path dir = loadAsset("snd/samples/192k/")->getFilePath();
     
     fs::recursive_directory_iterator it(dir), eof;
     while( it!= eof){
@@ -71,6 +71,8 @@ void cApp::draw(){
     gl::clear( Color(0,0,0) );
     gl::color( 1, 1, 1 );
     gl::drawString("finish audio file rendering", Vec2f( 50, 100 ) );
+    
+    quit();
 }
 
 CINDER_APP_NATIVE( cApp, RendererGl(0) )

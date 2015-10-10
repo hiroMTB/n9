@@ -181,13 +181,13 @@ void cApp::draw(){
         mShader->unbind();
     }
     
-    mExp.begin();
-    glColor3f( 1,1,1 );
-    mBlurCanvas.draw();
-    mExp.end();
-
-    glColor3f( 1,1,1 );
-    mExp.draw();
+//    mExp.begin();
+//    glColor3f( 1,1,1 );
+//    mBlurCanvas.draw();
+//    mExp.end();
+//
+//    glColor3f( 1,1,1 );
+//    mExp.draw();
     
 
     mExp2.begin();

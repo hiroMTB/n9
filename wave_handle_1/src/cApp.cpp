@@ -7,7 +7,7 @@
 #include "cinder/Perlin.h"
 
 #include "Exporter.h"
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "Wave.h"
 
 using namespace ci;
@@ -50,13 +50,13 @@ void cApp::setup(){
     setFrameRate( 25 );
     setWindowPos( 0, 0 );
     setWindowSize( mW*mScale, mH*mScale );
-    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, uf::getRenderPath(), 0, true);
+    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, mt::getRenderPath(), 0, true);
     
     mPln.setOctaves( 3 );
     mPln.setSeed( 551 );
     
-    uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
-    uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
+    mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
+    mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
 
     
     {

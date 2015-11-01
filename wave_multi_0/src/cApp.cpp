@@ -16,7 +16,7 @@
 #include "cinder/gl/Fbo.h"
 #include "cinder/Perlin.h"
 
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "Wave.h"
 #include "Exporter.h"
 
@@ -75,9 +75,9 @@ void cApp::setup(){
     
     {
         // Visual Setup
-        mExp.setup( win_w, win_h, 3000, GL_RGB, uf::getRenderPath(), 0 );
-        uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
-        uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
+        mExp.setup( win_w, win_h, 3000, GL_RGB, mt::getRenderPath(), 0 );
+        mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
+        mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
     }
     
     {

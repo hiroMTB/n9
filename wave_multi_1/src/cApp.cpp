@@ -13,7 +13,7 @@
 #include "cinder/gl/GlslProg.h"
 #include "cinder/gl/Fbo.h"
 
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "Wave.h"
 #include "Resources.h"
 #include "Exporter.h"
@@ -67,11 +67,11 @@ void cApp::setup(){
         // Visual Setup
         mShader = gl::GlslProg::create( loadResource( RES_PASSTHRU_VERT ), loadResource( RES_BLUR_FRAG ) );
         mBlurCanvas.setup( getWindowWidth(), getWindowHeight(), 1, GL_RGBA8, "/fake", 0);
-        mExp.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, uf::getRenderPath( "line" ), 0);
-        mExp2.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, uf::getRenderPath( "point" ), 0);
+        mExp.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, mt::getRenderPath( "line" ), 0);
+        mExp2.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, mt::getRenderPath( "point" ), 0);
         
-        uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
-        uf::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
+        mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
+        mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
     }
     
     {

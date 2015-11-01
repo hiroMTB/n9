@@ -6,7 +6,7 @@
 #include "cinder/Perlin.h"
 
 #include "Exporter.h"
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "StrangeAgent.h"
 #include "cinder/Camera.h"
 #include "cinder/MayaCamUI.h"
@@ -49,12 +49,12 @@ void cApp::setup(){
     
     setWindowPos( 0, 0 );
     setWindowSize( mW*0.5, mH*0.5 );
-    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, uf::getRenderPath(), 0, true);
+    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, mt::getRenderPath(), 0, true);
     
     mPln.setOctaves(4);
     mPln.setSeed(1332);
 
-    randSeed( uf::getSeed() );
+    randSeed( mt::getSeed() );
     
     int count = 0;
     for( int i=0; i<100; i++){

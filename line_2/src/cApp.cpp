@@ -6,7 +6,7 @@
 #include "cinder/Camera.h"
 #include "cinder/Perlin.h"
 
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "RfImporterBin.h"
 #include "DataGroup.h"
 #include "Exporter.h"
@@ -82,7 +82,7 @@ void cApp::setup(){
     setWindowSize( w, h );
     setWindowPos( 0, 0 );
 
-    mExp.setup( w, h, 3000, GL_RGB, uf::getRenderPath(), 0);
+    mExp.setup( w, h, 3000, GL_RGB, mt::getRenderPath(), 0);
     
     //CameraPersp cam;
     // CameraPersp cam( w, h, 60.0f, 1, 10000 );
@@ -269,7 +269,7 @@ void cApp::draw(){
         gl::setMatricesWindowPersp(getWindowWidth(), getWindowHeight(), 60.0f, 1.0f, 100000.0f );
         
         if( !mExp.bRender && !mExp.bSnap ){
-            uf::drawCoordinate(100);
+            mt::drawCoordinate(100);
 //            glPushMatrix();
 //            gl::color( Color::white() );
 //            gl::scale(0.5, 0.5);

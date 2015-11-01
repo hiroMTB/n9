@@ -3,7 +3,7 @@
 #include "cinder/gl/Texture.h"
 
 #include "Exporter.h"
-#include "ufUtil.h"
+#include "mtUtil.h"
 
 //#define RENDER
 
@@ -32,8 +32,7 @@ class cApp : public AppNative {
 void cApp::setup(){
     setWindowPos( 0, 0 );
     setWindowSize( mW*mScale, mH*mScale );
-    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, uf::getRenderPath(), 0, true);
-    
+    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, mt::getRenderPath(), 0, true);
     
 #ifdef RENDER
     mExp.startRender();

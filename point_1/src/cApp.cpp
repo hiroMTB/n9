@@ -5,7 +5,7 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/Camera.h"
 
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "RfImporterBin.h"
 #include "DataGroup.h"
 #include "Exporter.h"
@@ -52,7 +52,7 @@ void cApp::setup(){
     setFrameRate( fps );
     setWindowSize( w*0.7, h*0.7 );
     setWindowPos( 0, 0 );
-    mExp.setup( w, h, 3000, GL_RGB, uf::getRenderPath(), 0);
+    mExp.setup( w, h, 3000, GL_RGB, mt::getRenderPath(), 0);
     
     CameraPersp cam( w, h, 54.4f, 1, 10000 );
     cam.lookAt( Vec3f(0,0, 1300), Vec3f(0,0,0) );
@@ -160,7 +160,7 @@ void cApp::draw(){
         gl::rotate( Vec3f(90,0,0) );
         
         if( !mExp.bRender && !mExp.bSnap )
-            uf::drawCoordinate(100);
+            mt::drawCoordinate(100);
         
         // draw rf
         if( mDg.mLine ){

@@ -21,7 +21,7 @@
 #include "boost/polygon/voronoi.hpp"
 #include "boost/polygon/segment_data.hpp"
 
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "Wave.h"
 #include "Exporter.h"
 
@@ -85,7 +85,7 @@ void cApp::setup(){
         mWave[w].create( "snd/samples/192k/3s1e_192k_" + toString(w+1) + ".wav");
     }
     
-    mExp.setup( win_w, win_h, 1000, GL_RGB, uf::getRenderPath(), 0 );
+    mExp.setup( win_w, win_h, 1000, GL_RGB, mt::getRenderPath(), 0 );
     
 #ifdef RENDER
     mExp.startRender();

@@ -17,7 +17,7 @@
 #include "cinder/BSpline.h"
 #include "cinder/Camera.h"
 #include "cinder/MayaCamUI.h"
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "Wave.h"
 #include "Exporter.h"
 
@@ -81,8 +81,8 @@ void cApp::setup(){
     mPln.setOctaves(4);
     mPln.setSeed(444);
     
-    mExp.setup( win_w, win_h, 1000, GL_RGB, uf::getRenderPath(), 0 );
-    uf::loadColorSample("img/geo/Mx80_2_org.jpg", mColorSample1 );
+    mExp.setup( win_w, win_h, 1000, GL_RGB, mt::getRenderPath(), 0 );
+    mt::loadColorSample("img/geo/Mx80_2_org.jpg", mColorSample1 );
     
     for( int w=0; w<8; w++ ){
         mWave.push_back( Wave() );

@@ -11,7 +11,7 @@ using namespace std;
 
 typedef std::function<float (float)> EaseFunc;
 
-namespace uf {
+namespace mt {
     
     gl::VboMesh::Layout getVboLayout(){
         gl::VboMesh::Layout layout;
@@ -61,13 +61,17 @@ namespace uf {
     
     fs::path getRenderPath( string subdir_name="" ){
         if(subdir_name!="")
-            return expandPath("../../../_render") / getTimeStamp() / subdir_name ;
+            return expandPath("../../../../_rtmp") / getTimeStamp() / subdir_name ;
         else
-            return expandPath("../../../_render") / getTimeStamp();
+            return expandPath("../../../../_rtmp") / getTimeStamp();
     }
     
     fs::path getProjectPath(){
         return expandPath("../../../");
+    }
+    
+    string getProjectName(){
+        
     }
     
     float distanceToLine( const Ray &ray, const Vec3f &point){

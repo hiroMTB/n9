@@ -11,7 +11,7 @@
 #include "FftWaveWriter.h"
 #include "ConsoleColor.h"
 #include "MonitorNodeNL.h"
-#include "ufUtil.h"
+#include "mtUtil.h"
 #include "SoundWriter.h"
 
 using namespace ci;
@@ -37,7 +37,7 @@ void cApp::setup(){
     
     vector<fs::path> pList;
     
-    fs::path dir = uf::getAssetPath()/"snd/samples/unfold/";
+    fs::path dir = mt::getAssetPath()/"snd/samples/unfold/";
     
     fs::recursive_directory_iterator it(dir), eof;
     while( it!= eof){

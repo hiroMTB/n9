@@ -31,7 +31,7 @@
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6A5344941AF7AC0500EB5383 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
-		6A5344971AF7AC0500EB5383 /* ufUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ufUtil.h; sourceTree = "<group>"; };
+		6A8A99DB1BE63A48006BD10C /* mtUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtUtil.h; sourceTree = "<group>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* cv_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cv_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				6A5344941AF7AC0500EB5383 /* Exporter.h */,
-				6A5344971AF7AC0500EB5383 /* ufUtil.h */,
+				6A8A99DB1BE63A48006BD10C /* mtUtil.h */,
 			);
 			name = module;
 			path = ../../module;
@@ -226,7 +226,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
-				PRODUCT_NAME = cv_test;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				WRAPPER_EXTENSION = app;
@@ -253,7 +253,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
-				PRODUCT_NAME = cv_test;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";

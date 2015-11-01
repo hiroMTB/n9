@@ -19,7 +19,6 @@ class Wave{
     
     
 public:
- 
     
     Wave(){};
     
@@ -30,23 +29,23 @@ public:
     }
     
     void update( int start, int num ){
-        
+
+        chL.clear();
         const float * ch0 = buf->getChannel( 0 );
         
         for ( int i=0; i<num; i++) {
             long index = start + i;
             if( index < buf->getNumFrames() ){
-                float l = ch0[index];
-                pos[i] = Vec3f(i, l, 0);
+                chL.push_back( ch0[index] );
             }else{
-                pos[i] = Vec3f(0,0,0);
+                chL.push_back( 0 );
             }
         }
     }
-
+    
     audio::BufferRef buf;
     int samplingRate;
-    vector<Vec3f> pos;
+    vector<float> chL;
     vector<ColorAf> color;
     
 };

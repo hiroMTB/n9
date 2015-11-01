@@ -37,7 +37,7 @@ void cApp::setup(){
     
     vector<fs::path> pList;
     
-    fs::path dir = loadAsset("snd/samples/192k/")->getFilePath();
+    fs::path dir = uf::getAssetPath()/"snd/samples/unfold/";
     
     fs::recursive_directory_iterator it(dir), eof;
     while( it!= eof){

@@ -1,4 +1,4 @@
-#define RENDER
+//#define RENDER
 
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/gl.h"
@@ -82,11 +82,11 @@ void cApp::setup(){
     mPln.setSeed(444);
     
     mExp.setup( win_w, win_h, 1000, GL_RGB, uf::getRenderPath(), 0 );
-    uf::loadColorSample("img/Mx80_2_org_D.jpg", mColorSample1 );
+    uf::loadColorSample("img/geo/Mx80_2_org.jpg", mColorSample1 );
     
     for( int w=0; w<8; w++ ){
         mWave.push_back( Wave() );
-        mWave[w].create( "snd/test/3s1e_192k_" + toString(w+1) + ".wav");
+        mWave[w].create( "snd/samples/192k/3s1e_192k_" + toString(w+1) + ".wav");
         mWave[w].pos.assign( mFpb, Vec3f(0,0,0) );
         mWave[w].color.assign( mFpb, ColorAf(0.5,0.5,0.5,1) );
         

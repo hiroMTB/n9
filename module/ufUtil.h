@@ -55,6 +55,10 @@ namespace uf {
         cout << "Render Image : " << frame << endl;
     }
     
+    fs::path getAssetPath(){
+        return expandPath("../../../../../assets");
+    }
+    
     fs::path getRenderPath( string subdir_name="" ){
         if(subdir_name!="")
             return expandPath("../../../_render") / getTimeStamp() / subdir_name ;

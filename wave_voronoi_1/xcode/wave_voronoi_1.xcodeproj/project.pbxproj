@@ -14,6 +14,24 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		6A3500001BCC33F000105019 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		6A3500011BCC33F000105019 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		6A3500021BCC33F000105019 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		6A3500031BCC33F000105019 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		6A3500041BCC33F000105019 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		6A3500051BCC33F000105019 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		6A3500061BCC33F000105019 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		6A3500071BCC33F000105019 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		6A35FFEC1BCC2E8500105019 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
+		6A35FFEE1BCC2E8500105019 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		6A35FFEF1BCC2E8500105019 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		6A35FFF01BCC2E8500105019 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		6A35FFF11BCC2E8500105019 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		6A35FFF21BCC2E8500105019 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		6A35FFF31BCC2E8500105019 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		6A35FFF41BCC2E8500105019 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		6A35FFF51BCC2E8500105019 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		6A35FFFE1BCC33F000105019 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 		6A3912691BC9A30300F9FB00 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 		6A39126B1BC9A30300F9FB00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		6A39126C1BC9A30300F9FB00 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
@@ -39,6 +57,12 @@
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
+		6A35000B1BCC33F000105019 /* multi_voronoi_1 copy3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "multi_voronoi_1 copy3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A35000C1BCC33F000105019 /* multi_voronoi_1 copy3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "multi_voronoi_1 copy3-Info.plist"; path = "/Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/wave_voronoi_1/xcode/multi_voronoi_1 copy3-Info.plist"; sourceTree = "<absolute>"; };
+		6A35FFD61BCC2E5B00105019 /* multi_voronoi_1_copy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "multi_voronoi_1_copy copy-Info.plist"; path = "/Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/wave_voronoi_1/xcode/multi_voronoi_1_copy copy-Info.plist"; sourceTree = "<absolute>"; };
+		6A35FFE81BCC2E6300105019 /* multi_voronoi_1 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "multi_voronoi_1 copy-Info.plist"; path = "/Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/wave_voronoi_1/xcode/multi_voronoi_1 copy-Info.plist"; sourceTree = "<absolute>"; };
+		6A35FFF91BCC2E8500105019 /* wave_voronoi_1 copy2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wave_voronoi_1 copy2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A35FFFA1BCC2E8600105019 /* multi_voronoi_1 copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "multi_voronoi_1 copy2-Info.plist"; path = "/Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/wave_voronoi_1/xcode/multi_voronoi_1 copy2-Info.plist"; sourceTree = "<absolute>"; };
 		6A3912761BC9A30300F9FB00 /* multi_wave_0 copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "multi_wave_0 copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3912771BC9A30300F9FB00 /* multi_wave_0 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "multi_wave_0 copy-Info.plist"; path = "/Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/wave_voronoi_1/xcode/multi_wave_0 copy-Info.plist"; sourceTree = "<absolute>"; };
 		6A5344941AF7AC0500EB5383 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
@@ -51,6 +75,36 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6A35FFED1BCC2E8500105019 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A35FFEE1BCC2E8500105019 /* Cocoa.framework in Frameworks */,
+				6A35FFEF1BCC2E8500105019 /* OpenGL.framework in Frameworks */,
+				6A35FFF01BCC2E8500105019 /* CoreVideo.framework in Frameworks */,
+				6A35FFF11BCC2E8500105019 /* QTKit.framework in Frameworks */,
+				6A35FFF21BCC2E8500105019 /* Accelerate.framework in Frameworks */,
+				6A35FFF31BCC2E8500105019 /* AudioToolbox.framework in Frameworks */,
+				6A35FFF41BCC2E8500105019 /* AudioUnit.framework in Frameworks */,
+				6A35FFF51BCC2E8500105019 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A35FFFF1BCC33F000105019 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A3500001BCC33F000105019 /* Cocoa.framework in Frameworks */,
+				6A3500011BCC33F000105019 /* OpenGL.framework in Frameworks */,
+				6A3500021BCC33F000105019 /* CoreVideo.framework in Frameworks */,
+				6A3500031BCC33F000105019 /* QTKit.framework in Frameworks */,
+				6A3500041BCC33F000105019 /* Accelerate.framework in Frameworks */,
+				6A3500051BCC33F000105019 /* AudioToolbox.framework in Frameworks */,
+				6A3500061BCC33F000105019 /* AudioUnit.framework in Frameworks */,
+				6A3500071BCC33F000105019 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A39126A1BC9A30300F9FB00 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,6 +174,8 @@
 			children = (
 				8D1107320486CEB800E47090 /* wave_voronoi_1.app */,
 				6A3912761BC9A30300F9FB00 /* multi_wave_0 copy.app */,
+				6A35FFF91BCC2E8500105019 /* wave_voronoi_1 copy2.app */,
+				6A35000B1BCC33F000105019 /* multi_voronoi_1 copy3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +191,10 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				6A3912771BC9A30300F9FB00 /* multi_wave_0 copy-Info.plist */,
+				6A35FFD61BCC2E5B00105019 /* multi_voronoi_1_copy copy-Info.plist */,
+				6A35FFE81BCC2E6300105019 /* multi_voronoi_1 copy-Info.plist */,
+				6A35FFFA1BCC2E8600105019 /* multi_voronoi_1 copy2-Info.plist */,
+				6A35000C1BCC33F000105019 /* multi_voronoi_1 copy3-Info.plist */,
 			);
 			name = contour_0;
 			sourceTree = "<group>";
@@ -171,9 +231,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6A3912661BC9A30300F9FB00 /* multi_wave_0 copy */ = {
+		6A35FFE91BCC2E8500105019 /* wave_voronoi_1 copy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A3912731BC9A30300F9FB00 /* Build configuration list for PBXNativeTarget "multi_wave_0 copy" */;
+			buildConfigurationList = 6A35FFF61BCC2E8500105019 /* Build configuration list for PBXNativeTarget "wave_voronoi_1 copy" */;
+			buildPhases = (
+				6A35FFEA1BCC2E8500105019 /* Resources */,
+				6A35FFEB1BCC2E8500105019 /* Sources */,
+				6A35FFED1BCC2E8500105019 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "wave_voronoi_1 copy";
+			productInstallPath = "$(HOME)/Applications";
+			productName = contour_0;
+			productReference = 6A35FFF91BCC2E8500105019 /* wave_voronoi_1 copy2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A35FFFB1BCC33F000105019 /* multi_voronoi_1 copy3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A3500081BCC33F000105019 /* Build configuration list for PBXNativeTarget "multi_voronoi_1 copy3" */;
+			buildPhases = (
+				6A35FFFC1BCC33F000105019 /* Resources */,
+				6A35FFFD1BCC33F000105019 /* Sources */,
+				6A35FFFF1BCC33F000105019 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "multi_voronoi_1 copy3";
+			productInstallPath = "$(HOME)/Applications";
+			productName = contour_0;
+			productReference = 6A35000B1BCC33F000105019 /* multi_voronoi_1 copy3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6A3912661BC9A30300F9FB00 /* multi_voronoi_1_copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A3912731BC9A30300F9FB00 /* Build configuration list for PBXNativeTarget "multi_voronoi_1_copy" */;
 			buildPhases = (
 				6A3912671BC9A30300F9FB00 /* Resources */,
 				6A3912681BC9A30300F9FB00 /* Sources */,
@@ -183,15 +279,15 @@
 			);
 			dependencies = (
 			);
-			name = "multi_wave_0 copy";
+			name = multi_voronoi_1_copy;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
 			productReference = 6A3912761BC9A30300F9FB00 /* multi_wave_0 copy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8D1107260486CEB800E47090 /* multi_wave_0 */ = {
+		8D1107260486CEB800E47090 /* multi_voronoi_1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "multi_wave_0" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "multi_voronoi_1" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -201,7 +297,7 @@
 			);
 			dependencies = (
 			);
-			name = multi_wave_0;
+			name = multi_voronoi_1;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
 			productReference = 8D1107320486CEB800E47090 /* wave_voronoi_1.app */;
@@ -228,13 +324,29 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* multi_wave_0 */,
-				6A3912661BC9A30300F9FB00 /* multi_wave_0 copy */,
+				8D1107260486CEB800E47090 /* multi_voronoi_1 */,
+				6A3912661BC9A30300F9FB00 /* multi_voronoi_1_copy */,
+				6A35FFE91BCC2E8500105019 /* wave_voronoi_1 copy */,
+				6A35FFFB1BCC33F000105019 /* multi_voronoi_1 copy3 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6A35FFEA1BCC2E8500105019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A35FFFC1BCC33F000105019 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A3912671BC9A30300F9FB00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +364,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6A35FFEB1BCC2E8500105019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A35FFEC1BCC2E8500105019 /* cApp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A35FFFD1BCC33F000105019 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A35FFFE1BCC33F000105019 /* cApp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A3912681BC9A30300F9FB00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,6 +399,118 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		6A3500091BCC33F000105019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "multi_voronoi_1 copy3-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "multi_voronoi_1 copy3";
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6A35000A1BCC33F000105019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "multi_voronoi_1 copy3-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "multi_voronoi_1 copy3";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6A35FFF71BCC2E8500105019 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "multi_voronoi_1 copy2-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "wave_voronoi_1 copy2";
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6A35FFF81BCC2E8500105019 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "multi_voronoi_1 copy2-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "wave_voronoi_1 copy2";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		6A3912741BC9A30300F9FB00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -398,6 +638,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -418,6 +659,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = macosx;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -427,7 +669,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6A3912731BC9A30300F9FB00 /* Build configuration list for PBXNativeTarget "multi_wave_0 copy" */ = {
+		6A3500081BCC33F000105019 /* Build configuration list for PBXNativeTarget "multi_voronoi_1 copy3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A3500091BCC33F000105019 /* Debug */,
+				6A35000A1BCC33F000105019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A35FFF61BCC2E8500105019 /* Build configuration list for PBXNativeTarget "wave_voronoi_1 copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A35FFF71BCC2E8500105019 /* Debug */,
+				6A35FFF81BCC2E8500105019 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A3912731BC9A30300F9FB00 /* Build configuration list for PBXNativeTarget "multi_voronoi_1_copy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A3912741BC9A30300F9FB00 /* Debug */,
@@ -436,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "multi_wave_0" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "multi_voronoi_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,

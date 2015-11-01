@@ -64,7 +64,7 @@ void cApp::setup(){
     mPln.setSeed(444);
     
     mExp.setup( win_w, win_h, 1000, GL_RGB, uf::getRenderPath(), 0 );
-    uf::loadColorSample("img/Mx80_2_org_D.jpg", mColorSample1 );
+    uf::loadColorSample("img/geo/Mx80_2_org.jpg", mColorSample1 );
     
     mWaves.assign( 1, Wave() );
     

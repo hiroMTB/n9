@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		6A8A991A1BE62E7A006BD10C /* _all */ = {
+		6A8A991A1BE62E7A006BD10C /* _node_all */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 6A8A991B1BE62E7A006BD10C /* Build configuration list for PBXAggregateTarget "_all" */;
+			buildConfigurationList = 6A8A991B1BE62E7A006BD10C /* Build configuration list for PBXAggregateTarget "_node_all" */;
 			buildPhases = (
 			);
 			dependencies = (
@@ -33,7 +33,7 @@
 				6A8A998B1BE63328006BD10C /* PBXTargetDependency */,
 				6A8A998D1BE63328006BD10C /* PBXTargetDependency */,
 			);
-			name = _all;
+			name = _node_all;
 			productName = _all;
 		};
 /* End PBXAggregateTarget section */
@@ -520,7 +520,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6A8A98121BE62D62006BD10C /* Build configuration list for PBXProject "_all" */;
+			buildConfigurationList = 6A8A98121BE62D62006BD10C /* Build configuration list for PBXProject "_node_all" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -609,7 +609,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				6A8A991A1BE62E7A006BD10C /* _all */,
+				6A8A991A1BE62E7A006BD10C /* _node_all */,
 			);
 		};
 /* End PBXProject section */
@@ -864,21 +864,21 @@
 		6A8A991C1BE62E7A006BD10C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = _node_all;
 			};
 			name = Debug;
 		};
 		6A8A991D1BE62E7A006BD10C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = _node_all;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6A8A98121BE62D62006BD10C /* Build configuration list for PBXProject "_all" */ = {
+		6A8A98121BE62D62006BD10C /* Build configuration list for PBXProject "_node_all" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A8A98131BE62D62006BD10C /* Debug */,
@@ -887,7 +887,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A8A991B1BE62E7A006BD10C /* Build configuration list for PBXAggregateTarget "_all" */ = {
+		6A8A991B1BE62E7A006BD10C /* Build configuration list for PBXAggregateTarget "_node_all" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6A8A991C1BE62E7A006BD10C /* Debug */,

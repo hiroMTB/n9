@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:all.xcodeproj">
+      location = "self:/Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/_all/_node_all.xcodeproj">
    </FileRef>
 </Workspace>

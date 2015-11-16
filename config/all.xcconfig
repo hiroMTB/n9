@@ -38,3 +38,7 @@ LD_FLAG_TBB = -ltbb
 HEADER_SNDFILE = $(CINDER_PATH)/blocks/libsndfile
 LIB_PATH_SNDFILE = $(CINDER_PATH)/blocks/libsndfile
 LD_FLAG_SNDFILE = -lsndfile
+
+
+// libmtb
+HEADER_MTB = $(CINDER_PATH)/blocks/libmtb

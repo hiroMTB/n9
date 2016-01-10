@@ -71,7 +71,7 @@ void cApp::setup(){
 
 void cApp::task( float i, float frame ){
 
-    Vec3f & p = vbo.getPos()[i];
+    Vec3f p = vbo.getPos()[i];
     Vec3f n = mPln.dfBm( p.x*0.005f, p.y*0.005f, frame*0.1f );
     n.x = n.x * n.z;
     n.y = n.y * n.z;
@@ -93,7 +93,9 @@ void cApp::task( float i, float frame ){
     
     p.x += spd[i].x;
     p.y += spd[i].y;
-//    p.z += spd[i].z;
+    // p.z += spd[i].z;
+    
+    vbo.writePos(i, p);
     
     if( life > 400 ){
         

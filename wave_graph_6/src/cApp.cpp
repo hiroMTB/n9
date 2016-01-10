@@ -1,4 +1,4 @@
-#define RENDER
+//#define RENDER
 
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/gl.h"

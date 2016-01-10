@@ -144,7 +144,7 @@ void cApp::draw(){
     
     gl::clear();
     gl::enableAlphaBlending();
-    mExp.begin(); {
+    mExp.beginPersp(); {
         gl::clear();
         
         {

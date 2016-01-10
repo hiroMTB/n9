@@ -13,6 +13,37 @@
 			buildPhases = (
 			);
 			dependencies = (
+				4D307D691C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D6B1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D6D1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D6F1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D711C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D731C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D751C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D771C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D791C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D7B1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D7D1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D7F1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D811C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D831C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D851C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D871C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D891C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D8B1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D8D1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D8F1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D911C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D931C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D951C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D971C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D991C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D9B1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D9D1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307D9F1C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307DA11C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307DA31C42A89F00F9DD26 /* PBXTargetDependency */,
+				4D307DA51C42A89F00F9DD26 /* PBXTargetDependency */,
 			);
 			name = _node_all;
 			productName = _all;
@@ -20,13 +51,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXContainerItemProxy section */
-		4D17ECFC1C425E700027E280 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17EC981C425E6E0027E280 /* AlembicTest.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D1107320486CEB800E47090;
-			remoteInfo = template;
-		};
 		4D17ED011C425E700027E280 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D17EC9B1C425E6E0027E280 /* city_1.xcodeproj */;
@@ -342,10 +366,226 @@
 			remoteGlobalIDString = 6AECD1BF1C15CD3400FE5DB4;
 			remoteInfo = "wave_voronoi_1 copy";
 		};
+		4D307D681C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17EC9B1C425E6E0027E280 /* city_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = city_1;
+		};
+		4D307D6A1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17EC9E1C425E6E0027E280 /* contour_0.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = contour_0;
+		};
+		4D307D6C1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECA11C425E6E0027E280 /* contour_rot_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = contour_1;
+		};
+		4D307D6E1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECA41C425E6E0027E280 /* cv_test.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = cv_test;
+		};
+		4D307D701C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECA71C425E6E0027E280 /* line_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = line_1;
+		};
+		4D307D721C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECAA1C425E6E0027E280 /* line_2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = line_2;
+		};
+		4D307D741C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECAD1C425E6E0027E280 /* moving_center_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = moving_center_1;
+		};
+		4D307D761C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECB01C425E6E0027E280 /* point_0.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = point_0;
+		};
+		4D307D781C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECB31C425E6E0027E280 /* point_0.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = point_0;
+		};
+		4D307D7A1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECB61C425E6E0027E280 /* point_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = point_1;
+		};
+		4D307D7C1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECB91C425E6E0027E280 /* point_2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = point_2;
+		};
+		4D307D7E1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECBC1C425E6E0027E280 /* red_particle_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = red_particle_1;
+		};
+		4D307D801C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECBF1C425E6E0027E280 /* spline_mesh_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = spline_mesh_1;
+		};
+		4D307D821C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECC21C425E6E0027E280 /* spline_mesh_2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = spline_mesh_2;
+		};
+		4D307D841C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECC51C425E6E0027E280 /* strange_perlin_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = strange_perlin_1;
+		};
+		4D307D861C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECC81C425E6E0027E280 /* template.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = template;
+		};
+		4D307D881C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECCB1C425E6E0027E280 /* testTbbPerlin.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = testTbbPerlin;
+		};
+		4D307D8A1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECCE1C425E6E0027E280 /* USB_DMX_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = USB_DMX_1;
+		};
+		4D307D8C1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECD11C425E6F0027E280 /* wave_fft_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_fft_1;
+		};
+		4D307D8E1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECD41C425E6F0027E280 /* wave_fft_2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_fft_2;
+		};
+		4D307D901C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECD71C425E6F0027E280 /* wave_graph_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_graph_1;
+		};
+		4D307D921C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECDA1C425E6F0027E280 /* wave_graph_2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_graph_2;
+		};
+		4D307D941C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECDD1C425E6F0027E280 /* wave_graph_3.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_graph_3;
+		};
+		4D307D961C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECE01C425E6F0027E280 /* wave_graph_4.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_graph_4;
+		};
+		4D307D981C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECE31C425E6F0027E280 /* wave_graph_4.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_graph_4;
+		};
+		4D307D9A1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECE91C425E6F0027E280 /* wave_handle_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_handle_1;
+		};
+		4D307D9C1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECEC1C425E6F0027E280 /* wave_multi_0.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_multi_0;
+		};
+		4D307D9E1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECEF1C425E6F0027E280 /* wave_multi_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_multi_1;
+		};
+		4D307DA01C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECF21C425E6F0027E280 /* wave_spectrum_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_spectrum_1;
+		};
+		4D307DA21C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECF51C425E6F0027E280 /* wave_split_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_split_1;
+		};
+		4D307DA41C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D17ECF81C425E6F0027E280 /* wave_voronoi_1.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = wave_voronoi_1;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D17EC981C425E6E0027E280 /* AlembicTest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AlembicTest.xcodeproj; path = ../AlembicTest/xcode/AlembicTest.xcodeproj; sourceTree = "<group>"; };
 		4D17EC9B1C425E6E0027E280 /* city_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = city_1.xcodeproj; path = ../city_1/xcode/city_1.xcodeproj; sourceTree = "<group>"; };
 		4D17EC9E1C425E6E0027E280 /* contour_0.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = contour_0.xcodeproj; path = ../contour_0/xcode/contour_0.xcodeproj; sourceTree = "<group>"; };
 		4D17ECA11C425E6E0027E280 /* contour_rot_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = contour_rot_1.xcodeproj; path = ../contour_rot_1/xcode/contour_rot_1.xcodeproj; sourceTree = "<group>"; };
@@ -381,14 +621,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		4D17EC991C425E6E0027E280 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4D17ECFD1C425E700027E280 /* AlembicTest.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4D17EC9C1C425E6E0027E280 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,7 +893,6 @@
 		6A8A980E1BE62D62006BD10C = {
 			isa = PBXGroup;
 			children = (
-				4D17EC981C425E6E0027E280 /* AlembicTest.xcodeproj */,
 				4D17EC9B1C425E6E0027E280 /* city_1.xcodeproj */,
 				4D17EC9E1C425E6E0027E280 /* contour_0.xcodeproj */,
 				4D17ECA11C425E6E0027E280 /* contour_rot_1.xcodeproj */,
@@ -720,10 +951,6 @@
 			mainGroup = 6A8A980E1BE62D62006BD10C;
 			projectDirPath = "";
 			projectReferences = (
-				{
-					ProductGroup = 4D17EC991C425E6E0027E280 /* Products */;
-					ProjectRef = 4D17EC981C425E6E0027E280 /* AlembicTest.xcodeproj */;
-				},
 				{
 					ProductGroup = 4D17EC9C1C425E6E0027E280 /* Products */;
 					ProjectRef = 4D17EC9B1C425E6E0027E280 /* city_1.xcodeproj */;
@@ -861,13 +1088,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4D17ECFD1C425E700027E280 /* AlembicTest.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = AlembicTest.app;
-			remoteRef = 4D17ECFC1C425E700027E280 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		4D17ED021C425E700027E280 /* city_1.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -899,7 +1119,6 @@
 		4D17ED0E1C425E700027E280 /* contour_1.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			name = contour_1.app;
 			path = contour_rot_1.app;
 			remoteRef = 4D17ED0D1C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1185,6 +1404,164 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXTargetDependency section */
+		4D307D691C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = city_1;
+			targetProxy = 4D307D681C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D6B1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = contour_0;
+			targetProxy = 4D307D6A1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D6D1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = contour_1;
+			targetProxy = 4D307D6C1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D6F1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = cv_test;
+			targetProxy = 4D307D6E1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D711C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = line_1;
+			targetProxy = 4D307D701C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D731C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = line_2;
+			targetProxy = 4D307D721C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D751C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = moving_center_1;
+			targetProxy = 4D307D741C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D771C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = point_0;
+			targetProxy = 4D307D761C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D791C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = point_0;
+			targetProxy = 4D307D781C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D7B1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = point_1;
+			targetProxy = 4D307D7A1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D7D1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = point_2;
+			targetProxy = 4D307D7C1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D7F1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = red_particle_1;
+			targetProxy = 4D307D7E1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D811C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = spline_mesh_1;
+			targetProxy = 4D307D801C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D831C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = spline_mesh_2;
+			targetProxy = 4D307D821C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D851C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = strange_perlin_1;
+			targetProxy = 4D307D841C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D871C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = template;
+			targetProxy = 4D307D861C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D891C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = testTbbPerlin;
+			targetProxy = 4D307D881C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D8B1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = USB_DMX_1;
+			targetProxy = 4D307D8A1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D8D1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_fft_1;
+			targetProxy = 4D307D8C1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D8F1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_fft_2;
+			targetProxy = 4D307D8E1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D911C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_graph_1;
+			targetProxy = 4D307D901C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D931C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_graph_2;
+			targetProxy = 4D307D921C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D951C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_graph_3;
+			targetProxy = 4D307D941C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D971C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_graph_4;
+			targetProxy = 4D307D961C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D991C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_graph_4;
+			targetProxy = 4D307D981C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D9B1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_handle_1;
+			targetProxy = 4D307D9A1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D9D1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_multi_0;
+			targetProxy = 4D307D9C1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307D9F1C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_multi_1;
+			targetProxy = 4D307D9E1C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307DA11C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_spectrum_1;
+			targetProxy = 4D307DA01C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307DA31C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_split_1;
+			targetProxy = 4D307DA21C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+		4D307DA51C42A89F00F9DD26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wave_voronoi_1;
+			targetProxy = 4D307DA41C42A89F00F9DD26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6A8A98131BE62D62006BD10C /* Debug */ = {

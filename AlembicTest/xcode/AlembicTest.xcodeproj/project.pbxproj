@@ -922,9 +922,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* template */ = {
+		8D1107260486CEB800E47090 /* AlembicTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "template" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "AlembicTest" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -934,7 +934,7 @@
 			);
 			dependencies = (
 			);
-			name = template;
+			name = AlembicTest;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
 			productReference = 8D1107320486CEB800E47090 /* AlembicTest.app */;
@@ -961,7 +961,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* template */,
+				8D1107260486CEB800E47090 /* AlembicTest */,
 			);
 		};
 /* End PBXProject section */
@@ -1094,7 +1094,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "template" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "AlembicTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,

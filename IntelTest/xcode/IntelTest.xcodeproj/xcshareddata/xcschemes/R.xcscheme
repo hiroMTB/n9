@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D17EC591C4195970027E280"
-               BuildableName = "wave_spectrum_1 copy 2.app"
-               BlueprintName = "wave_spectrum_1 copy 2"
-               ReferencedContainer = "container:wave_graph_6.xcodeproj">
+               BlueprintIdentifier = "8D1107260486CEB800E47090"
+               BuildableName = "template.app"
+               BlueprintName = "template"
+               ReferencedContainer = "container:template.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D17EC591C4195970027E280"
-            BuildableName = "wave_spectrum_1 copy 2.app"
-            BlueprintName = "wave_spectrum_1 copy 2"
-            ReferencedContainer = "container:wave_graph_6.xcodeproj">
+            BlueprintIdentifier = "8D1107260486CEB800E47090"
+            BuildableName = "IntelTest.app"
+            BlueprintName = "IntelTest"
+            ReferencedContainer = "container:IntelTest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D17EC591C4195970027E280"
-            BuildableName = "wave_spectrum_1 copy 2.app"
-            BlueprintName = "wave_spectrum_1 copy 2"
-            ReferencedContainer = "container:wave_graph_6.xcodeproj">
+            BlueprintIdentifier = "8D1107260486CEB800E47090"
+            BuildableName = "IntelTest.app"
+            BlueprintName = "IntelTest"
+            ReferencedContainer = "container:IntelTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D17EC591C4195970027E280"
-            BuildableName = "wave_spectrum_1 copy 2.app"
-            BlueprintName = "wave_spectrum_1 copy 2"
-            ReferencedContainer = "container:wave_graph_6.xcodeproj">
+            BlueprintIdentifier = "8D1107260486CEB800E47090"
+            BuildableName = "template.app"
+            BlueprintName = "template"
+            ReferencedContainer = "container:template.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

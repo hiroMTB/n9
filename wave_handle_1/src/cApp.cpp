@@ -164,7 +164,7 @@ void cApp::draw(){
     float transx = getWindowWidth()/2 - mFpb/2/2/2;
     float transy = getWindowHeight()/2;
     
-    mExp.begin();
+    mExp.beginPersp();
     {
         gl::clear( Colorf(0,0,0) );
         

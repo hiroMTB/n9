@@ -157,7 +157,7 @@ void cApp::draw(){
     
     gl::enableAlphaBlending();
     
-    mExp.begin();
+    mExp.beginPersp();
     gl::clear( Color(0,0,0) );
     {
         int yadd = win_h/(mWaves.size()+2);

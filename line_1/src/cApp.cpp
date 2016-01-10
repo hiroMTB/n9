@@ -261,7 +261,7 @@ void cApp::update(){
 void cApp::draw(){
     
     //mExp.begin( camUi.getCamera() );{
-    mExp.begin();{
+    mExp.beginPersp();{
     
         gl::clear();
         gl::enableAlphaBlending();

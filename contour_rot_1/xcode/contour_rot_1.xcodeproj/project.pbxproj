@@ -75,7 +75,7 @@
 		6ACBF9B61C02ED2300B7BD0E /* contour_1 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "contour_1 copy-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n9/_node/contour_rot_1/xcode/contour_1 copy-Info.plist"; sourceTree = "<absolute>"; };
 		6ACBF9CA1C02F47100B7BD0E /* contour_1 copy 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "contour_1 copy 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACBF9CB1C02F47100B7BD0E /* contour_1 copy 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "contour_1 copy 2-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n9/_node/contour_rot_1/xcode/contour_1 copy 2-Info.plist"; sourceTree = "<absolute>"; };
-		8D1107320486CEB800E47090 /* contour_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = contour_1.app; path = contour_rot_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* contour_rot_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = contour_rot_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95CFCBE1AFA244A19A93A224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,7 +164,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* contour_1.app */,
+				8D1107320486CEB800E47090 /* contour_rot_1.app */,
 				6ACBF9B51C02ED2300B7BD0E /* contour_1 copy.app */,
 				6ACBF9CA1C02F47100B7BD0E /* contour_1 copy 2.app */,
 			);
@@ -285,7 +285,7 @@
 			name = contour_1;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 8D1107320486CEB800E47090 /* contour_1.app */;
+			productReference = 8D1107320486CEB800E47090 /* contour_rot_1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

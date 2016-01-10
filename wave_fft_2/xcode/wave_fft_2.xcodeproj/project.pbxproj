@@ -12,12 +12,12 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		4D2E05661C42AC70009C0B92 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E054F1C42AC70009C0B92 /* .gitignore */; };
+		4D2E05671C42AC70009C0B92 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E05531C42AC70009C0B92 /* ContourMap.cpp */; };
+		4D2E05681C42AC70009C0B92 /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E05591C42AC70009C0B92 /* MonitorNodeNL.cpp */; };
+		4D2E05691C42AC70009C0B92 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E055D1C42AC70009C0B92 /* MyCamera.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		6A2754951BE92721003B7804 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6A2754841BE92721003B7804 /* .gitignore */; };
-		6A2754961BE92721003B7804 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754861BE92721003B7804 /* ContourMap.cpp */; };
-		6A2754971BE92721003B7804 /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A27548B1BE92721003B7804 /* MonitorNodeNL.cpp */; };
-		6A2754981BE92721003B7804 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A27548E1BE92721003B7804 /* MyCamera.cpp */; };
 		6A30AF681BB4B55A00A7D772 /* AudioDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A30AF661BB4B55A00A7D772 /* AudioDrawUtils.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
@@ -33,24 +33,31 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
+		4D2E054F1C42AC70009C0B92 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4D2E05501C42AC70009C0B92 /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
+		4D2E05511C42AC70009C0B92 /* Axis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Axis.h; sourceTree = "<group>"; };
+		4D2E05521C42AC70009C0B92 /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleColor.h; sourceTree = "<group>"; };
+		4D2E05531C42AC70009C0B92 /* ContourMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourMap.cpp; sourceTree = "<group>"; };
+		4D2E05541C42AC70009C0B92 /* ContourMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourMap.h; sourceTree = "<group>"; };
+		4D2E05551C42AC70009C0B92 /* CsoundOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsoundOp.h; sourceTree = "<group>"; };
+		4D2E05561C42AC70009C0B92 /* DataGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataGroup.h; sourceTree = "<group>"; };
+		4D2E05571C42AC70009C0B92 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
+		4D2E05581C42AC70009C0B92 /* FftWaveWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FftWaveWriter.h; sourceTree = "<group>"; };
+		4D2E05591C42AC70009C0B92 /* MonitorNodeNL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonitorNodeNL.cpp; sourceTree = "<group>"; };
+		4D2E055A1C42AC70009C0B92 /* MonitorNodeNL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorNodeNL.h; sourceTree = "<group>"; };
+		4D2E055B1C42AC70009C0B92 /* mtSvg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtSvg.h; sourceTree = "<group>"; };
+		4D2E055C1C42AC70009C0B92 /* mtUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtUtil.h; sourceTree = "<group>"; };
+		4D2E055D1C42AC70009C0B92 /* MyCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
+		4D2E055E1C42AC70009C0B92 /* MyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
+		4D2E055F1C42AC70009C0B92 /* RfExporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfExporterBin.h; sourceTree = "<group>"; };
+		4D2E05601C42AC70009C0B92 /* RfImporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterBin.h; sourceTree = "<group>"; };
+		4D2E05611C42AC70009C0B92 /* RfImporterRpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterRpc.h; sourceTree = "<group>"; };
+		4D2E05621C42AC70009C0B92 /* SimFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimFrame.h; sourceTree = "<group>"; };
+		4D2E05631C42AC70009C0B92 /* SoundWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundWriter.h; sourceTree = "<group>"; };
+		4D2E05641C42AC70009C0B92 /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TbbNpFinder.h; sourceTree = "<group>"; };
+		4D2E05651C42AC70009C0B92 /* VboSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VboSet.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		6A2754841BE92721003B7804 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6A2754851BE92721003B7804 /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleColor.h; sourceTree = "<group>"; };
-		6A2754861BE92721003B7804 /* ContourMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourMap.cpp; sourceTree = "<group>"; };
-		6A2754871BE92721003B7804 /* ContourMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourMap.h; sourceTree = "<group>"; };
-		6A2754881BE92721003B7804 /* DataGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataGroup.h; sourceTree = "<group>"; };
-		6A2754891BE92721003B7804 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
-		6A27548A1BE92721003B7804 /* FftWaveWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FftWaveWriter.h; sourceTree = "<group>"; };
-		6A27548B1BE92721003B7804 /* MonitorNodeNL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonitorNodeNL.cpp; sourceTree = "<group>"; };
-		6A27548C1BE92721003B7804 /* MonitorNodeNL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorNodeNL.h; sourceTree = "<group>"; };
-		6A27548D1BE92721003B7804 /* mtUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtUtil.h; sourceTree = "<group>"; };
-		6A27548E1BE92721003B7804 /* MyCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
-		6A27548F1BE92721003B7804 /* MyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
-		6A2754901BE92721003B7804 /* RfExporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfExporterBin.h; sourceTree = "<group>"; };
-		6A2754911BE92721003B7804 /* RfImporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterBin.h; sourceTree = "<group>"; };
-		6A2754921BE92721003B7804 /* SoundWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundWriter.h; sourceTree = "<group>"; };
-		6A2754931BE92721003B7804 /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TbbNpFinder.h; sourceTree = "<group>"; };
 		6A30AF661BB4B55A00A7D772 /* AudioDrawUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioDrawUtils.cpp; path = ../src/AudioDrawUtils.cpp; sourceTree = "<group>"; };
 		6A30AF671BB4B55A00A7D772 /* AudioDrawUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDrawUtils.h; path = ../src/AudioDrawUtils.h; sourceTree = "<group>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
@@ -82,7 +89,7 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				6A2754941BE92721003B7804 /* libmtb */,
+				4D2E054E1C42AC70009C0B92 /* libmtb */,
 			);
 			name = Blocks;
 			sourceTree = "<group>";
@@ -153,29 +160,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6A2754941BE92721003B7804 /* libmtb */ = {
+		4D2E054E1C42AC70009C0B92 /* libmtb */ = {
 			isa = PBXGroup;
 			children = (
-				6A2754841BE92721003B7804 /* .gitignore */,
-				6A2754851BE92721003B7804 /* ConsoleColor.h */,
-				6A2754861BE92721003B7804 /* ContourMap.cpp */,
-				6A2754871BE92721003B7804 /* ContourMap.h */,
-				6A2754881BE92721003B7804 /* DataGroup.h */,
-				6A2754891BE92721003B7804 /* Exporter.h */,
-				6A27548A1BE92721003B7804 /* FftWaveWriter.h */,
-				6A27548B1BE92721003B7804 /* MonitorNodeNL.cpp */,
-				6A27548C1BE92721003B7804 /* MonitorNodeNL.h */,
-				6A27548D1BE92721003B7804 /* mtUtil.h */,
-				6A27548E1BE92721003B7804 /* MyCamera.cpp */,
-				6A27548F1BE92721003B7804 /* MyCamera.h */,
-				6A2754901BE92721003B7804 /* RfExporterBin.h */,
-				6A2754911BE92721003B7804 /* RfImporterBin.h */,
-				6A2754921BE92721003B7804 /* SoundWriter.h */,
-				6A2754931BE92721003B7804 /* TbbNpFinder.h */,
+				4D2E054F1C42AC70009C0B92 /* .gitignore */,
+				4D2E05501C42AC70009C0B92 /* AudioOutput.h */,
+				4D2E05511C42AC70009C0B92 /* Axis.h */,
+				4D2E05521C42AC70009C0B92 /* ConsoleColor.h */,
+				4D2E05531C42AC70009C0B92 /* ContourMap.cpp */,
+				4D2E05541C42AC70009C0B92 /* ContourMap.h */,
+				4D2E05551C42AC70009C0B92 /* CsoundOp.h */,
+				4D2E05561C42AC70009C0B92 /* DataGroup.h */,
+				4D2E05571C42AC70009C0B92 /* Exporter.h */,
+				4D2E05581C42AC70009C0B92 /* FftWaveWriter.h */,
+				4D2E05591C42AC70009C0B92 /* MonitorNodeNL.cpp */,
+				4D2E055A1C42AC70009C0B92 /* MonitorNodeNL.h */,
+				4D2E055B1C42AC70009C0B92 /* mtSvg.h */,
+				4D2E055C1C42AC70009C0B92 /* mtUtil.h */,
+				4D2E055D1C42AC70009C0B92 /* MyCamera.cpp */,
+				4D2E055E1C42AC70009C0B92 /* MyCamera.h */,
+				4D2E055F1C42AC70009C0B92 /* RfExporterBin.h */,
+				4D2E05601C42AC70009C0B92 /* RfImporterBin.h */,
+				4D2E05611C42AC70009C0B92 /* RfImporterRpc.h */,
+				4D2E05621C42AC70009C0B92 /* SimFrame.h */,
+				4D2E05631C42AC70009C0B92 /* SoundWriter.h */,
+				4D2E05641C42AC70009C0B92 /* TbbNpFinder.h */,
+				4D2E05651C42AC70009C0B92 /* VboSet.h */,
 			);
 			name = libmtb;
-			path = /Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/_all/../../blocks/libmtb;
-			sourceTree = "<absolute>";
+			path = ../../../blocks/libmtb;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -230,7 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A2754951BE92721003B7804 /* .gitignore in Resources */,
+				4D2E05661C42AC70009C0B92 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,9 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A30AF681BB4B55A00A7D772 /* AudioDrawUtils.cpp in Sources */,
-				6A2754981BE92721003B7804 /* MyCamera.cpp in Sources */,
-				6A2754961BE92721003B7804 /* ContourMap.cpp in Sources */,
-				6A2754971BE92721003B7804 /* MonitorNodeNL.cpp in Sources */,
+				4D2E05691C42AC70009C0B92 /* MyCamera.cpp in Sources */,
+				4D2E05671C42AC70009C0B92 /* ContourMap.cpp in Sources */,
+				4D2E05681C42AC70009C0B92 /* MonitorNodeNL.cpp in Sources */,
 				CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

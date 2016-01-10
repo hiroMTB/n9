@@ -131,7 +131,7 @@ void cApp::draw(){
 
     gl::clear( Color(0,0,0) );
 
-    mBlurCanvas.begin();
+    mBlurCanvas.beginPersp();
     {
         glPushMatrix();
         gl::clear( Color(0,0,0) );
@@ -181,7 +181,7 @@ void cApp::draw(){
         mShader->unbind();
     }
     
-//    mExp.begin();
+//    mExp.beginPersp();
 //    glColor3f( 1,1,1 );
 //    mBlurCanvas.draw();
 //    mExp.end();
@@ -190,7 +190,7 @@ void cApp::draw(){
 //    mExp.draw();
     
 
-    mExp2.begin();
+    mExp2.beginPersp();
     gl::clear( Color(0,0,0) );
     glPushMatrix();
     {

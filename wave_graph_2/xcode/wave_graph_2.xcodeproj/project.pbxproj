@@ -12,12 +12,12 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		4D2E054A1C42AC49009C0B92 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E05331C42AC49009C0B92 /* .gitignore */; };
+		4D2E054B1C42AC49009C0B92 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E05371C42AC49009C0B92 /* ContourMap.cpp */; };
+		4D2E054C1C42AC49009C0B92 /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E053D1C42AC49009C0B92 /* MonitorNodeNL.cpp */; };
+		4D2E054D1C42AC49009C0B92 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E05411C42AC49009C0B92 /* MyCamera.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		6A2754BF1BE92729003B7804 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6A2754AE1BE92729003B7804 /* .gitignore */; };
-		6A2754C01BE92729003B7804 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754B01BE92729003B7804 /* ContourMap.cpp */; };
-		6A2754C11BE92729003B7804 /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754B51BE92729003B7804 /* MonitorNodeNL.cpp */; };
-		6A2754C21BE92729003B7804 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754B81BE92729003B7804 /* MyCamera.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 /* End PBXBuildFile section */
@@ -32,24 +32,31 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
+		4D2E05331C42AC49009C0B92 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4D2E05341C42AC49009C0B92 /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
+		4D2E05351C42AC49009C0B92 /* Axis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Axis.h; sourceTree = "<group>"; };
+		4D2E05361C42AC49009C0B92 /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleColor.h; sourceTree = "<group>"; };
+		4D2E05371C42AC49009C0B92 /* ContourMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourMap.cpp; sourceTree = "<group>"; };
+		4D2E05381C42AC49009C0B92 /* ContourMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourMap.h; sourceTree = "<group>"; };
+		4D2E05391C42AC49009C0B92 /* CsoundOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsoundOp.h; sourceTree = "<group>"; };
+		4D2E053A1C42AC49009C0B92 /* DataGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataGroup.h; sourceTree = "<group>"; };
+		4D2E053B1C42AC49009C0B92 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
+		4D2E053C1C42AC49009C0B92 /* FftWaveWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FftWaveWriter.h; sourceTree = "<group>"; };
+		4D2E053D1C42AC49009C0B92 /* MonitorNodeNL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonitorNodeNL.cpp; sourceTree = "<group>"; };
+		4D2E053E1C42AC49009C0B92 /* MonitorNodeNL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorNodeNL.h; sourceTree = "<group>"; };
+		4D2E053F1C42AC49009C0B92 /* mtSvg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtSvg.h; sourceTree = "<group>"; };
+		4D2E05401C42AC49009C0B92 /* mtUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtUtil.h; sourceTree = "<group>"; };
+		4D2E05411C42AC49009C0B92 /* MyCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
+		4D2E05421C42AC49009C0B92 /* MyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
+		4D2E05431C42AC49009C0B92 /* RfExporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfExporterBin.h; sourceTree = "<group>"; };
+		4D2E05441C42AC49009C0B92 /* RfImporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterBin.h; sourceTree = "<group>"; };
+		4D2E05451C42AC49009C0B92 /* RfImporterRpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterRpc.h; sourceTree = "<group>"; };
+		4D2E05461C42AC49009C0B92 /* SimFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimFrame.h; sourceTree = "<group>"; };
+		4D2E05471C42AC49009C0B92 /* SoundWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundWriter.h; sourceTree = "<group>"; };
+		4D2E05481C42AC49009C0B92 /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TbbNpFinder.h; sourceTree = "<group>"; };
+		4D2E05491C42AC49009C0B92 /* VboSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VboSet.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		6A2754AE1BE92729003B7804 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6A2754AF1BE92729003B7804 /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleColor.h; sourceTree = "<group>"; };
-		6A2754B01BE92729003B7804 /* ContourMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourMap.cpp; sourceTree = "<group>"; };
-		6A2754B11BE92729003B7804 /* ContourMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourMap.h; sourceTree = "<group>"; };
-		6A2754B21BE92729003B7804 /* DataGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataGroup.h; sourceTree = "<group>"; };
-		6A2754B31BE92729003B7804 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
-		6A2754B41BE92729003B7804 /* FftWaveWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FftWaveWriter.h; sourceTree = "<group>"; };
-		6A2754B51BE92729003B7804 /* MonitorNodeNL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonitorNodeNL.cpp; sourceTree = "<group>"; };
-		6A2754B61BE92729003B7804 /* MonitorNodeNL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorNodeNL.h; sourceTree = "<group>"; };
-		6A2754B71BE92729003B7804 /* mtUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtUtil.h; sourceTree = "<group>"; };
-		6A2754B81BE92729003B7804 /* MyCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
-		6A2754B91BE92729003B7804 /* MyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
-		6A2754BA1BE92729003B7804 /* RfExporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfExporterBin.h; sourceTree = "<group>"; };
-		6A2754BB1BE92729003B7804 /* RfImporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterBin.h; sourceTree = "<group>"; };
-		6A2754BC1BE92729003B7804 /* SoundWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundWriter.h; sourceTree = "<group>"; };
-		6A2754BD1BE92729003B7804 /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TbbNpFinder.h; sourceTree = "<group>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
 		6AC7B8CC1B974D7E0013E7CC /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../src/Wave.h; sourceTree = "<group>"; };
@@ -79,7 +86,7 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				6A2754BE1BE92729003B7804 /* libmtb */,
+				4D2E05321C42AC49009C0B92 /* libmtb */,
 			);
 			name = Blocks;
 			sourceTree = "<group>";
@@ -148,29 +155,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6A2754BE1BE92729003B7804 /* libmtb */ = {
+		4D2E05321C42AC49009C0B92 /* libmtb */ = {
 			isa = PBXGroup;
 			children = (
-				6A2754AE1BE92729003B7804 /* .gitignore */,
-				6A2754AF1BE92729003B7804 /* ConsoleColor.h */,
-				6A2754B01BE92729003B7804 /* ContourMap.cpp */,
-				6A2754B11BE92729003B7804 /* ContourMap.h */,
-				6A2754B21BE92729003B7804 /* DataGroup.h */,
-				6A2754B31BE92729003B7804 /* Exporter.h */,
-				6A2754B41BE92729003B7804 /* FftWaveWriter.h */,
-				6A2754B51BE92729003B7804 /* MonitorNodeNL.cpp */,
-				6A2754B61BE92729003B7804 /* MonitorNodeNL.h */,
-				6A2754B71BE92729003B7804 /* mtUtil.h */,
-				6A2754B81BE92729003B7804 /* MyCamera.cpp */,
-				6A2754B91BE92729003B7804 /* MyCamera.h */,
-				6A2754BA1BE92729003B7804 /* RfExporterBin.h */,
-				6A2754BB1BE92729003B7804 /* RfImporterBin.h */,
-				6A2754BC1BE92729003B7804 /* SoundWriter.h */,
-				6A2754BD1BE92729003B7804 /* TbbNpFinder.h */,
+				4D2E05331C42AC49009C0B92 /* .gitignore */,
+				4D2E05341C42AC49009C0B92 /* AudioOutput.h */,
+				4D2E05351C42AC49009C0B92 /* Axis.h */,
+				4D2E05361C42AC49009C0B92 /* ConsoleColor.h */,
+				4D2E05371C42AC49009C0B92 /* ContourMap.cpp */,
+				4D2E05381C42AC49009C0B92 /* ContourMap.h */,
+				4D2E05391C42AC49009C0B92 /* CsoundOp.h */,
+				4D2E053A1C42AC49009C0B92 /* DataGroup.h */,
+				4D2E053B1C42AC49009C0B92 /* Exporter.h */,
+				4D2E053C1C42AC49009C0B92 /* FftWaveWriter.h */,
+				4D2E053D1C42AC49009C0B92 /* MonitorNodeNL.cpp */,
+				4D2E053E1C42AC49009C0B92 /* MonitorNodeNL.h */,
+				4D2E053F1C42AC49009C0B92 /* mtSvg.h */,
+				4D2E05401C42AC49009C0B92 /* mtUtil.h */,
+				4D2E05411C42AC49009C0B92 /* MyCamera.cpp */,
+				4D2E05421C42AC49009C0B92 /* MyCamera.h */,
+				4D2E05431C42AC49009C0B92 /* RfExporterBin.h */,
+				4D2E05441C42AC49009C0B92 /* RfImporterBin.h */,
+				4D2E05451C42AC49009C0B92 /* RfImporterRpc.h */,
+				4D2E05461C42AC49009C0B92 /* SimFrame.h */,
+				4D2E05471C42AC49009C0B92 /* SoundWriter.h */,
+				4D2E05481C42AC49009C0B92 /* TbbNpFinder.h */,
+				4D2E05491C42AC49009C0B92 /* VboSet.h */,
 			);
 			name = libmtb;
-			path = /Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/_all/../../blocks/libmtb;
-			sourceTree = "<absolute>";
+			path = ../../../blocks/libmtb;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -224,7 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A2754BF1BE92729003B7804 /* .gitignore in Resources */,
+				4D2E054A1C42AC49009C0B92 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,10 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A2754C21BE92729003B7804 /* MyCamera.cpp in Sources */,
+				4D2E054D1C42AC49009C0B92 /* MyCamera.cpp in Sources */,
 				CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */,
-				6A2754C01BE92729003B7804 /* ContourMap.cpp in Sources */,
-				6A2754C11BE92729003B7804 /* MonitorNodeNL.cpp in Sources */,
+				4D2E054B1C42AC49009C0B92 /* ContourMap.cpp in Sources */,
+				4D2E054C1C42AC49009C0B92 /* MonitorNodeNL.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

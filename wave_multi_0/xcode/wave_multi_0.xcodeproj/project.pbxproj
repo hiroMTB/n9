@@ -14,10 +14,6 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		6A2754FE1BE92736003B7804 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6A2754ED1BE92736003B7804 /* .gitignore */; };
-		6A2754FF1BE92736003B7804 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754EF1BE92736003B7804 /* ContourMap.cpp */; };
-		6A2755001BE92736003B7804 /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754F41BE92736003B7804 /* MonitorNodeNL.cpp */; };
-		6A2755011BE92736003B7804 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754F71BE92736003B7804 /* MyCamera.cpp */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 /* End PBXBuildFile section */
@@ -34,22 +30,6 @@
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		6A2754ED1BE92736003B7804 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6A2754EE1BE92736003B7804 /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleColor.h; sourceTree = "<group>"; };
-		6A2754EF1BE92736003B7804 /* ContourMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourMap.cpp; sourceTree = "<group>"; };
-		6A2754F01BE92736003B7804 /* ContourMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourMap.h; sourceTree = "<group>"; };
-		6A2754F11BE92736003B7804 /* DataGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataGroup.h; sourceTree = "<group>"; };
-		6A2754F21BE92736003B7804 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
-		6A2754F31BE92736003B7804 /* FftWaveWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FftWaveWriter.h; sourceTree = "<group>"; };
-		6A2754F41BE92736003B7804 /* MonitorNodeNL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonitorNodeNL.cpp; sourceTree = "<group>"; };
-		6A2754F51BE92736003B7804 /* MonitorNodeNL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorNodeNL.h; sourceTree = "<group>"; };
-		6A2754F61BE92736003B7804 /* mtUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtUtil.h; sourceTree = "<group>"; };
-		6A2754F71BE92736003B7804 /* MyCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
-		6A2754F81BE92736003B7804 /* MyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
-		6A2754F91BE92736003B7804 /* RfExporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfExporterBin.h; sourceTree = "<group>"; };
-		6A2754FA1BE92736003B7804 /* RfImporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterBin.h; sourceTree = "<group>"; };
-		6A2754FB1BE92736003B7804 /* SoundWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundWriter.h; sourceTree = "<group>"; };
-		6A2754FC1BE92736003B7804 /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TbbNpFinder.h; sourceTree = "<group>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
 		6AC7B8CC1B974D7E0013E7CC /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../src/Wave.h; sourceTree = "<group>"; };
@@ -79,7 +59,6 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				6A2754FD1BE92736003B7804 /* libmtb */,
 			);
 			name = Blocks;
 			sourceTree = "<group>";
@@ -148,30 +127,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6A2754FD1BE92736003B7804 /* libmtb */ = {
-			isa = PBXGroup;
-			children = (
-				6A2754ED1BE92736003B7804 /* .gitignore */,
-				6A2754EE1BE92736003B7804 /* ConsoleColor.h */,
-				6A2754EF1BE92736003B7804 /* ContourMap.cpp */,
-				6A2754F01BE92736003B7804 /* ContourMap.h */,
-				6A2754F11BE92736003B7804 /* DataGroup.h */,
-				6A2754F21BE92736003B7804 /* Exporter.h */,
-				6A2754F31BE92736003B7804 /* FftWaveWriter.h */,
-				6A2754F41BE92736003B7804 /* MonitorNodeNL.cpp */,
-				6A2754F51BE92736003B7804 /* MonitorNodeNL.h */,
-				6A2754F61BE92736003B7804 /* mtUtil.h */,
-				6A2754F71BE92736003B7804 /* MyCamera.cpp */,
-				6A2754F81BE92736003B7804 /* MyCamera.h */,
-				6A2754F91BE92736003B7804 /* RfExporterBin.h */,
-				6A2754FA1BE92736003B7804 /* RfImporterBin.h */,
-				6A2754FB1BE92736003B7804 /* SoundWriter.h */,
-				6A2754FC1BE92736003B7804 /* TbbNpFinder.h */,
-			);
-			name = libmtb;
-			path = /Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/_all/../../blocks/libmtb;
-			sourceTree = "<absolute>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,7 +179,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A2754FE1BE92736003B7804 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,10 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A2755011BE92736003B7804 /* MyCamera.cpp in Sources */,
 				CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */,
-				6A2754FF1BE92736003B7804 /* ContourMap.cpp in Sources */,
-				6A2755001BE92736003B7804 /* MonitorNodeNL.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

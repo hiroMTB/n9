@@ -14,12 +14,21 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		6AC7B8C91B974C580013E7CC /* gaussianBlur_frag.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7B8C71B974C580013E7CC /* gaussianBlur_frag.glsl */; };
-		6AC7B8CA1B974C580013E7CC /* passThru_vert.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7B8C81B974C580013E7CC /* passThru_vert.glsl */; };
-		6AC7B8CE1B97573A0013E7CC /* cinder_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AC7B8CD1B97573A0013E7CC /* cinder_logo.png */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		4DE5E1431C42917F00FA57D8 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.intel.compilers.icc.16_0_0;
+			fileType = sourcecode.cpp;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		0091D8F80E81B9330029341E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
@@ -35,12 +44,7 @@
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
-		6AC7B8C71B974C580013E7CC /* gaussianBlur_frag.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gaussianBlur_frag.glsl; sourceTree = "<group>"; };
-		6AC7B8C81B974C580013E7CC /* passThru_vert.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = passThru_vert.glsl; sourceTree = "<group>"; };
-		6AC7B8CB1B974D7E0013E7CC /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../src/Resources.h; sourceTree = "<group>"; };
-		6AC7B8CC1B974D7E0013E7CC /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../src/Wave.h; sourceTree = "<group>"; };
-		6AC7B8CD1B97573A0013E7CC /* cinder_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cinder_logo.png; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* wave_multi_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave_multi_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* IntelTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntelTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95CFCBE1AFA244A19A93A224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,13 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01B97315FEAEA392516A2CEA /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Blocks;
-			sourceTree = "<group>";
-		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +94,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* wave_multi_1.app */,
+				8D1107320486CEB800E47090 /* IntelTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +105,8 @@
 				6AAB06D01B12587200AC8B49 /* debug.xcconfig */,
 				6AAB06D31B1258B500AC8B49 /* release.xcconfig */,
 				95CFCBE1AFA244A19A93A224 /* Info.plist */,
-				6AC7B8C61B974C580013E7CC /* shader */,
 				29B97315FDCFA39411CA2CEA /* src */,
-				01B97315FEAEA392516A2CEA /* Blocks */,
+				6A99CD891BE7AB7100387FFC /* Blocks */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -120,8 +116,6 @@
 		29B97315FDCFA39411CA2CEA /* src */ = {
 			isa = PBXGroup;
 			children = (
-				6AC7B8CB1B974D7E0013E7CC /* Resources.h */,
-				6AC7B8CC1B974D7E0013E7CC /* Wave.h */,
 				444894A18C4C457A91266DCA /* cApp.cpp */,
 			);
 			name = src;
@@ -136,36 +130,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6AC7B8C61B974C580013E7CC /* shader */ = {
+		6A99CD891BE7AB7100387FFC /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				6AC7B8C71B974C580013E7CC /* gaussianBlur_frag.glsl */,
-				6AC7B8C81B974C580013E7CC /* passThru_vert.glsl */,
-				6AC7B8CD1B97573A0013E7CC /* cinder_logo.png */,
 			);
-			name = shader;
-			path = ../shader;
+			name = Blocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* wave_multi_1 */ = {
+		8D1107260486CEB800E47090 /* IntelTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_multi_1" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "IntelTest" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 			);
 			buildRules = (
+				4DE5E1431C42917F00FA57D8 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
-			name = wave_multi_1;
+			name = IntelTest;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 8D1107320486CEB800E47090 /* wave_multi_1.app */;
+			productReference = 8D1107320486CEB800E47090 /* IntelTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -175,7 +166,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "wave_multi_1" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "IntelTest" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -189,7 +180,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* wave_multi_1 */,
+				8D1107260486CEB800E47090 /* IntelTest */,
 			);
 		};
 /* End PBXProject section */
@@ -199,9 +190,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AC7B8CA1B974C580013E7CC /* passThru_vert.glsl in Resources */,
-				6AC7B8C91B974C580013E7CC /* gaussianBlur_frag.glsl in Resources */,
-				6AC7B8CE1B97573A0013E7CC /* cinder_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +223,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				ICC_OPTLEVEL = speedHLO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
@@ -262,6 +251,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				ICC_OPTLEVEL = speedHLO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
@@ -278,7 +268,7 @@
 			baseConfigurationReference = 6AAB06D01B12587200AC8B49 /* debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = i386;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -286,6 +276,8 @@
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ICC_LOGO = NO;
+				ICC_OPTLEVEL = none;
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
@@ -299,7 +291,7 @@
 			baseConfigurationReference = 6AAB06D31B1258B500AC8B49 /* release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = i386;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -307,6 +299,8 @@
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ICC_LOGO = NO;
+				ICC_OPTLEVEL = none;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 				SYMROOT = ./build;
@@ -317,7 +311,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_multi_1" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "IntelTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -326,7 +320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "wave_multi_1" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "IntelTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

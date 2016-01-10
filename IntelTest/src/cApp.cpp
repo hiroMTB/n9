@@ -40,11 +40,24 @@ void cApp::setup(){
 }
 
 void cApp::update(){
+    
+    mt::timer_start();
+    
+    float res = 0;
+    for( int i=0; i<100; i++){
+        for( int j=0; j<100; j++){
+            for( int k=0; k<100; k++){
+                res += 1;
+            }
+        }
+    }
+    
+    mt::timer_end();
 }
 
 void cApp::draw(){
 
-    mExp.beginPersp();
+    mExp.beginOrtho();
     {
         gl::clear( Colorf(1,1,1) );
         gl::color( Colorf(0,0,1) );
@@ -52,9 +65,6 @@ void cApp::draw(){
     }
     mExp.end();
     
-
-    gl::clear( Colorf(1,1,1) );
-    gl::color( Colorf(1,1,1) );
     mExp.draw();
 }
 

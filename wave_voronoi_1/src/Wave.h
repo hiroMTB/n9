@@ -28,25 +28,27 @@ public:
         audio::SourceFileRef sourceFile = audio::load( ref );
         samplingRate = sourceFile->getSampleRate();
         buf = sourceFile->loadBuffer();
+        nCh = sourceFile->getNumChannels();
     }
     
-    void update( int start, int num ){
-        
-        const float * ch0 = buf->getChannel( 0 );
-        
-        for ( int i=0; i<num; i++) {
-            long index = start + i;
-            if( index < buf->getNumFrames() ){
-                float l = ch0[index];
-                pos[i] = Vec3f(i, l, 0);
-            }else{
-                pos[i] = Vec3f(0,0,0);
-            }
-        }
-    }
+//    void update( int start, int num ){
+//        
+//        const float * ch0 = buf->getChannel( 0 );
+//        
+//        for ( int i=0; i<num; i++) {
+//            long index = start + i;
+//            if( index < buf->getNumFrames() ){
+//                float l = ch0[index];
+//                pos[i] = Vec3f(i, l, 0);
+//            }else{
+//                pos[i] = Vec3f(0,0,0);
+//            }
+//        }
+//    }
 
     audio::BufferRef buf;
     int samplingRate;
+    int nCh;
     vector<Vec3f> pos;
     vector<ColorAf> color;
     

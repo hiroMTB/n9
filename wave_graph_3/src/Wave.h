@@ -22,8 +22,9 @@ public:
     
     Wave(){};
     
-    void create( string path ){
-        audio::SourceFileRef sourceFile = audio::load( loadAsset( path ) );
+    void create( fs::path path ){
+        DataSourceRef ref = loadFile( path );
+        audio::SourceFileRef sourceFile = audio::load( ref );
         samplingRate = sourceFile->getSampleRate();
         buf = sourceFile->loadBuffer();
     }

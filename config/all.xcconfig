@@ -26,19 +26,25 @@ LDFLAG_CV = -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d 
 // CSound
 HEADER_CSOUND = /Library/Frameworks/CsoundLib64.framework/Headers
 LIB_PATH_CSOUND = /Library/Frameworks/CsoundLib64.framework/Versions/6.0
-LD_FLAG_CSOUND = -lcsnd6.6.0
+LDFLAG_CSOUND = -lcsnd6.6.0
 
 
 // TBB
 HEADER_TBB = $(CINDER_PATH)/blocks/tbb/include
 LIB_PATH_TBB = $(CINDER_PATH)/blocks/tbb/lib/libc++
-LD_FLAG_TBB = -ltbb
+LDFLAG_TBB = -ltbb
 
 // libsnd
 HEADER_SNDFILE = $(CINDER_PATH)/blocks/libsndfile
 LIB_PATH_SNDFILE = $(CINDER_PATH)/blocks/libsndfile
-LD_FLAG_SNDFILE = -lsndfile
+LDFLAG_SNDFILE = -lsndfile
 
 
 // libmtb
 HEADER_MTB = $(CINDER_PATH)/blocks/libmtb
+
+
+// Alembic
+HEADER_ALEMBIC = $(CINDER_PATH)/blocks/Alembic/src $(CINDER_PATH)/blocks/Alembic/libs/alembic/include
+LIB_PATH_ALEMBIC = $(CINDER_PATH)/blocks/Alembic/libs/alembic/lib/osx
+LDFLAG_ALEMBIC = -lAlembicAbc -lAlembicAbcCollection -lAlembicAbcCoreAbstract -lAlembicAbcCoreFactory -lAlembicAbcCoreHDF5 -lAlembicAbcCoreOgawa -lAlembicAbcGeom -lAlembicAbcMaterial -lAlembicAbcOpenGL -lAlembicOgawa -lAlembicUtil -lHalf -lhdf5_hl -lhdf5 -lIex -lIexMath -lIlmThread -lImath

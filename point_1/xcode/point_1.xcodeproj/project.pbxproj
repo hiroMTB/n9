@@ -14,10 +14,15 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		6A2754411BE9270C003B7804 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6A2754301BE9270C003B7804 /* .gitignore */; };
-		6A2754421BE9270C003B7804 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754321BE9270C003B7804 /* ContourMap.cpp */; };
-		6A2754431BE9270C003B7804 /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A2754371BE9270C003B7804 /* MonitorNodeNL.cpp */; };
-		6A2754441BE9270C003B7804 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A27543A1BE9270C003B7804 /* MyCamera.cpp */; };
+		6AF8B1281C021262008B7B59 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
+		6AF8B12A1C021262008B7B59 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		6AF8B12B1C021262008B7B59 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		6AF8B12C1C021262008B7B59 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		6AF8B12D1C021262008B7B59 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		6AF8B12E1C021262008B7B59 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		6AF8B12F1C021262008B7B59 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		6AF8B1301C021262008B7B59 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		6AF8B1311C021262008B7B59 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
 /* End PBXBuildFile section */
@@ -34,29 +39,31 @@
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		6A2754301BE9270C003B7804 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		6A2754311BE9270C003B7804 /* ConsoleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleColor.h; sourceTree = "<group>"; };
-		6A2754321BE9270C003B7804 /* ContourMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContourMap.cpp; sourceTree = "<group>"; };
-		6A2754331BE9270C003B7804 /* ContourMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContourMap.h; sourceTree = "<group>"; };
-		6A2754341BE9270C003B7804 /* DataGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataGroup.h; sourceTree = "<group>"; };
-		6A2754351BE9270C003B7804 /* Exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exporter.h; sourceTree = "<group>"; };
-		6A2754361BE9270C003B7804 /* FftWaveWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FftWaveWriter.h; sourceTree = "<group>"; };
-		6A2754371BE9270C003B7804 /* MonitorNodeNL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonitorNodeNL.cpp; sourceTree = "<group>"; };
-		6A2754381BE9270C003B7804 /* MonitorNodeNL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonitorNodeNL.h; sourceTree = "<group>"; };
-		6A2754391BE9270C003B7804 /* mtUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mtUtil.h; sourceTree = "<group>"; };
-		6A27543A1BE9270C003B7804 /* MyCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
-		6A27543B1BE9270C003B7804 /* MyCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
-		6A27543C1BE9270C003B7804 /* RfExporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfExporterBin.h; sourceTree = "<group>"; };
-		6A27543D1BE9270C003B7804 /* RfImporterBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RfImporterBin.h; sourceTree = "<group>"; };
-		6A27543E1BE9270C003B7804 /* SoundWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundWriter.h; sourceTree = "<group>"; };
-		6A27543F1BE9270C003B7804 /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TbbNpFinder.h; sourceTree = "<group>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
+		6AB85F0C1C007D8000772A8A /* libmtb */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libmtb; path = ../../../blocks/libmtb; sourceTree = "<group>"; };
+		6AF8B1361C021262008B7B59 /* point_1 copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "point_1 copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF8B1371C021262008B7B59 /* point_1 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "point_1 copy-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n9/_node/point_1/xcode/point_1 copy-Info.plist"; sourceTree = "<absolute>"; };
 		8D1107320486CEB800E47090 /* point_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = point_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95CFCBE1AFA244A19A93A224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6AF8B1291C021262008B7B59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF8B12A1C021262008B7B59 /* Cocoa.framework in Frameworks */,
+				6AF8B12B1C021262008B7B59 /* OpenGL.framework in Frameworks */,
+				6AF8B12C1C021262008B7B59 /* CoreVideo.framework in Frameworks */,
+				6AF8B12D1C021262008B7B59 /* QTKit.framework in Frameworks */,
+				6AF8B12E1C021262008B7B59 /* Accelerate.framework in Frameworks */,
+				6AF8B12F1C021262008B7B59 /* AudioToolbox.framework in Frameworks */,
+				6AF8B1301C021262008B7B59 /* AudioUnit.framework in Frameworks */,
+				6AF8B1311C021262008B7B59 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,7 +85,6 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				6A2754401BE9270C003B7804 /* libmtb */,
 			);
 			name = Blocks;
 			sourceTree = "<group>";
@@ -111,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* point_1.app */,
+				6AF8B1361C021262008B7B59 /* point_1 copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,10 +128,12 @@
 				6AAB06D01B12587200AC8B49 /* debug.xcconfig */,
 				6AAB06D31B1258B500AC8B49 /* release.xcconfig */,
 				95CFCBE1AFA244A19A93A224 /* Info.plist */,
+				6AB85F0C1C007D8000772A8A /* libmtb */,
 				29B97315FDCFA39411CA2CEA /* src */,
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				6AF8B1371C021262008B7B59 /* point_1 copy-Info.plist */,
 			);
 			name = contour_0;
 			sourceTree = "<group>";
@@ -146,33 +155,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6A2754401BE9270C003B7804 /* libmtb */ = {
-			isa = PBXGroup;
-			children = (
-				6A2754301BE9270C003B7804 /* .gitignore */,
-				6A2754311BE9270C003B7804 /* ConsoleColor.h */,
-				6A2754321BE9270C003B7804 /* ContourMap.cpp */,
-				6A2754331BE9270C003B7804 /* ContourMap.h */,
-				6A2754341BE9270C003B7804 /* DataGroup.h */,
-				6A2754351BE9270C003B7804 /* Exporter.h */,
-				6A2754361BE9270C003B7804 /* FftWaveWriter.h */,
-				6A2754371BE9270C003B7804 /* MonitorNodeNL.cpp */,
-				6A2754381BE9270C003B7804 /* MonitorNodeNL.h */,
-				6A2754391BE9270C003B7804 /* mtUtil.h */,
-				6A27543A1BE9270C003B7804 /* MyCamera.cpp */,
-				6A27543B1BE9270C003B7804 /* MyCamera.h */,
-				6A27543C1BE9270C003B7804 /* RfExporterBin.h */,
-				6A27543D1BE9270C003B7804 /* RfImporterBin.h */,
-				6A27543E1BE9270C003B7804 /* SoundWriter.h */,
-				6A27543F1BE9270C003B7804 /* TbbNpFinder.h */,
-			);
-			name = libmtb;
-			path = /Volumes/StudioRK/node/dev/cinder_0.8.6_n9/_node/_all/../../blocks/libmtb;
-			sourceTree = "<absolute>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6AF8B1251C021262008B7B59 /* point_1 copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AF8B1331C021262008B7B59 /* Build configuration list for PBXNativeTarget "point_1 copy" */;
+			buildPhases = (
+				6AF8B1261C021262008B7B59 /* Resources */,
+				6AF8B1271C021262008B7B59 /* Sources */,
+				6AF8B1291C021262008B7B59 /* Frameworks */,
+				6AF8B1321C021262008B7B59 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "point_1 copy";
+			productInstallPath = "$(HOME)/Applications";
+			productName = contour_0;
+			productReference = 6AF8B1361C021262008B7B59 /* point_1 copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8D1107260486CEB800E47090 /* point_1 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_1" */;
@@ -214,16 +218,23 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* point_1 */,
+				6AF8B1251C021262008B7B59 /* point_1 copy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6AF8B1261C021262008B7B59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A2754411BE9270C003B7804 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,23 +254,95 @@
 			shellPath = /bin/sh;
 			shellScript = "cp -f ../../../blocks/tbb/lib/libc++/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libtbb.dylib\";\n\ninstall_name_tool -change libtbb.dylib @executable_path/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n\n\n\n\n\n\n";
 		};
+		6AF8B1321C021262008B7B59 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -f ../../../blocks/tbb/lib/libc++/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libtbb.dylib\";\n\ninstall_name_tool -change libtbb.dylib @executable_path/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n\n\n\n\n\n\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6AF8B1271C021262008B7B59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF8B1281C021262008B7B59 /* cApp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A2754441BE9270C003B7804 /* MyCamera.cpp in Sources */,
 				CEE482CA843A4CB2A21A75E7 /* cApp.cpp in Sources */,
-				6A2754421BE9270C003B7804 /* ContourMap.cpp in Sources */,
-				6A2754431BE9270C003B7804 /* MonitorNodeNL.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		6AF8B1341C021262008B7B59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "point_1 copy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "point_1 copy";
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6AF8B1351C021262008B7B59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "point_1 copy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "point_1 copy";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -358,6 +441,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6AF8B1331C021262008B7B59 /* Build configuration list for PBXNativeTarget "point_1 copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF8B1341C021262008B7B59 /* Debug */,
+				6AF8B1351C021262008B7B59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

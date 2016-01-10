@@ -1,3 +1,5 @@
+//#define RENDER
+
 #include "cinder/app/AppNative.h"
 #include "cinder/MayaCamUI.h"
 #include "cinder/Rand.h"
@@ -5,8 +7,8 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/Camera.h"
 
-#include "mtUtil.h"
 #include "RfImporterBin.h"
+#include "mtUtil.h"
 #include "DataGroup.h"
 #include "Exporter.h"
 #include "TbbNpFinder.h"
@@ -20,15 +22,16 @@ public:
     void setup();
     void update();
     void draw();
-    
+
+#ifndef RENDER
     void keyDown( KeyEvent event );
     void mouseMove( MouseEvent event );
     void mouseDown( MouseEvent event );
     void mouseDrag( MouseEvent event );
-    void resize();
+#endif
     
     const float master_scale = 1;
-    const int win_w = 1920;
+    const int win_w = 1080*2;
     const int win_h = 1920;
     const float fps = 25.0f;
     int frame = 0;
@@ -37,6 +40,8 @@ public:
     MayaCamUI camUi;
     Exporter mExp;
     DataGroup mDg;
+    fs::path assetDir;
+    fs::path simDir;
     
 };
 
@@ -55,7 +60,11 @@ void cApp::setup(){
     cam.setCenterOfInterestPoint( Vec3f(0,0,0) );
     camUi.setCurrentCam( cam );
 
-   //mExp.startRender();
+    assetDir = mt::getAssetPath();
+    
+#ifdef RENDER
+    mExp.startRender();
+#endif
 }
 
 void cApp::update(){
@@ -63,10 +72,10 @@ void cApp::update(){
     RfImporterBin rfIn;
 
     char m[255];
-    sprintf(m, "sim/turb_1/Binary_Loader01_%05d.bin", frame );
-    string filePath = toString(m);
-    string fileName = loadAsset(filePath)->getFilePath().string();
-    rfIn.load( fileName );
+    sprintf(m, "Binary_Loader01_%05d.bin", frame );
+    string fileName = toString(m);
+    simDir = assetDir/"sim"/"turb_r2"/"01";
+    rfIn.load( (simDir/fileName).string() );
     
     mDg.mDot.reset();
 
@@ -76,7 +85,12 @@ void cApp::update(){
     vector<ColorAf> col;
 
     float scale = 60.0f;
-    int loadnum = frame*frame*0.006;
+    int loadnum = frame*frame*0.05;
+
+    for( int i=0; i<15; i++){
+        pos.push_back( Vec3f(0,500-i*100, 0) );
+        col.push_back( ColorAf(1,0,0,0.5) );
+    }
     
     for (int i=0; i<p.size()/3; i++) {
         if( i>loadnum ) break;
@@ -251,7 +265,6 @@ void cApp::update(){
     mDg.createDot( pos, col, 0.0 );
     
     
-    
     int num_line = 2;
     int num_dupl = 2;
     int vertex_per_point = num_line * num_dupl * 2;
@@ -273,9 +286,6 @@ void cApp::draw(){
         gl::pushMatrices();
         gl::rotate( Vec3f(90,0,0) );
         
-        if( !mExp.bRender && !mExp.bSnap )
-            mt::drawCoordinate(100);
-        
         // draw rf
         if( mDg.mLine ){
             glLineWidth( 1 );
@@ -286,8 +296,6 @@ void cApp::draw(){
             glPointSize( 1 );
             gl::draw( mDg.mDot );
         }
-        
-        
         gl::popMatrices();
         
     }mExp.end();
@@ -296,33 +304,21 @@ void cApp::draw(){
     gl::color( Color::white() );
     mExp.draw();
     
-    frame+=3;
+    gl::drawString("Frame: " + to_string(frame), Vec2f(50, 50) );
+    frame++;
 
 }
 
+#ifndef RENDER
 void cApp::keyDown( KeyEvent event ){
 
     switch (event.getChar()) {
-        
-        case 'R':
-            mExp.startRender();
-            break;
-
-        case 'T':
-            mExp.stopRender();
-            break;
-
-        case 'f':
-            frame+=500;
-            break;
-        
-        case 'p':
-            currentParam++;
-            cout << "change param: " << currentParam << endl;
-            break;
-            
-        default:
-            break;
+        case 's':   mExp.snapShot();          break;
+        case 'S':   mExp.startRender();       break;
+        case 'T':   mExp.stopRender();        break;
+        case 'f':   frame+=100;               break;
+        case 'p':   currentParam++;           break;
+        case 'q':   currentParam--;           break;
     }
 }
 
@@ -337,7 +333,6 @@ void cApp::mouseDrag( MouseEvent event ){
     camUi.mouseDrag( event.getPos(), event.isLeftDown(), event.isMiddleDown(), event.isRightDown() );
 }
 
-void cApp::resize(){
-}
+#endif
 
 CINDER_APP_NATIVE( cApp, RendererGl(0) )

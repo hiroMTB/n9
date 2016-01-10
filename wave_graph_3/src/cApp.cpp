@@ -54,7 +54,7 @@ class cApp : public AppNative {
   
     int frame = -1;
     float fftWaveSamplingRate = 6000;
-    int mFpb = 2048*2*2;
+    int mFpb = 2048*2;
     
     MayaCamUI mayaCam;
     
@@ -62,6 +62,7 @@ class cApp : public AppNative {
     float yoffset = 0;
     int jump = 0;
 
+    fs::path assetDir;
 };
 
 void cApp::setup(){
@@ -78,23 +79,27 @@ void cApp::setup(){
     setWindowPos( 0, 0 );
     gl::enableVerticalSync();
     
+    assetDir = mt::getAssetPath();
+    
     mPln.setOctaves(4);
     mPln.setSeed(444);
     
     mExp.setup( win_w, win_h, 1000, GL_RGB, mt::getRenderPath(), 0 );
     mt::loadColorSample("img/geo/Mx80_2_org.jpg", mColorSample1 );
     
-    mWaves.assign( 8, Wave() );
+    mWaves.assign( 1, Wave() );
     
-    for( int i=0; i<mWaves.size(); i++ ){
-        mWaves[i].create( "snd/samples/192k/3s1e_192k_" + toString(i+1) + ".wav");
-    }
+    //for( int i=0; i<mWaves.size(); i++ ){
+      //  mWaves[i].create( assetDir/"snd"/"samples"/"192k"/("3s1e_192k_" + toString(i+1) + ".wav") );
+    //}
 
+    mWaves[0].create( assetDir/"snd"/"samples"/"192k"/("3s1e_192k_" + toString(4) + ".wav") );
+    
     CameraPersp persp;
     persp.setAspectRatio( win_w/win_h);
     persp.setNearClip(1);
     persp.setFarClip(100000);
-    persp.lookAt( Vec3f(0,0,-18000), Vec3f(0,0,0), Vec3f(0,1,0) );
+    persp.lookAt( Vec3f(0,0,-38000), Vec3f(0,0,0), Vec3f(0,1,0) );
     mayaCam.setCurrentCam( persp );
     
 #ifdef RENDER
@@ -141,11 +146,11 @@ void cApp::draw(){
     mExp.begin( mayaCam.getCamera() ); {
         gl::clear( Color(0,0,0) );
         //draw_grid();
-        //draw_gridExp();
+        draw_gridExp();
         //draw_gridPln();
-        draw_wavePln();
+        //draw_wavePln();
         
-        //draw_waveExp();
+        draw_waveExp();
         //draw_graph();
         
     } mExp.end();
@@ -159,14 +164,17 @@ void cApp::draw_waveExp(){
     glColor3f(0, 1, 0);
     
     double ang = toRadians( (double)(getElapsedFrames()%(360*4)) );
-    float exponential = 1.001 + abs(sin( ang )) * 6.0;
+    float exponential = 1.001 + 2; //abs(sin( ang )) * 6.0;
     
     for( int w=0; w<mWaves.size(); w++ ){
   
         Wave & wave = mWaves[w];
         
-
         vector<Vec2d> point;
+        
+        int centerId = wave.chL.size()/2;
+        double centerVal = wave.chL[centerId];
+        
         for(int i=0; i<wave.chL.size(); i++){
 
             double x = pow(exponential, abs(i-mFpb/2)) - 1.0f;
@@ -177,7 +185,7 @@ void cApp::draw_waveExp(){
             
             x *=0.1f;
             
-            double y = wave.chL[i];
+            double y = wave.chL[i] - centerVal;
             y *= 2000;
             point.push_back(Vec2d(-x, y));
             

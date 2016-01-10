@@ -28,12 +28,12 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
-		4D2E056A1C42B519009C0B92 /* libmtb */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libmtb; path = ../../../blocks/libmtb; sourceTree = "<group>"; };
+		4D2E056B1C42B522009C0B92 /* libmtb */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libmtb; path = ../../../blocks/libmtb; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = template.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* trajectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trajectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95CFCBE1AFA244A19A93A224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* template.app */,
+				8D1107320486CEB800E47090 /* trajectory.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 		6A99CD891BE7AB7100387FFC /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				4D2E056A1C42B519009C0B92 /* libmtb */,
+				4D2E056B1C42B522009C0B92 /* libmtb */,
 			);
 			name = Blocks;
 			sourceTree = "<group>";
@@ -145,7 +145,7 @@
 			name = template;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 8D1107320486CEB800E47090 /* template.app */;
+			productReference = 8D1107320486CEB800E47090 /* trajectory.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -155,7 +155,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "template" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "trajectory" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -303,7 +303,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "template" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "trajectory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

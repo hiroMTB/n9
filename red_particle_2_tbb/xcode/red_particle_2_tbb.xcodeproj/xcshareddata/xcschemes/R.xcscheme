@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "testTbbPerlin.app"
-            BlueprintName = "testTbbPerlin"
-            ReferencedContainer = "container:testTbbPerlin.xcodeproj">
+            BuildableName = "red_particle_2_tbb.app"
+            BlueprintName = "red_particle_2_tbb"
+            ReferencedContainer = "container:red_particle_2_tbb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "testTbbPerlin.app"
-            BlueprintName = "testTbbPerlin"
-            ReferencedContainer = "container:testTbbPerlin.xcodeproj">
+            BuildableName = "red_particle_2_tbb.app"
+            BlueprintName = "red_particle_2_tbb"
+            ReferencedContainer = "container:red_particle_2_tbb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

@@ -1,4 +1,5 @@
 //#define RENDER
+#define PROXY
 
 #include "cinder/app/AppNative.h"
 #include "cinder/Rand.h"
@@ -46,8 +47,9 @@ public:
     void keyDown( KeyEvent event );
 #endif
     
-    const int win_w = 1080*4;
-    const int win_h = 1920;
+    int win_w = 1080*4;
+    int win_h = 1920;
+    
     const float fps = 25.0f;
     int frame = 0;
     
@@ -64,10 +66,18 @@ public:
 
 void cApp::setup(){
     
+#ifndef RENDER
     setFrameRate( fps );
-    setWindowSize( win_w*0.5, win_h*0.5 );
+#endif
+    
+#ifdef PROXY
+    win_w *= 0.5;
+    win_h *= 0.5;
+#endif
+
+    setWindowSize( win_w, win_h );
+    mExp.setup( win_w, win_h, 0, 1000-1, GL_RGB, mt::getRenderPath(), 0);
     setWindowPos( 0, 0 );
-    mExp.setup( win_w, win_h, 1000, GL_RGB, mt::getRenderPath(), 0);
     assetDir = mt::getAssetPath();
     
     Surface32f img = Surface32f( loadImage(assetDir/"img"/"geo"/"earth"/"earth_15_4320x1920.png") );
@@ -120,7 +130,7 @@ void cApp::setup(){
     }
 
     for( auto & vbo : vbos ){
-        vbo.init(true, true, true, GL_POINTS);
+        vbo.init(GL_POINTS, true, true  );
     }
 
     
@@ -202,9 +212,7 @@ void cApp::draw(){
         }
 
     }mExp.end();
-
-    gl::clear( ColorA(1,1,1,1) );
-    gl::color( Color::white() );
+    
     mExp.draw();
     
     gl::drawString("Frame: " + to_string(frame), Vec2f(30, 20) );

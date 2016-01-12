@@ -1,3 +1,6 @@
+#define RENDER
+#define PROXY
+
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/gl.h"
 #include "cinder/gl/Texture.h"
@@ -9,8 +12,6 @@
 #include "Exporter.h"
 #include "mtUtil.h"
 #include "VboSet.h"
-
-//#define RENDER
 
 using namespace ci;
 using namespace ci::app;
@@ -31,8 +32,8 @@ class cApp : public AppNative {
     void resize();
     
     Exporter mExp;
-    const int mW = 1080*4/4;
-    const int mH = 1920/4;
+    int mW = 1080*4;
+    int mH = 1920;
     
     VboSet vbo;
     vector<Vec3f> spd;
@@ -41,11 +42,18 @@ class cApp : public AppNative {
     Perlin mPln;
     int totalSize = mW * mH;
     Vec3f center = Vec3f(mW/2, mH/2, 0);
+    int frame = 0;
 };
 
 void cApp::setup(){
+#ifdef PROXY
+    mW *= 0.5;
+    mH *= 0.5;
+#endif
+    
+    setWindowSize( mW, mH );
+    mExp.setup( mW, mH, 0, 1000-1, GL_RGB, mt::getRenderPath(), 0);
     setWindowPos( 0, 0 );
-    setWindowSize( mW*2, mH*2 );
     mPln.setSeed(13251);
     mPln.setOctaves(4);
 
@@ -62,7 +70,7 @@ void cApp::setup(){
         }
     }
     
-    vbo.init(true, true, true, GL_POINTS);
+    vbo.init( GL_POINTS, true, true );
     
 #ifdef RENDER
     mExp.startRender();
@@ -98,8 +106,7 @@ void cApp::task( float i, float frame ){
     vbo.writePos(i, p);
     
     if( life > 400 ){
-        
-        Vec3f dir = dest[i] - p;
+                Vec3f dir = dest[i] - p;
         dir = dir.normalized();
         
         float len = spd[i].length();
@@ -112,7 +119,6 @@ void cApp::task( float i, float frame ){
 
 void cApp::update(){
 
-    float frame = getElapsedFrames();
     int loadNum = frame/400.0f * vbo.getPos().size();
     loadNum = MIN( vbo.getPos().size(), loadNum );
     
@@ -123,26 +129,41 @@ void cApp::update(){
     });
     
     vbo.updateVboPos();
+    
 }
 
 void cApp::draw(){
 
     gl::enableAlphaBlending();
     
+    mExp.beginOrtho(); {
     glPointSize(1);
     gl::clear( Colorf(0,0,0) );
     glPushMatrix();
-    glScalef(2, 2, 1);
+    vbo.draw();
+
+    glTranslatef( 0.1, 0, 0 );
     vbo.draw();
     glPopMatrix();
+
+    } mExp.end();
+    
+    mExp.draw();
     
     gl::color(0, 0, 0);
     gl::drawString( "fps : "+to_string(getAverageFps()) , Vec2i(20,20));
     gl::drawString( "frame : "+to_string(getElapsedFrames()) , Vec2i(20,40));
-
+    
+    frame++;
 }
 
 void cApp::keyDown( KeyEvent event ){
+    switch (event.getChar()) {
+        case 's':   mExp.snapShot();          break;
+        case 'S':   mExp.startRender();       break;
+        case 'T':   mExp.stopRender();        break;
+        case 'f':   frame+=100;               break;
+    }
 }
 
 void cApp::mouseDown( MouseEvent event ){

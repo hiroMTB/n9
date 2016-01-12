@@ -19,11 +19,8 @@ class cApp : public AppNative {
     void update();
     void draw();
     
-    void loadCsv( fs::path path, vector<vector<string>> & array, bool print=false );
-    void setupFromNumbers();
+    void loadCsv( fs::path path, vector<vector<float>> & array, bool print=false );
     void setupFromBlender();
-
-    int toFrame( string smpte);
     
     Exporter mExp;
     const int mW = 4320; // 1080*4
@@ -33,7 +30,6 @@ class cApp : public AppNative {
     int frame = 0;
     
     fs::path assetDir;
-    
     vector<n5::Axis> axis;
     
     vector<Vec2i> leftpos{
@@ -61,7 +57,7 @@ void cApp::setup(){
 
 void cApp::setupFromBlender(){
     
-    vector<vector<string>> csv;
+    vector<vector<float>> csv;
     loadCsv( assetDir/"csv"/"n5_timeline_v6_export_csv", csv );
 
     // fill
@@ -74,8 +70,8 @@ void cApp::setupFromBlender(){
     
     for( int i=0; i<12000; i++){
         for( int j=0; j<10; j++){
-            float xpos = fromString<float>( csv[i][j*2] );
-            int power = fromString<int>( csv[i][j*2+1] );
+            float xpos = csv[i][j*2];
+            int power = csv[i][j*2+1];
             int y = axis[j].left.y;
             axis[j].animPos[i].x = xpos;
             axis[j].animPos[i].y = y;
@@ -84,7 +80,12 @@ void cApp::setupFromBlender(){
     }
 }
 
-void cApp::loadCsv( fs::path path, vector<vector<string>> & array, bool print ){
+/*
+       csv file format
+       L1:x1, L1:laserOnoff, L2:x1, L2:laserOnoff, ..., R5:x1, R1:laserOnoff
+       each line number = frame number (25fps)
+ */
+void cApp::loadCsv( fs::path path, vector<vector<float>> & array, bool print ){
 
     ifstream file ( path.string() );
     if( !file.is_open() ){
@@ -94,12 +95,12 @@ void cApp::loadCsv( fs::path path, vector<vector<string>> & array, bool print ){
         while ( std::getline( file, line ) ){
             
             std::istringstream iss{ line };
-            std::vector<std::string> tokens;
+            std::vector<float> tokens;
             std::string cell;
-            // erase \r
-            while (std::getline(iss, cell, ',')){
-                cell.erase( std::remove(cell.begin(), cell.end(), '\r'), cell.end() );
-                tokens.push_back( cell );
+            while( std::getline(iss, cell, ',') ){
+                cell.erase( std::remove(cell.begin(), cell.end(), '\r'), cell.end() );  // erase \r
+                float cell_f = fromString<float>(cell);
+                tokens.push_back( cell_f );
             }
             
             array.push_back( tokens );
@@ -109,7 +110,7 @@ void cApp::loadCsv( fs::path path, vector<vector<string>> & array, bool print ){
     if( print ){
         for (auto & line : array){
             for (auto & val : line){
-                printf( "%6s ", val.c_str());
+                printf( "%f ", val);
             }
             printf("\n");
         }
@@ -119,6 +120,7 @@ void cApp::loadCsv( fs::path path, vector<vector<string>> & array, bool print ){
 void cApp::update(){
     for( int i=0; i<axis.size(); i++){
         axis[i].update( frame );
+        axis[i].check();
     }
 }
 
@@ -143,6 +145,7 @@ void cApp::draw(){
             glVertex3f( ax.left.x+ax.length, ax.left.y, 0);
             glEnd();
             
+            // draw point
             bool on = (ax.power>200);
             on ? glColor3f( 1,0,0 ) : glColor3f( 0.3,0.3,0.3 );
             if( on ) gl::drawStrokedCircle(ax.pos, 30);
@@ -151,10 +154,6 @@ void cApp::draw(){
             glVertex2f( ax.pos );
             glEnd();
         }
-        
-        gl::color( Colorf(1,0,0) );
-        gl::drawStrokedCircle(Vec2i(100,100), 20);
-        
     }
     mExp.end();
 
@@ -165,84 +164,5 @@ void cApp::draw(){
     frame++;
 }
 
-void cApp::setupFromNumbers(){
-    vector<vector<string>> csv;
-    loadCsv( assetDir/"csv"/"n5_timeline_v6.csv", csv, true);
-    
-    for( int i=0; i<10; i++){
-        string name = csv[0][i*2+1];
-        int y = fromString<int>( csv[2][i*2+1] );
-        int x = fromString<int>( csv[3][i*2+1] );
-        int power = fromString<int>( csv[3][i*2+2] );
-        
-        n5::Axis ax;
-        ax.name = name;
-        ax.pos.x = x;
-        ax.pos.y = y;
-        ax.left = leftpos[i];
-        printf("Axis %d : Name= %s, x=%d, y=%d, power=%d\n", i, name.c_str(), x, y, power );
-        
-        //
-        //  make animation data for position
-        //
-        vector< tuple<int, Vec2i>> posKeys;
-        for( int j=3; j<csv.size(); j++){
-            
-            string xCell = csv[j][i*2+1];
-            
-            if( xCell != "" ){
-                
-                int valX = fromString<int>( xCell );
-                
-                // calc frame
-                string smpte = csv[j][0];
-                int frame = toFrame( smpte );
-                posKeys.push_back( tuple<int, Vec2i>(frame, Vec2i( y, valX) ) );
-            }
-        }
-        
-        //
-        //  make animation data for laser power
-        //
-        ax.animPower.assign(12000, 0);
-        unsigned int pastVal = fromString<int>( csv[3][i*2+2] );
-        unsigned int prevFrame = 0;
-        for( int j=3; j<csv.size(); j++){
-            
-            string smpte = csv[j][0];
-            int frame = toFrame( smpte );
-            
-            // fill same val from past key
-            //for( prevFrame -> this frame)
-            
-            string powCell = csv[j][i*2+2];
-            unsigned int powVal = pastVal;
-            
-            if( powCell != ""){
-                powVal = fromString<int>( powCell );
-            }
-            
-            ax.animPower[frame] = powVal;
-            if(j>3+12000)
-                break;
-        }
-        
-        axis.push_back( ax );
-    }
-    
-}
-
-//
-//  (string)min:sec:frame -> (int)frame
-//
-int cApp::toFrame( string smpte){
-    std::vector<std::string> m_s_f;
-    boost::split(m_s_f, smpte, boost::is_any_of(":"));
-    int min = fromString<int>(m_s_f[0]);
-    int sec = fromString<int>(m_s_f[1]);
-    int fr = fromString<int>(m_s_f[2]);
-    int frame = min*60*25 + sec*25 + fr;
-    return frame;
-}
 
 CINDER_APP_NATIVE( cApp, RendererGl(0) )

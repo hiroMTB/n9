@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4D17EC431C416B3F0027E280"
-               BuildableName = "wave_spectrum_1 copy.app"
-               BlueprintName = "wave_spectrum_1 copy"
+               BlueprintIdentifier = "4D17EC591C4195970027E280"
+               BuildableName = "wave_graph_6_3.app"
+               BlueprintName = "wave_graph_6_3"
                ReferencedContainer = "container:wave_graph_6.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D17EC431C416B3F0027E280"
-            BuildableName = "wave_spectrum_1 copy.app"
-            BlueprintName = "wave_spectrum_1 copy"
+            BlueprintIdentifier = "4D17EC591C4195970027E280"
+            BuildableName = "wave_graph_6_3.app"
+            BlueprintName = "wave_graph_6_3"
             ReferencedContainer = "container:wave_graph_6.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,22 +51,13 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "">
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D17EC431C416B3F0027E280"
-            BuildableName = "wave_spectrum_1 copy.app"
-            BlueprintName = "wave_spectrum_1 copy"
+            BlueprintIdentifier = "4D17EC591C4195970027E280"
+            BuildableName = "wave_graph_6_3.app"
+            BlueprintName = "wave_graph_6_3"
             ReferencedContainer = "container:wave_graph_6.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -83,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4D17EC431C416B3F0027E280"
-            BuildableName = "wave_spectrum_1 copy.app"
-            BlueprintName = "wave_spectrum_1 copy"
+            BlueprintIdentifier = "4D17EC591C4195970027E280"
+            BuildableName = "wave_graph_6_3.app"
+            BlueprintName = "wave_graph_6_3"
             ReferencedContainer = "container:wave_graph_6.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

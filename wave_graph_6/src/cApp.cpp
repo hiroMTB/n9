@@ -1,4 +1,5 @@
 //#define RENDER
+//#defin AUDIO
 
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/gl.h"
@@ -46,14 +47,16 @@ class cApp : public AppNative {
     void makeLine();
     void makeLine2();
     void makeLine3();
- 
+    void makePrep();
+    void drawInfo();
+    
     bool debug = false;
     
     const unsigned int wW =  1080*4;
     const unsigned int wH =  1920;
     
     unsigned int frame = 0;
-    unsigned int dispSample = 1920*2;
+    unsigned int dispSample = 1920/2; //1920*2;
     unsigned int updateSample = 48000 / 25;
     unsigned int audioPos = 0;
     
@@ -73,10 +76,9 @@ class cApp : public AppNative {
     VboSet line;
     VboSet line2;
     VboSet line3;
-    
+    VboSet prep;
     
     AudioOutputRef	mAudioOutput;
-    
 };
 
 
@@ -84,11 +86,11 @@ void cApp::setup(){
     
     setWindowSize( wW/2, wH/2 );
     setWindowPos( 0, 0 );
-    setFrameRate(25);
+//    setFrameRate(25);
     
-    mExp.setup( wW, wH, 12000, GL_RGB, mt::getRenderPath(), 0);
+    mExp.setup( wW, wH, 0, 12000-1, GL_RGB, mt::getRenderPath(), 0, "wg6_");
     mPln.setOctaves(4);
-    mPln.setSeed(4444);
+    mPln.setSeed( mt::getSeed() );
     vector<fs::path> filePath;
     filePath.push_back( mt::getAssetPath()/"snd"/"timeline"/"n5_2mix.aif"  );
     filePath.push_back( mt::getAssetPath()/"snd"/"timeline"/"n5_6ch"/"n5_base.aif"  );
@@ -102,11 +104,13 @@ void cApp::setup(){
             vboWave.push_back( VboSet() );
     }
     
-    yscale = (float)wH * 0.6;
+    yscale = 2600; //1200; //(float)wH * 0.6;
 
     makePulse();
     
 #ifndef RENDER
+#ifdef AUDIO
+    
     auto ctx = audio::master();
     auto gain = ctx->makeNode( new audio::GainNode( 0.5f ) );
     mAudioOutput = ctx->makeNode( new AudioOutput( audio::Node::Format().channels( 2 ) ) );
@@ -114,16 +118,19 @@ void cApp::setup(){
     mAudioOutput->setBuffer( wave[0].buf.get() );
     ctx->enable();
 #endif
+#endif
     
 #ifdef RENDER
-    mExp.startRender();
+    //mExp.startRender();
 #endif
 }
 
 void cApp::update(){
     
 #ifndef RENDER
+#ifdef AUDIO
     mAudioOutput->setPosition( audioPos );
+#endif
 #endif
     
     for( auto & w : vboWave ){
@@ -132,7 +139,9 @@ void cApp::update(){
         w.resetVbo();
     }
     
+    
     bool remake = false;
+
     int vboIndex = 0;
     float pastd = 0;
     for ( int w=0; w<wave.size(); w++ ) {
@@ -143,14 +152,20 @@ void cApp::update(){
 
             const float * ch = wave[w].buf->getChannel( c );
             
-            for ( int s=0; s<dispSample; s++) {
+            //for ( int s=0; s<dispSample; s++) {
+            int s = 0;
+            while( pastx < waveLength ){
+                
+                if( (audioPos+s) > 8*60*25*48000 )
+                    break;
+                
                 float d = ch[audioPos + s];
                 float red   = pulse.getCol()[s].r;
                 float green = pulse.getCol()[s].g;
                 float blue  = pulse.getCol()[s].b;
                 float a  = pulse.getCol()[s].a;
 
-                red = red*10.0f;
+                red = red*1.4f;
 
                 // lowpass
                 if( green > 0.5){
@@ -168,24 +183,30 @@ void cApp::update(){
                 float minus = (d<0)?-1.0f:1.0f;
                 
                 if( red*green*blue>2.9){
-                    d = (1.0f-abs(d));
-                    d *= (-minus);
+                    d = 1;
                 }
                 
                 pastd = d;
 
                 float offset = pulse.getPos()[s].y;
 
-                float gap = 384/2;
-                if( blue < -0.66){
-                    offset -= gap*(w*2+c);
-                }else if( 0.66<blue){
-                    offset += gap*(w*2+c);
+                float gap = 384/8;
+                if( 0.5<a && a< 0.9){
+                        switch( vboIndex ){
+                            case 0 : d = 1; break;
+                            case 1 : offset += gap*1; d=abs(d); break;
+                            case 2 : offset += gap*2; d=1.0-abs(d);     break;
+                            case 3 : offset += gap*3; d=d*d;    break;
+                            case 4 : offset -= gap*1; break;
+                            case 5 : offset -= gap*2; break;
+                            case 6 : offset -= gap*3; break;
+                            case 7 : d = -1; break;
+                        }
                 }
                 
                 float inout = 1;
-                
-                float finalx = s * xscale * a*1.5;
+                float aa = lmap(a, 0.0f, 1.0f, 0.5f, 12.0f);
+                float finalx = pastx + xscale*(aa);
                 pastx = finalx;
                 
                 if (finalx>waveLength) {
@@ -216,13 +237,16 @@ void cApp::update(){
                     }else if( finaly>lim){
                         finaly = lim;
                         remake = true;
+
                     }
                 }
                 
-                if( abs(d) > 0.0075 ){
+                if( abs(d) > 0.01 ){
                     vboWave[vboIndex].addPos( Vec3f( finalx, finaly, 0) );
                     vboWave[vboIndex].addCol( ColorAf(1,1,1,0.3) );
                 }
+                s++;
+
             }
             
             vboWave[vboIndex].init( GL_POINTS );
@@ -234,8 +258,11 @@ void cApp::update(){
     makeLine2();
     makeLine3();
     
-    if( remake )
+    if( remake ){
         makePulse();
+    }
+    
+    makePrep();
 }
 
 void cApp::makePulse(){
@@ -243,7 +270,7 @@ void cApp::makePulse(){
     pulse.resetVbo();
     
     xscale = (float)waveLength / (dispSample-1);
-    float cnt = 0;
+    float cnt = 10;
     float y = 0;
     float red = 0;
     float green = 0;
@@ -254,7 +281,7 @@ void cApp::makePulse(){
     
     for (int i=0; i<dispSample; i++) {
 
-        int cntMax = dispSample*randFloat(0.002, 0.2);
+        int cntMax = dispSample*randFloat(0.01, 0.4);
 
         if( cnt >cntMax ){
             if( mPln.noise( 0.2+frame*0.01, i*0.2 )>0.15 ){
@@ -272,20 +299,62 @@ void cApp::makePulse(){
                 red = randFloat();
                 green = randFloat();
                 blue = randFloat();
-                alpha = randInt(1, 13); // 1~10
+                alpha = randInt(1, 8);
                 alpha = pow(2, alpha);
-                alpha *= 0.02f;   // 0.1 ~ 0.7
+                alpha /= pow(2,7);
             }
         }else{
-            cnt++;
+            int range = dispSample*0.1;
+            if( i<range || i<dispSample-range){
+                cnt+=5;
+            }else{
+                cnt++;
+            }
         }
         
         y = (int)(y/0.1) * 0.1;
         
-        pulse.addPos( Vec3f(i*xscale, y*wH*0.45, 0) );
-        pulse.addCol( ColorAf(red,green,blue,1));
+        float xpos = i*xscale;
+        //if( vboWave[0].getPos().size() > i ){
+        //    xpos = vboWave[0].getPos()[i].x;
+        //}
+        pulse.addPos( Vec3f(xpos, y*wH*0.45, 0) );
+        pulse.addCol( ColorAf(red,green,blue,alpha));
     }
     pulse.init(GL_POINTS);
+}
+
+void cApp::makePrep(){
+    
+    prep.resetVbo();
+    
+    for( int i=0; i<vboWave.size(); i+=2){
+        for( int j=0; j<vboWave[i].getPos().size(); j++){
+            const Vec3f & p1 = pulse.getPos()[j];
+            const Vec3f & p2 = vboWave[i].getPos()[j];
+    
+            float x = p2.x;
+            float y = p1.y;
+            float area = 360;
+            float inout = 1;
+            if( x<area ){
+                inout = x/area;
+                inout = pow(inout, 3) * 0.1;
+                y *= inout;
+            }else if( (waveLength-area)<x ){
+                inout = (waveLength-x)/area ;
+                inout = pow(inout, 3) * 0.1;
+                y *= inout;
+            }
+
+            prep.addPos( Vec3f( x, y, 0) );
+            prep.addPos( p2 );
+            prep.addCol( ColorAf(1,1,1,0.15) );
+            prep.addCol( ColorAf(1,1,1,0.15) );
+        }
+    }
+    
+    prep.init( GL_LINES );
 }
 
 void cApp::makeLine(){
@@ -375,7 +444,7 @@ void cApp::makeLine3(){
     line3.resetVbo();
     
     int num_line = 4;
-    int num_dupl = 3;
+    int num_dupl = 4;
     int vertex_per_point = num_line * num_dupl * 2;
     
     vector<Vec3f> pos;
@@ -401,44 +470,61 @@ void cApp::makeLine3(){
     
     line3.init( GL_LINES );
 }
+
+bool ortho = true;
+
 void cApp::draw(){
     
     gl::enableAlphaBlending();
-    glPointSize(2);
+    glPointSize(1);
     glLineWidth(1);
 
-    mExp.beginOrtho(); {
+    ortho ? mExp.beginOrtho() : mExp.beginPersp();
+    {
         gl::pushMatrices(); {
             gl::clear( Color(0,0,0) );
             
             glTranslatef( L3.x, wH/2, 0);
             
             if( debug ) pulse.draw();
-            
+
+            prep.draw();
             line.draw();
             line2.draw();
             line3.draw();
         
             for( int i=0; i<vboWave.size(); i++ ){
                 vboWave[i].draw();
+
+                const vector<Vec3f> & v = vboWave[i].getPos();
+                for( int k=1; k<=3; k++ ){
+                    for( int j=0; j<v.size(); j++ ){
+                        Vec3f vv = v[j] + mPln.dfBm(frame*0.1+k*0.33, 0.1+i*0.001, 0.1*k+j*0.1)*0.2;
+                        vboWave[i].writePos(j, vv);
+                    }
+                    vboWave[i].draw();
+                }
             }
         } gl::popMatrices();
 
         gl::pushMatrices();{
-          
             gl::color(1, 0, 0);
             glPointSize(5);
             glBegin(GL_POINTS);
             glVertex2f(L3.x, L3.y);
             glVertex2f(R3.x, R3.y);
             glEnd();
-            
         } gl::popMatrices();
-
     } mExp.end();
 
     mExp.draw();
-    
+    drawInfo();
+
+    frame++;
+    audioPos = frame*updateSample;
+}
+
+void cApp::drawInfo(){
     gl::pushMatrices();
     stringstream ss;
     Vec2f tp(10,20);
@@ -450,9 +536,6 @@ void cApp::draw(){
     gl::drawString( "updateSample  : " + to_string(updateSample), tp);  tp.y+=30;
     gl::drawString( "y scale       : " + to_string(yscale), tp);  tp.y+=30;
     gl::popMatrices();
-    
-    frame++;
-    audioPos = frame*updateSample;
 }
 
 void cApp::keyDown(KeyEvent e){
@@ -469,8 +552,9 @@ void cApp::keyDown(KeyEvent e){
     switch (e.getChar()) {
         case 'd': debug = !debug; break;
         case 'p': makePulse(); break;
-        case 'S': mExp.startRender(); break;
-        case 'f': frame += 25*30; break;
+        case 'S': mExp.startRenderFrom( frame ); break;
+        case 'f': frame += 25*10; break;
+        case 'o': ortho = !ortho; break;
     }
 
     if( reset) makePulse();

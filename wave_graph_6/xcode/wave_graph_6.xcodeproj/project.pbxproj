@@ -71,9 +71,9 @@
 		444894A18C4C457A91266DCA /* cApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cApp.cpp; path = ../src/cApp.cpp; sourceTree = "<group>"; };
 		4D17EC401C40F30A0027E280 /* all.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = all.xcconfig; path = ../../config/all.xcconfig; sourceTree = "<group>"; };
 		4D17EC411C40F4B80027E280 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../src/Wave.h; sourceTree = "<group>"; };
-		4D17EC571C416B3F0027E280 /* wave_spectrum_1 copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wave_spectrum_1 copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D17EC571C416B3F0027E280 /* wave_graph_6_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave_graph_6_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D17EC581C416B3F0027E280 /* wave_spectrum_1 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "wave_spectrum_1 copy-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n5/_node/wave_graph_6/xcode/wave_spectrum_1 copy-Info.plist"; sourceTree = "<absolute>"; };
-		4D17EC6D1C4195970027E280 /* wave_spectrum_1 copy 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wave_spectrum_1 copy 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D17EC6D1C4195970027E280 /* wave_graph_6_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave_graph_6_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D17EC6E1C4195970027E280 /* wave_spectrum_1 copy 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "wave_spectrum_1 copy 2-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n5/_node/wave_graph_6/xcode/wave_spectrum_1 copy 2-Info.plist"; sourceTree = "<absolute>"; };
 		4D17EC701C41AEF30027E280 /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
 		4D17EC721C41BE3A0027E280 /* TbbNpFinder1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TbbNpFinder1.h; path = ../src/TbbNpFinder1.h; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* wave_graph_6.app */,
-				4D17EC571C416B3F0027E280 /* wave_spectrum_1 copy.app */,
-				4D17EC6D1C4195970027E280 /* wave_spectrum_1 copy 2.app */,
+				4D17EC571C416B3F0027E280 /* wave_graph_6_2.app */,
+				4D17EC6D1C4195970027E280 /* wave_graph_6_3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,9 +268,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4D17EC431C416B3F0027E280 /* wave_spectrum_1 copy */ = {
+		4D17EC431C416B3F0027E280 /* wave_graph_6_2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D17EC541C416B3F0027E280 /* Build configuration list for PBXNativeTarget "wave_spectrum_1 copy" */;
+			buildConfigurationList = 4D17EC541C416B3F0027E280 /* Build configuration list for PBXNativeTarget "wave_graph_6_2" */;
 			buildPhases = (
 				4D17EC441C416B3F0027E280 /* Resources */,
 				4D17EC451C416B3F0027E280 /* Sources */,
@@ -281,15 +281,15 @@
 			);
 			dependencies = (
 			);
-			name = "wave_spectrum_1 copy";
+			name = wave_graph_6_2;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 4D17EC571C416B3F0027E280 /* wave_spectrum_1 copy.app */;
+			productReference = 4D17EC571C416B3F0027E280 /* wave_graph_6_2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4D17EC591C4195970027E280 /* wave_spectrum_1 copy 2 */ = {
+		4D17EC591C4195970027E280 /* wave_graph_6_3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D17EC6A1C4195970027E280 /* Build configuration list for PBXNativeTarget "wave_spectrum_1 copy 2" */;
+			buildConfigurationList = 4D17EC6A1C4195970027E280 /* Build configuration list for PBXNativeTarget "wave_graph_6_3" */;
 			buildPhases = (
 				4D17EC5A1C4195970027E280 /* Resources */,
 				4D17EC5B1C4195970027E280 /* Sources */,
@@ -301,15 +301,15 @@
 			);
 			dependencies = (
 			);
-			name = "wave_spectrum_1 copy 2";
+			name = wave_graph_6_3;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 4D17EC6D1C4195970027E280 /* wave_spectrum_1 copy 2.app */;
+			productReference = 4D17EC6D1C4195970027E280 /* wave_graph_6_3.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8D1107260486CEB800E47090 /* wave_spectrum_1 */ = {
+		8D1107260486CEB800E47090 /* wave_graph_6 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_spectrum_1" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_graph_6" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -320,7 +320,7 @@
 			);
 			dependencies = (
 			);
-			name = wave_spectrum_1;
+			name = wave_graph_6;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
 			productReference = 8D1107320486CEB800E47090 /* wave_graph_6.app */;
@@ -348,9 +348,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* wave_spectrum_1 */,
-				4D17EC431C416B3F0027E280 /* wave_spectrum_1 copy */,
-				4D17EC591C4195970027E280 /* wave_spectrum_1 copy 2 */,
+				8D1107260486CEB800E47090 /* wave_graph_6 */,
+				4D17EC431C416B3F0027E280 /* wave_graph_6_2 */,
+				4D17EC591C4195970027E280 /* wave_graph_6_3 */,
 			);
 		};
 /* End PBXProject section */
@@ -547,7 +547,7 @@
 				GCC_FAST_MATH = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -663,7 +663,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D17EC541C416B3F0027E280 /* Build configuration list for PBXNativeTarget "wave_spectrum_1 copy" */ = {
+		4D17EC541C416B3F0027E280 /* Build configuration list for PBXNativeTarget "wave_graph_6_2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D17EC551C416B3F0027E280 /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D17EC6A1C4195970027E280 /* Build configuration list for PBXNativeTarget "wave_spectrum_1 copy 2" */ = {
+		4D17EC6A1C4195970027E280 /* Build configuration list for PBXNativeTarget "wave_graph_6_3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D17EC6B1C4195970027E280 /* Debug */,
@@ -681,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_spectrum_1" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_graph_6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,

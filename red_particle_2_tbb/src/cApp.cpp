@@ -1,5 +1,6 @@
-#define RENDER
+//#define RENDER
 //#define PROXY
+#define CALC_3D
 
 #include "cinder/app/AppNative.h"
 #include "cinder/gl/gl.h"
@@ -39,19 +40,14 @@ class cApp : public AppNative {
     VboSet vbo;
     vector<Vec3f> spd;
     vector<Vec3f> dest;
-    vector<Colorf> noise;
-
-
     vector<Perlin> mPln;
-
-    int totalSize = mW * mH;
-    double frame = 0;
-    
     vector<Vec2i> absPos = { Vec2i(1640,192), Vec2i(2680,192), Vec2i(1640,1728), Vec2i(2680,1728) };
-    
-    MayaCamUI camUi;
-    
+
+    float dispScale = 0.5;
+    double frame    = 0;
     Vec2f noiseCenter;
+    
+    fs::path assetDir = mt::getAssetPath();
 };
 
 void cApp::setup(){
@@ -63,47 +59,45 @@ void cApp::setup(){
 #else
     mW = 1080*4;
     mH = 1920;
-    setWindowSize( mW/2, mH/2 );
+    setWindowSize( mW*dispScale, mH*dispScale );
 #endif
     setWindowPos( 0, 0 );
     mExp.setup( mW, mH, 0, 1000-1, GL_RGB, mt::getRenderPath(), 0);
     
     mPln.push_back( Perlin(4, 132051) );
 
-    noiseCenter.x = mW * 0.8;
-    noiseCenter.y = mH * 0.45;
+    noiseCenter.x = mW/2;
+    noiseCenter.y = mH/2;
+    noiseCenter.x = 1802 / dispScale;
+    noiseCenter.y =  347 / dispScale;
     
     int cnt = 0;
-    for (int y=0; y<mH; y+=6) {
-        for (int x=0; x<mW; x+=6) {
+    
+    Surface img = Surface( loadImage( assetDir/"img"/"redCloud"/"redCloud01.png" ));
+    int iW = img.getWidth();
+    int iH = img.getHeight();
+    
+    for (int y=0; y<mH; y+=4) {
+        for (int x=0; x<mW; x+=4) {
 
-            Vec3d p = mPln[0].dfBm(x*0.0001+randFloat(), y*0.0001+randFloat(), cnt*0.01);
-            p.x += 1.0;
-            p.y += 1.0;
-            p.x *= 0.5;
-            p.y *= 0.5;
+            Vec3f p(x, y, 0 );
+            p.x += noiseCenter.x-mW/2;
+            p.y += noiseCenter.y-mH/2;
+            
+            vbo.addPos( p );
 
-            p.x *= mW;
-            p.y *= mH;
-
-            p.x += noiseCenter.x/2;
-            p.y += noiseCenter.y/2;
-            p.z = 0;
-            vbo.addPos( p + Vec3f( randFloat(), randFloat(), 0)*100.0 );
-            vbo.addCol( ColorAf(1,0,0,1) );
-
-            Vec2d vel = mPln[0].dfBm(x*0.005, y*0.005 );
-            spd.push_back( Vec3f(vel.x, vel.y, 0) );
+            Vec3f vel = mPln[0].dfBm(x*0.005, y*0.005, 0 );
+            spd.push_back( vel );
 
             cnt++;
             
-            noise.push_back(Colorf(0,0,1));
+            float n = mPln[0].noise( x/dispScale, y/dispScale, cnt*0.1);
+            float a = n < 0.5 ? 1 : 0;
+            vbo.addCol( ColorAf(1,0,0,a) );
+
         }
     }
     vbo.init( GL_POINTS, true, true );
-
-    CameraPersp cam(mW, mH, 60, 1, 10000);
-    camUi.setCurrentCam( cam );
     
 #ifdef RENDER
     mExp.startRender();
@@ -140,33 +134,33 @@ void cApp::task( float i  ){
     
     Vec3f p = vbo.getPos()[i];
     Vec3f n = mPln[0].dfBm( ox+p.x*0.001*resRate, oy+p.y*0.001*resRate, 2.1+frame*0.00001 );
-
-    noise[i] = Colorf( n.x*0.5+1, n.y*0.5+1, n.z*0.5+1 );
     
     double rate = (frame+1)/300.0 + 0.2;
     if(rate>1){
-        rate = rate*rate*rate*rate*rate;
-        rate = MIN(rate, 1000);
+        rate = pow( rate, 3);
+        rate = MIN( rate, 1000);
     }
     
     float oRate = MIN(rate, 1.0);
 
     spd[i].x = spd[i].x * (1.0-oRate) + n.x*rate;
     spd[i].y = spd[i].y * (1.0-oRate) + n.y*rate;
-//    spd[i].z = spd[i].z * (1.0-oRate) + n.z*rate;
     
     p.x += spd[i].x;
     p.y += spd[i].y;
-//    p.z += spd[i].z;
-    
+   
+#ifdef CALC_3D
+    spd[i].z = spd[i].z * (1.0-oRate) + n.z*rate;
+    p.z += spd[i].z;
+#endif
+
     vbo.writePos(i, p);
 
 }
 
 void cApp::draw(){
     
-    bOrtho ? mExp.beginOrtho() : mExp.beginPersp(60, 0.1, 100000); {
-    //bOrtho ? mExp.beginOrtho() : mExp.begin( camUi.getCamera() ); {
+    bOrtho ? mExp.beginOrtho() : mExp.beginPersp(58, 1, 100000); {
 
         gl::enableAlphaBlending();
         
@@ -197,16 +191,14 @@ void cApp::keyDown( KeyEvent event ){
         case 'f':   frame+=100;               break;
         case 'o':   bOrtho = !bOrtho;         break;
         case 'n':   bShowNoise = !bShowNoise; break;
-
     }
 }
 
 void cApp::mouseDown( MouseEvent event ){
-    camUi.mouseDown( event.getPos() );
+    cout << event.getPos() << endl;
 }
 
 void cApp::mouseDrag( MouseEvent event ){
-    camUi.mouseDrag( event.getPos(), event.isLeftDown(), event.isMiddleDown(), event.isRightDown() );
 }
 
 

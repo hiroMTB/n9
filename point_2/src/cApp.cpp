@@ -44,7 +44,7 @@ void cApp::setup(){
     setFrameRate( 25 );
     setWindowSize( win_w*0.5, win_h*0.5 );
     setWindowPos( 0, 0 );
-    mExp.setup( win_w, win_h, 3000, GL_RGB, mt::getRenderPath(), 0);
+    mExp.setup( win_w, win_h, 0, 3000, GL_RGB, mt::getRenderPath(), 0);
     
     assetDir = mt::getAssetPath();
     mt::loadColorSample("img/colorSample/n5pickCol_2.png", mColorSample1 );

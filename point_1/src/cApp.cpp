@@ -60,6 +60,12 @@ public:
 
 void cApp::setup(){
     
+    int sub = 0;
+    for( int i=0; i<=6; i++){
+        
+        sub+= pow(2, i);
+    }
+    
     int w = win_w*master_scale;
     int h = win_h*master_scale;
     
@@ -67,9 +73,9 @@ void cApp::setup(){
     setWindowSize( w*0.5, h*0.5 );
     setWindowPos( 0, 0 );
     renderDir = mt::getRenderPath();
-    mExp.setup( w, h, 3000, GL_RGB, renderDir/to_string(simDirNum), 0);
+    mExp.setup( w, h, 0, 3000, GL_RGB, renderDir/to_string(simDirNum), 0);
     
-    if( bDrawLine ) mExp2.setup( w, h, 3000, GL_RGB, mt::getRenderPath()/"line"/to_string(simDirNum), 0);
+    if( bDrawLine ) mExp2.setup( w, h, 0, 3000, GL_RGB, mt::getRenderPath()/"line"/to_string(simDirNum), 0);
     
     CameraPersp top( w, h, 60, 1, 1000000 );
     top.lookAt( Vec3f(0,0, 1300), Vec3f(0,0,0) );
@@ -154,7 +160,7 @@ void cApp::update(){
             int w = win_w*master_scale;
             int h = win_h*master_scale;
             mExp.clear();
-            mExp.setup( w, h, 3000, GL_RGB, renderDir/to_string(simDirNum), 0);
+            mExp.setup( w, h, 0, 3000, GL_RGB, renderDir/to_string(simDirNum), 0);
 #ifdef RENDER
             mExp.startRender();
 #endif

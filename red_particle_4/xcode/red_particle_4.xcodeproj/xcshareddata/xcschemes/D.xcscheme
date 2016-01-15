@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "red_particle_3.app"
+            BuildableName = "red_particle_4.app"
             BlueprintName = "red_particle_4"
             ReferencedContainer = "container:red_particle_4.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "red_particle_3.app"
+            BuildableName = "red_particle_4.app"
             BlueprintName = "red_particle_4"
             ReferencedContainer = "container:red_particle_4.xcodeproj">
          </BuildableReference>

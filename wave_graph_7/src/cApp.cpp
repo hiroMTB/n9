@@ -59,8 +59,10 @@ class cApp : public AppNative {
     const unsigned int wW =  1080*4;
     const unsigned int wH =  1920;
     
-    unsigned int frame = 0;
-    unsigned int dispSample = 1920/2; //1920*2;
+    unsigned int frame = 6845;
+    unsigned int endFrame = 7095;
+    
+    unsigned int dispSample = 1920*2;
     unsigned int updateSample = 48000 / 25;
     unsigned int audioPos = 0;
     
@@ -96,7 +98,7 @@ class cApp : public AppNative {
 void cApp::setupFromBlender(){
     
     vector<vector<float>> csv;
-    loadCsv( assetDir/"csv"/"n5_timeline_v6_export_csv", csv );
+    loadCsv( assetDir/"csv"/"n5_timeline_v9.1_allframe.csv", csv );
     
     // fill
     for( int i=0; i<10; i++){
@@ -605,8 +607,16 @@ void cApp::draw(){
     } mExp.end();
 
     mExp.draw();
+    
+    gl::pushMatrices();
+    {
+        gl::scale(0.5, 0.5);
+        drawAxis();
+    }
+    gl::popMatrices();
+
+
     drawInfo();
-    drawAxis();
 
     frame++;
     audioPos = frame*updateSample;

@@ -87,7 +87,7 @@ void cApp::setup(){
     int nFrame = m2mix.buf->getNumFrames();
     totalMovFrame = nFrame / mFpb;
     
-    mExp.setup( win_w, win_h, totalMovFrame, GL_RGB, mt::getRenderPath(), 0 );
+    mExp.setup( win_w, win_h, 0, totalMovFrame, GL_RGB, mt::getRenderPath(), 0 );
     
 #ifdef RENDER
     mExp.startRender();

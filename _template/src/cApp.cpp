@@ -32,7 +32,7 @@ class cApp : public AppNative {
 void cApp::setup(){
     setWindowPos( 0, 0 );
     setWindowSize( mW*mScale, mH*mScale );
-    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, mt::getRenderPath(), 0, true);
+    mExp.setup( mW*mScale, mH*mScale, 0, 2999, GL_RGB, mt::getRenderPath() );
     
 #ifdef RENDER
     mExp.startRender();

@@ -49,7 +49,7 @@ void cApp::setup(){
     
     setWindowPos( 0, 0 );
     setWindowSize( mW*0.5, mH*0.5 );
-    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, mt::getRenderPath(), 0, true);
+    mExp.setup( mW*mScale, mH*mScale,0, 2999, GL_RGB, mt::getRenderPath() );
     
     mPln.setOctaves(4);
     mPln.setSeed(1332);

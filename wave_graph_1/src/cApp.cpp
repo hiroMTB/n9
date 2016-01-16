@@ -63,7 +63,7 @@ void cApp::setup(){
     mPln.setOctaves(4);
     mPln.setSeed(444);
     
-    mExp.setup( win_w, win_h, 1000, GL_RGB, mt::getRenderPath(), 0 );
+    mExp.setup( win_w, win_h, 0, 1000, GL_RGB, mt::getRenderPath(), 0 );
     mt::loadColorSample("img/geo/Mx80_2_org.jpg", mColorSample1 );
     
     mWaves.assign( 1, Wave() );

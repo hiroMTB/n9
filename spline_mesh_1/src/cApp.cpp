@@ -61,7 +61,7 @@ void cApp::setup(){
     
     setWindowPos( 0, 0 );
     setWindowSize( mWin_w*winScale, mWin_h*winScale);
-    mExp.setup( mWin_w, mWin_h, 3001, GL_RGB, mt::getRenderPath(), 0 );
+    mExp.setup( mWin_w, mWin_h, 0, 3001, GL_RGB, mt::getRenderPath(), 0 );
 
     fs::path assetDir = mt::getAssetPath();
     
@@ -101,7 +101,7 @@ void cApp::setup(){
         for( int j=0; j<surH; j++){
             
             float x = i - surW/2;
-            float y = j - surH/2;
+            //float y = j - surH/2;
             ColorAf col = sur1.getPixel(Vec2i(j, i) );
             float lum = (col.r+col.g+col.b) * 0.3333;
             float z = lum;
@@ -244,7 +244,7 @@ void cApp::drawSpline(){
 
 void cApp::draw(){
     
-    int frame = getElapsedFrames();
+   // int frame = getElapsedFrames();
     
     gl::clear();
     gl::enableAlphaBlending();

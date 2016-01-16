@@ -115,7 +115,7 @@ namespace TbbOp{
 void cApp::setup(){
     setWindowPos( 0, 0 );
     setWindowSize( mW*mScale, mH*mScale );
-    mExp.setup( mW, mH, 2999, GL_RGB, mt::getRenderPath(), 0 );
+    mExp.setup( mW, mH, 0, 2999, GL_RGB, mt::getRenderPath(), 0 );
     surface = Surface( mW, mH, false);
 
     assetDir = mt::getAssetPath();

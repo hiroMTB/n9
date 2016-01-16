@@ -66,9 +66,9 @@ void cApp::setup(){
     {
         // Visual Setup
         mShader = gl::GlslProg::create( loadResource( RES_PASSTHRU_VERT ), loadResource( RES_BLUR_FRAG ) );
-        mBlurCanvas.setup( getWindowWidth(), getWindowHeight(), 1, GL_RGBA8, "/fake", 0);
-        mExp.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, mt::getRenderPath( "line" ), 0);
-        mExp2.setup( getWindowWidth(), getWindowHeight(), 3000, GL_RGB, mt::getRenderPath( "point" ), 0);
+        mBlurCanvas.setup( getWindowWidth(), getWindowHeight(), 0, 1, GL_RGBA8, "/fake", 0);
+        mExp.setup( getWindowWidth(), getWindowHeight(), 0, 3000, GL_RGB, mt::getRenderPath( "line" ), 0);
+        mExp2.setup( getWindowWidth(), getWindowHeight(), 0, 3000, GL_RGB, mt::getRenderPath( "point" ), 0);
         
         mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
         mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );

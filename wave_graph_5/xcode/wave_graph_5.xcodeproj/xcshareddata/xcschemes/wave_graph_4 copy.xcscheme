@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A5F44801C2B482D004915DB"
-               BuildableName = "point_0 copy.app"
-               BlueprintName = "point_0 copy"
-               ReferencedContainer = "container:point_0.xcodeproj">
+               BlueprintIdentifier = "6A25F1161BFB417B00C6DC83"
+               BuildableName = "wave_graph_5.app"
+               BlueprintName = "wave_graph_5 copy"
+               ReferencedContainer = "container:wave_graph_5.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,17 +32,17 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "point_0.app"
-            BlueprintName = "point_0"
-            ReferencedContainer = "container:point_0.xcodeproj">
+            BlueprintIdentifier = "6A25F1161BFB417B00C6DC83"
+            BuildableName = "wave_graph_5.app"
+            BlueprintName = "wave_graph_5 copy"
+            ReferencedContainer = "container:wave_graph_5.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "point_0.app"
-            BlueprintName = "point_0"
-            ReferencedContainer = "container:point_0.xcodeproj">
+            BlueprintIdentifier = "6A25F1161BFB417B00C6DC83"
+            BuildableName = "wave_graph_5.app"
+            BlueprintName = "wave_graph_5 copy"
+            ReferencedContainer = "container:wave_graph_5.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A5F44801C2B482D004915DB"
-            BuildableName = "point_0 copy.app"
-            BlueprintName = "point_0 copy"
-            ReferencedContainer = "container:point_0.xcodeproj">
+            BlueprintIdentifier = "6A25F1161BFB417B00C6DC83"
+            BuildableName = "wave_graph_5.app"
+            BlueprintName = "wave_graph_5 copy"
+            ReferencedContainer = "container:wave_graph_5.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

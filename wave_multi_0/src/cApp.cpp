@@ -75,7 +75,7 @@ void cApp::setup(){
     
     {
         // Visual Setup
-        mExp.setup( win_w, win_h, 3000, GL_RGB, mt::getRenderPath(), 0 );
+        mExp.setup( win_w, win_h, 0, 3000, GL_RGB, mt::getRenderPath(), 0 );
         mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample1 );
         mt::loadColorSample("img/Mx80_2_org_B.jpg", mColorSample2 );
     }

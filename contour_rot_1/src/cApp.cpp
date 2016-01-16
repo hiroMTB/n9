@@ -55,7 +55,7 @@ void cApp::setup(){
     
     setWindowPos( 0, 0 );
     setWindowSize( mWin_w*0.5, mWin_h*0.5 );
-    mExp.setup( mWin_w, mWin_h, 3001, GL_RGB, mt::getRenderPath(), 0 );
+    mExp.setup( mWin_w, mWin_h, 0, 3001, GL_RGB, mt::getRenderPath(), 0 );
 
     fs::path assetDir = mt::getAssetPath();
     

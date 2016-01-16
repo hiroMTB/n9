@@ -76,7 +76,7 @@ void cApp::setup(){
     setFrameRate( 25 );
     setWindowPos( 0, 0 );
     setWindowSize( mWin_w*winScale, mWin_h*winScale);
-    mExp.setup( mWin_w, mWin_h, 500, GL_RGB, mt::getRenderPath(), 0 );
+    mExp.setup( mWin_w, mWin_h, 0, 500, GL_RGB, mt::getRenderPath(), 0 );
     
     CameraPersp cam1( mWin_w, mWin_h, 30, 1.0f, 10000.0f );
     //cam1.lookAt( Vec3f(0,0,2200), Vec3f(0,0,0) );

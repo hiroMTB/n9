@@ -116,9 +116,9 @@ void cApp::add_particle(){
             pt.life = randInt(100, 200);
             pt.id = ptclCount++;
             pt.mass = randFloat(0.5, 1.1);
-            pt.pos.set( absPos[0].x, absPos[0].y, 0);
+            pt.pos.set( 0, 0, 0);
             
-            //        Vec3f v( randFloat(-1,1),randFloat(-1,1),randFloat(-1,1) );
+            // Vec3f v( randFloat(-1,1),randFloat(-1,1),randFloat(-1,1) );
             float noiseScale = 0.002;
             Vec3f v = mPln[np].dfBm( pt.id*noiseScale, i+noiseScale, 10+pt.mass+0.02 );
             pt.vel = v*30;
@@ -172,10 +172,10 @@ void cApp::update_particle(){
                         // Perlin base
                         //
                         Vec2f p2d(p.x, p.z);
-                        float dist = (p2d-absPos[0]).length();
+                        float dist = p2d.length();
                         //float noiseScale = lmap(dist, 0.0f, 4320.0f*0.1f, 0.02f, 0.002f);
                         
-                        float noiseScale = 0.002 - dist*0.00001;
+                        float noiseScale = 0.002;//- dist*0.00001;
                         
                         float amp = 15;
                         
@@ -183,7 +183,7 @@ void cApp::update_particle(){
                         float oy = 10;
                         float oz = 10;
                         
-                        Vec3f n = mPln[np].dfBm( ox+p.x*noiseScale, oy+p.y*noiseScale, oz+frame*(0.003 - dist*0.000001) );
+                        Vec3f n = mPln[np].dfBm( ox+p.x*noiseScale, oy+p.y*noiseScale, oz+frame*(0.002 - dist*0.000001) );
                         Vec2f n2d(n.x, n.y);
                         if( n2d.length()<0.4)
                             n = n.safeNormalized()*0.4;
@@ -244,7 +244,7 @@ void cApp::draw(){
         glPointSize(1);
         gl::clear( Colorf(0,0,0) );
         gl::pushMatrices();
-//        glTranslatef( absPos[0].x, absPos[0].y, 0);
+        glTranslatef( absPos[0].x, absPos[0].y, 0);
         
         for( auto & vbo : vbos ){
             vbo.draw();

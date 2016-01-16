@@ -73,7 +73,7 @@
 		4D17EC411C40F4B80027E280 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wave.h; path = ../src/Wave.h; sourceTree = "<group>"; };
 		4D17EC571C416B3F0027E280 /* wave_graph_7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave_graph_7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D17EC581C416B3F0027E280 /* wave_spectrum_1 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "wave_spectrum_1 copy-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n5/_node/wave_graph_6/xcode/wave_spectrum_1 copy-Info.plist"; sourceTree = "<absolute>"; };
-		4D17EC6D1C4195970027E280 /* wave_graph_6_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave_graph_6_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D17EC6D1C4195970027E280 /* wave_graph_7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wave_graph_7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D17EC6E1C4195970027E280 /* wave_spectrum_1 copy 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "wave_spectrum_1 copy 2-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n5/_node/wave_graph_6/xcode/wave_spectrum_1 copy 2-Info.plist"; sourceTree = "<absolute>"; };
 		4D17EC701C41AEF30027E280 /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
 		4D17EC721C41BE3A0027E280 /* TbbNpFinder1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TbbNpFinder1.h; path = ../src/TbbNpFinder1.h; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 			children = (
 				8D1107320486CEB800E47090 /* wave_graph_7.app */,
 				4D17EC571C416B3F0027E280 /* wave_graph_7.app */,
-				4D17EC6D1C4195970027E280 /* wave_graph_6_3.app */,
+				4D17EC6D1C4195970027E280 /* wave_graph_7.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			name = wave_graph_7_3;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 4D17EC6D1C4195970027E280 /* wave_graph_6_3.app */;
+			productReference = 4D17EC6D1C4195970027E280 /* wave_graph_7.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8D1107260486CEB800E47090 /* wave_graph_7 */ = {

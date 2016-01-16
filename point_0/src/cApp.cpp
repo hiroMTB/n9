@@ -1,4 +1,4 @@
-//#define RENDER
+#define RENDER
 
 #include "cinder/app/AppNative.h"
 #include "cinder/MayaCamUI.h"
@@ -30,15 +30,18 @@ public:
     void mouseDrag( MouseEvent event );
 #endif
     
-    const float master_scale = 1;
-    const int win_w = 1080*2;
+    bool bOrtho = false;
+     const int win_w = 1080*4;
     const int win_h = 1920;
     const float fps = 25.0f;
-    int frame = 0;
+    int frame = 1000;
     int currentParam = 12;
     
     MayaCamUI camUi;
-    Exporter mExp;
+    CameraPersp camp;
+    CameraOrtho camo;
+    
+    Exporter mExp, mExp2;
     DataGroup mDg;
     fs::path assetDir;
     fs::path simDir;
@@ -47,23 +50,28 @@ public:
 
 void cApp::setup(){
     
-    int w = win_w*master_scale;
-    int h = win_h*master_scale;
+    int w = win_w;
+    int h = win_h;
     
-    setFrameRate( fps );
-    setWindowSize( w*0.7, h*0.7 );
+    //setFrameRate( fps );
+    setWindowSize( w*0.25, h*0.25 );
     setWindowPos( 0, 0 );
-    mExp.setup( w, h, 3000, GL_RGB, mt::getRenderPath(), 0);
+    mExp.setup( w, h, 0, 500-1, GL_RGB, mt::getRenderPath()/"line", 0);
+    //mExp2.setup( w, h, 0, 500-1, GL_RGB, mt::getRenderPath()/"point", 0);
     
-    CameraPersp cam( w, h, 54.4f, 1, 10000 );
-    cam.lookAt( Vec3f(0,0, 1300), Vec3f(0,0,0) );
-    cam.setCenterOfInterestPoint( Vec3f(0,0,0) );
-    camUi.setCurrentCam( cam );
+    camp = CameraPersp( w, h, 54.4f, 1, 10000 );
+    camp.lookAt( Vec3f(0,0, 1300), Vec3f(0,0,0) );
+    camp.setCenterOfInterestPoint( Vec3f(0,0,0) );
+    camUi.setCurrentCam( camp );
+    
+    // Ort
+    camo = CameraOrtho( -w/2, w/2, h/2, -h/2, -10000, 10000 );
 
     assetDir = mt::getAssetPath();
     
 #ifdef RENDER
     mExp.startRender();
+    //mExp2.startRender();
 #endif
 }
 
@@ -84,11 +92,21 @@ void cApp::update(){
     vector<Vec3f> pos;
     vector<ColorAf> col;
 
-    float scale = 60.0f;
-    int loadnum = frame*frame*0.05;
+    float scale = 60.0f * 1.6;
+    
+    scale *= bOrtho ? 1.5 : 1;
+    
+    //int loadnum = p.size() - frame*frame*0.05;
+    
+    int ef = getElapsedFrames();
+    float rate  = 1.0f - (float)pow(ef, 5)/pow(500, 5);
+    int loadnum = 64500 * rate;
+    loadnum = MIN(loadnum, p.size()/3);
 
+    cout << rate << ", " << loadnum << endl;
+    
     for( int i=0; i<15; i++){
-        pos.push_back( Vec3f(0,500-i*100, 0) );
+        pos.push_back( Vec3f(0,(i-7)*300, 0) );
         col.push_back( ColorAf(1,0,0,0.5) );
     }
     
@@ -250,11 +268,11 @@ void cApp::update(){
                 float nz = v1[i*3+2]*0.5 + v4[i*3+2]*0.1;
                 float vis = v2[i];
                 int   nb = v3[i];
-                float nbf = lmap((float)nb, 0.0f, 50.0f, 1.0f, 0.3f);
+                float nbf = lmap((float)nb, 0.0f, 50.0f, 1.0f, 0.4f);
                 
                 vis = lmap(vis, 0.0f, 30.0f, 0.3f, 1.0f);
                 
-                c.set(nx, ny, nz+vis, 0.4+nbf);
+                c.set(nx, ny, nz+vis, 0.6+nbf);
                 break;
                 
         }
@@ -266,7 +284,7 @@ void cApp::update(){
     
     
     int num_line = 2;
-    int num_dupl = 2;
+    int num_dupl = 1;
     int vertex_per_point = num_line * num_dupl * 2;
     vector<Vec3f> out;
     out.assign( pos.size()*vertex_per_point, Vec3f(-99999, -99999, -99999) );
@@ -279,33 +297,47 @@ void cApp::update(){
 }
 
 void cApp::draw(){
-    mExp.begin( camUi.getCamera() );{
-        
+    gl::enableAlphaBlending();
+    
+    //bOrtho ? mExp.begin( camo ) : mExp.begin( camp );
+    mExp.begin( camUi.getCamera());
+    {
         gl::clear();
-        gl::enableAlphaBlending();
         gl::pushMatrices();
         gl::rotate( Vec3f(90,0,0) );
         
         // draw rf
-        if( mDg.mLine ){
-            glLineWidth( 1 );
-            gl::draw( mDg.mLine );
-        }
-        
+//        if( mDg.mLine ){
+//            glLineWidth( 1 );
+//            gl::draw( mDg.mLine );
+//        }
+
         if( mDg.mDot ){
             glPointSize( 1 );
             gl::draw( mDg.mDot );
         }
         gl::popMatrices();
-        
     }mExp.end();
-
-    gl::clear( ColorA(1,1,1,1) );
-    gl::color( Color::white() );
-    mExp.draw();
     
+    
+//    mExp2.begin( camUi.getCamera());
+//    {
+//        gl::clear();
+//        gl::pushMatrices();
+//        gl::rotate( Vec3f(90,0,0) );
+//
+//        if( mDg.mDot ){
+//            glPointSize( 1 );
+//            gl::draw( mDg.mDot );
+//        }
+//        gl::popMatrices();
+//        
+//    }mExp2.end();
+
+    gl::clear();
+    mExp.draw();
     gl::drawString("Frame: " + to_string(frame), Vec2f(50, 50) );
-    frame++;
+    frame -= 2;
 
 }
 
@@ -319,6 +351,7 @@ void cApp::keyDown( KeyEvent event ){
         case 'f':   frame+=100;               break;
         case 'p':   currentParam++;           break;
         case 'q':   currentParam--;           break;
+        case 'o':   bOrtho = !bOrtho;         break;
     }
 }
 

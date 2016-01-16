@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CF59038A16197B6E2A40A333F5A0F364C86CD83A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FBDCD2DA136AEE10751BC908DB34D1F2295B8684" : 0,
+    "CF59038A16197B6E2A40A333F5A0F364C86CD83A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D7CADE7B-0A03-42EF-854A-70974794BD76",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FBDCD2DA136AEE10751BC908DB34D1F2295B8684" : "blocks\/libmtb\/",
+    "CF59038A16197B6E2A40A333F5A0F364C86CD83A" : "..\/..\/..\/..\/..\/Volumes\/StudioRK_node\/n5\/cinder_0.8.6_n5\/_node"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "wave_graph_7",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "wave_graph_7\/xcode\/wave_graph_7.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hiroMTB\/n9.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF59038A16197B6E2A40A333F5A0F364C86CD83A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/stdmtb\/libmtb.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FBDCD2DA136AEE10751BC908DB34D1F2295B8684"
+    }
+  ]
+}

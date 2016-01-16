@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CF59038A16197B6E2A40A333F5A0F364C86CD83A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FBDCD2DA136AEE10751BC908DB34D1F2295B8684" : 0,
+    "CF59038A16197B6E2A40A333F5A0F364C86CD83A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C3CA8958-896F-4BDC-8B19-F93F58DD0606",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FBDCD2DA136AEE10751BC908DB34D1F2295B8684" : "blocks\/libmtb",
+    "CF59038A16197B6E2A40A333F5A0F364C86CD83A" : "_node"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "point_2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "point_2\/xcode\/point_2.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hiroMTB\/n9.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF59038A16197B6E2A40A333F5A0F364C86CD83A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/stdmtb\/libmtb.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FBDCD2DA136AEE10751BC908DB34D1F2295B8684"
+    }
+  ]
+}

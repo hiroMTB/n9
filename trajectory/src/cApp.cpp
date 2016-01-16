@@ -44,7 +44,7 @@ void cApp::setup(){
     setFrameRate(25);
     assetDir = mt::getAssetPath();
     
-    mExp.setup( mW, mH, 2999, GL_RGB, mt::getRenderPath(), 0, true );
+    mExp.setup( mW, mH, 0, 2999, GL_RGB, mt::getRenderPath(), 0, true );
     
     setupFromBlender();
     

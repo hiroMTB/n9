@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A5F44801C2B482D004915DB"
-            BuildableName = "point_0 copy.app"
-            BlueprintName = "point_0 copy"
+            BlueprintIdentifier = "8D1107260486CEB800E47090"
+            BuildableName = "point_0.app"
+            BlueprintName = "point_0"
             ReferencedContainer = "container:point_0.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6A5F44801C2B482D004915DB"
-            BuildableName = "point_0 copy.app"
-            BlueprintName = "point_0 copy"
+            BlueprintIdentifier = "8D1107260486CEB800E47090"
+            BuildableName = "point_0.app"
+            BlueprintName = "point_0"
             ReferencedContainer = "container:point_0.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

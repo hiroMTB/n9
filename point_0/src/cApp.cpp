@@ -6,6 +6,7 @@
 #include "cinder/gl/gl.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/Camera.h"
+#include "cinder/Perlin.h"
 
 #include "RfImporterBin.h"
 #include "mtUtil.h"
@@ -32,10 +33,11 @@ public:
     
     bool bOrtho = false;
      const int win_w = 1080*4;
-    const int win_h = 1920;
+    const int win_h = 4320; //1920 + 500*2;
     const float fps = 25.0f;
-    int frame = 1000;
+    int frame = 0;
     int currentParam = 12;
+    int loadNum;
     
     MayaCamUI camUi;
     CameraPersp camp;
@@ -45,27 +47,24 @@ public:
     DataGroup mDg;
     fs::path assetDir;
     fs::path simDir;
+    Perlin mPln = Perlin(4, 1234);
     
 };
 
 void cApp::setup(){
     
-    int w = win_w;
-    int h = win_h;
-    
-    //setFrameRate( fps );
-    setWindowSize( w*0.25, h*0.25 );
+    setWindowSize( win_w*0.3, win_h*0.3 );
     setWindowPos( 0, 0 );
-    mExp.setup( w, h, 0, 500-1, GL_RGB, mt::getRenderPath()/"line", 0);
+    mExp.setup( win_w, win_h, 0, 500-1, GL_RGB, mt::getRenderPath(), 0);
     //mExp2.setup( w, h, 0, 500-1, GL_RGB, mt::getRenderPath()/"point", 0);
     
-    camp = CameraPersp( w, h, 54.4f, 1, 10000 );
+    camp = CameraPersp( win_w, win_h, 54.4f, 1, 10000 );
     camp.lookAt( Vec3f(0,0, 1300), Vec3f(0,0,0) );
     camp.setCenterOfInterestPoint( Vec3f(0,0,0) );
     camUi.setCurrentCam( camp );
     
     // Ort
-    camo = CameraOrtho( -w/2, w/2, h/2, -h/2, -10000, 10000 );
+    camo = CameraOrtho( -win_w/2, win_w/2, win_h/2, -win_h/2, -10000, 10000 );
 
     assetDir = mt::getAssetPath();
     
@@ -92,31 +91,37 @@ void cApp::update(){
     vector<Vec3f> pos;
     vector<ColorAf> col;
 
-    float scale = 60.0f * 1.6;
+    float scale = 50.0f;
     
-    scale *= bOrtho ? 1.5 : 1;
+    scale *= bOrtho ? 0.6 : 1;
     
-    //int loadnum = p.size() - frame*frame*0.05;
+    loadNum = (float)pow(frame,3)/pow(1000,3)*p.size();
+    loadNum = MIN(loadNum, p.size()/3);
     
-    int ef = getElapsedFrames();
-    float rate  = 1.0f - (float)pow(ef, 5)/pow(500, 5);
-    int loadnum = 64500 * rate;
-    loadnum = MIN(loadnum, p.size()/3);
+    //int ef = getElapsedFrames();
+    //float rate  = 1.0f - (float)pow(ef, 5)/pow(500, 5);
+    //int loadnum = 64500 * rate;
+    //loadnum = MIN(loadnum, p.size()/3);
 
-    cout << rate << ", " << loadnum << endl;
-    
-    for( int i=0; i<15; i++){
-        pos.push_back( Vec3f(0,(i-7)*300, 0) );
+    for( int i=0; i<12; i++){
+        pos.push_back( Vec3f(0,(i-7)*250, 0) );
         col.push_back( ColorAf(1,0,0,0.5) );
     }
     
     for (int i=0; i<p.size()/3; i++) {
-        if( i>loadnum ) break;
+        if( i>loadNum ) break;
         
         float x = p[i*3+0] * scale;
         float y = p[i*3+1] * scale;
         float z = p[i*3+2] * scale;
-        pos.push_back( Vec3f(x, y, z) );
+        
+        Vec3f n = mPln.dfBm( 123+x, 555+y,-493+z );
+
+        n.x = pow(n.x,3);
+        n.y = pow(n.x,3);
+        n.z = pow(n.y,3);
+        
+        pos.push_back( Vec3f(x, y, z) + n );
 
         ColorAf c;
 
@@ -304,40 +309,41 @@ void cApp::draw(){
     {
         gl::clear();
         gl::pushMatrices();
+        
         gl::rotate( Vec3f(90,0,0) );
         
         // draw rf
-//        if( mDg.mLine ){
-//            glLineWidth( 1 );
-//            gl::draw( mDg.mLine );
-//        }
+        if( mDg.mLine ){
+            glLineWidth( 1 );
+            gl::draw( mDg.mLine );
+        }
 
+        gl::enableAdditiveBlending();
         if( mDg.mDot ){
             glPointSize( 1 );
             gl::draw( mDg.mDot );
         }
+        
         gl::popMatrices();
+
+        if( !mExp.bRender){
+            gl::pushMatrices();
+            gl::setMatricesWindow(win_w, win_h);
+            glLineWidth(4);
+            gl::color(0, 0.2, 1);
+            glTranslatef(win_w/2, win_h/2, 0);
+            gl::drawStrokedRect( Rectf(-win_w/2, -1920/2,win_w/2, 1920/2) );
+            gl::popMatrices();
+        }
+        
     }mExp.end();
     
-    
-//    mExp2.begin( camUi.getCamera());
-//    {
-//        gl::clear();
-//        gl::pushMatrices();
-//        gl::rotate( Vec3f(90,0,0) );
-//
-//        if( mDg.mDot ){
-//            glPointSize( 1 );
-//            gl::draw( mDg.mDot );
-//        }
-//        gl::popMatrices();
-//        
-//    }mExp2.end();
-
     gl::clear();
     mExp.draw();
-    gl::drawString("Frame: " + to_string(frame), Vec2f(50, 50) );
-    frame -= 2;
+    gl::drawString("Frame :    " + to_string(frame), Vec2f(20, 20) );
+    gl::drawString("nParticle: " + to_string(loadNum), Vec2f(20, 40) );
+
+    frame += 3;
 
 }
 

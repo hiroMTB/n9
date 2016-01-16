@@ -84,7 +84,7 @@ void cApp::setup(){
     mPln.setOctaves(4);
     mPln.setSeed(444);
     
-    mExp.setup( win_w, win_h, 1000, GL_RGB, mt::getRenderPath(), 0 );
+    mExp.setup( win_w, win_h, 0, 1000, GL_RGB, mt::getRenderPath(), 0 );
     mt::loadColorSample("img/geo/Mx80_2_org.jpg", mColorSample1 );
     
     mWaves.assign( 1, Wave() );
@@ -122,7 +122,7 @@ void cApp::update(){
     
     for( int w=0; w<mWaves.size(); w++ ){
         
-        const float * ch0 = mWaves[w].buf->getChannel( 0 );
+        //const float * ch0 = mWaves[w].buf->getChannel( 0 );
 
         mWaves[w].update(audioPos, mFpb);
         
@@ -163,7 +163,7 @@ void cApp::draw(){
 void cApp::draw_waveExp(){
     glColor3f(0, 1, 0);
     
-    double ang = toRadians( (double)(getElapsedFrames()%(360*4)) );
+    //double ang = toRadians( (double)(getElapsedFrames()%(360*4)) );
     float exponential = 1.001 + 2; //abs(sin( ang )) * 6.0;
     
     for( int w=0; w<mWaves.size(); w++ ){

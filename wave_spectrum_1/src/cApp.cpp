@@ -59,9 +59,9 @@ void cApp::setup(){
     setWindowPos( 0, 0 );
  
 #ifdef RENDER_ANIM
-    mExp.setup( wW, wH, 3000, GL_RGB, mt::getRenderPath(), 0);
+    mExp.setup( wW, wH, 0, 3000, GL_RGB, mt::getRenderPath(), 0);
 #else
-    mExp.setup( wW, wH, 1, GL_RGB, mt::getRenderPath()/"../", 0);
+    mExp.setup( wW, wH, 0, 1, GL_RGB, mt::getRenderPath()/"../", 0);
 #endif
     
     // Audio Setup
@@ -141,7 +141,7 @@ void cApp::makeSpectrumVbo(){
             vbo.addCol( col );
             
         }
-        vbo.init(true, true, true, GL_POINTS);
+        vbo.init( GL_POINTS);
         
     }
     printf("setup done\n");

@@ -56,7 +56,7 @@ void cApp::setup(){
     setFrameRate( fps );
     setWindowSize( w*0.5, h*0.5 );
     setWindowPos( 0, 0 );
-    mExp.setup( w, h, 3000, GL_RGB, mt::getRenderPath(), 0);
+    mExp.setup( w, h, 0, 3000, GL_RGB, mt::getRenderPath(), 0);
     
     CameraPersp cam( w, h, 54.4f, 1, 10000 );
     cam.lookAt( Vec3f(0,0, 1300), Vec3f(0,0,0) );
@@ -112,7 +112,7 @@ void cApp::update(){
             vb.addCol( c );
         }
         
-        vb.init(true, true, true, GL_POINTS);
+        vb.init(GL_POINTS);
     }
 }
 

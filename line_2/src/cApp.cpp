@@ -82,7 +82,7 @@ void cApp::setup(){
     setWindowSize( w, h );
     setWindowPos( 0, 0 );
 
-    mExp.setup( w, h, 3000, GL_RGB, mt::getRenderPath(), 0);
+    mExp.setup( w, h, 0, 3000, GL_RGB, mt::getRenderPath(), 0);
     
     //CameraPersp cam;
     // CameraPersp cam( w, h, 60.0f, 1, 10000 );

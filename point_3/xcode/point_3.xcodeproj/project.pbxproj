@@ -33,10 +33,9 @@
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6A4775BE1B7835150024692D /* TbbNpFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TbbNpFinder.h; path = ../src/TbbNpFinder.h; sourceTree = "<group>"; };
 		6A5F447E1C2B4078004915DB /* libmtb */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libmtb; path = ../../../blocks/libmtb; sourceTree = "<group>"; };
-		6A5F44931C2B482D004915DB /* point_0 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "point_0 copy-Info.plist"; path = "/Volumes/StudioRK_node/n5/cinder_0.8.6_n9/_node/point_0/xcode/point_0 copy-Info.plist"; sourceTree = "<absolute>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; };
 		6AAB06D31B1258B500AC8B49 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = config/release.xcconfig; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* point_0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = point_0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* point_3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = point_3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95CFCBE1AFA244A19A93A224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +93,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* point_0.app */,
+				8D1107320486CEB800E47090 /* point_3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,7 +108,6 @@
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				6A5F44931C2B482D004915DB /* point_0 copy-Info.plist */,
 			);
 			name = contour_0;
 			sourceTree = "<group>";
@@ -135,9 +133,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* point_0 */ = {
+		8D1107260486CEB800E47090 /* point_3 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_0" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_3" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -148,10 +146,10 @@
 			);
 			dependencies = (
 			);
-			name = point_0;
+			name = point_3;
 			productInstallPath = "$(HOME)/Applications";
 			productName = contour_0;
-			productReference = 8D1107320486CEB800E47090 /* point_0.app */;
+			productReference = 8D1107320486CEB800E47090 /* point_3.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +159,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_0" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_3" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -175,7 +173,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* point_0 */,
+				8D1107260486CEB800E47090 /* point_3 */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +220,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -238,7 +237,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = point_3;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
 				WRAPPER_EXTENSION = app;
@@ -248,6 +247,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -265,7 +265,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_GENERATE_MAP_FILE = NO;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = point_3;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";
@@ -278,7 +278,7 @@
 			baseConfigurationReference = 6AAB06D01B12587200AC8B49 /* debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = i386;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -299,7 +299,7 @@
 			baseConfigurationReference = 6AAB06D31B1258B500AC8B49 /* release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = i386;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CINDER_PATH = ../../..;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_0" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "point_3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_0" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "point_3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

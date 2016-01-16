@@ -46,7 +46,7 @@ void cApp::setup(){
     setFrameRate( 25 );
     setWindowPos( 0, 0 );
     setWindowSize( mW*mScale, mH*mScale );
-    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, mt::getRenderPath(), 0, true);
+    mExp.setup( mW*mScale, mH*mScale, 0, 2999, GL_RGB, mt::getRenderPath() );
     
     mPln.setOctaves( 3 );
     mPln.setSeed( 551 );

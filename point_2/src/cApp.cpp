@@ -173,10 +173,6 @@ void cApp::update(){
         }
     }
     
-    TbbNpFinder np;
-    
-    
-    
     frame++;
 }
 

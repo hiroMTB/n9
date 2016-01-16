@@ -50,7 +50,7 @@ void cApp::setup(){
     setFrameRate( 25 );
     setWindowPos( 0, 0 );
     setWindowSize( mW*mScale, mH*mScale );
-    mExp.setup( mW*mScale, mH*mScale, 2999, GL_RGB, mt::getRenderPath(), 0, true);
+    mExp.setup( mW*mScale, mH*mScale, 0, 2999, GL_RGB, mt::getRenderPath() );
     
     mPln.setOctaves( 3 );
     mPln.setSeed( 551 );
@@ -99,7 +99,7 @@ void cApp::update(){
     const int frame = getElapsedFrames()-1;
     const int audioPos = frame * 192000.0f/25.0f;
     
-    int readPos = mWaves[0].player->getReadPosition();
+    //int readPos = mWaves[0].player->getReadPosition();
     
     //cout << "readPos  : " << readPos << endl;
     //cout << "audioPos : " << audioPos << endl;

@@ -21,7 +21,6 @@
 				4D307D731C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D751C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D771C42A89F00F9DD26 /* PBXTargetDependency */,
-				4D307D791C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D7B1C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D7D1C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D7F1C42A89F00F9DD26 /* PBXTargetDependency */,
@@ -29,14 +28,12 @@
 				4D307D831C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D851C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D871C42A89F00F9DD26 /* PBXTargetDependency */,
-				4D307D891C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D8B1C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D8D1C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D8F1C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D911C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D931C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D951C42A89F00F9DD26 /* PBXTargetDependency */,
-				4D307D971C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D991C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D9B1C42A89F00F9DD26 /* PBXTargetDependency */,
 				4D307D9D1C42A89F00F9DD26 /* PBXTargetDependency */,
@@ -128,13 +125,6 @@
 			remoteGlobalIDString = 8D1107320486CEB800E47090;
 			remoteInfo = moving_center_1;
 		};
-		4D17ED201C425E700027E280 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17ECB31C425E6E0027E280 /* point_0.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D1107320486CEB800E47090;
-			remoteInfo = point_0;
-		};
 		4D17ED241C425E700027E280 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D17ECB01C425E6E0027E280 /* point_0.xcodeproj */;
@@ -219,13 +209,6 @@
 			remoteGlobalIDString = 8D1107320486CEB800E47090;
 			remoteInfo = template;
 		};
-		4D17ED471C425E700027E280 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17ECCB1C425E6E0027E280 /* testTbbPerlin.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D1107320486CEB800E47090;
-			remoteInfo = testTbbPerlin;
-		};
 		4D17ED4A1C425E700027E280 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D17ECCE1C425E6E0027E280 /* USB_DMX_1.xcodeproj */;
@@ -278,20 +261,6 @@
 		4D17ED5F1C425E700027E280 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D17ECE31C425E6F0027E280 /* wave_graph_4.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6A25F1271BFB417B00C6DC83;
-			remoteInfo = "wave_graph_4 copy";
-		};
-		4D17ED631C425E700027E280 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17ECE01C425E6F0027E280 /* wave_graph_4.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D1107320486CEB800E47090;
-			remoteInfo = wave_graph_4;
-		};
-		4D17ED651C425E700027E280 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17ECE01C425E6F0027E280 /* wave_graph_4.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6A25F1271BFB417B00C6DC83;
 			remoteInfo = "wave_graph_4 copy";
@@ -422,13 +391,6 @@
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = point_0;
 		};
-		4D307D781C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17ECB31C425E6E0027E280 /* point_0.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090;
-			remoteInfo = point_0;
-		};
 		4D307D7A1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D17ECB61C425E6E0027E280 /* point_1.xcodeproj */;
@@ -478,13 +440,6 @@
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = template;
 		};
-		4D307D881C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17ECCB1C425E6E0027E280 /* testTbbPerlin.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090;
-			remoteInfo = testTbbPerlin;
-		};
 		4D307D8A1C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D17ECCE1C425E6E0027E280 /* USB_DMX_1.xcodeproj */;
@@ -526,13 +481,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = wave_graph_3;
-		};
-		4D307D961C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D17ECE01C425E6F0027E280 /* wave_graph_4.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090;
-			remoteInfo = wave_graph_4;
 		};
 		4D307D981C42A89F00F9DD26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -594,7 +542,7 @@
 		4D17ECAA1C425E6E0027E280 /* line_2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = line_2.xcodeproj; path = ../line_2/xcode/line_2.xcodeproj; sourceTree = "<group>"; };
 		4D17ECAD1C425E6E0027E280 /* moving_center_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = moving_center_1.xcodeproj; path = ../moving_center_1/xcode/moving_center_1.xcodeproj; sourceTree = "<group>"; };
 		4D17ECB01C425E6E0027E280 /* point_0.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = point_0.xcodeproj; path = ../point_0/xcode/point_0.xcodeproj; sourceTree = "<group>"; };
-		4D17ECB31C425E6E0027E280 /* point_0.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = point_0.xcodeproj; path = ../point_3/xcode/point_0.xcodeproj; sourceTree = "<group>"; };
+		4D17ECB31C425E6E0027E280 /* point_3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = point_3.xcodeproj; path = ../point_3/xcode/point_3.xcodeproj; sourceTree = "<group>"; };
 		4D17ECB61C425E6E0027E280 /* point_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = point_1.xcodeproj; path = ../point_1/xcode/point_1.xcodeproj; sourceTree = "<group>"; };
 		4D17ECB91C425E6E0027E280 /* point_2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = point_2.xcodeproj; path = ../point_2/xcode/point_2.xcodeproj; sourceTree = "<group>"; };
 		4D17ECBC1C425E6E0027E280 /* red_particle_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = red_particle_1.xcodeproj; path = ../red_particle_1/xcode/red_particle_1.xcodeproj; sourceTree = "<group>"; };
@@ -602,14 +550,13 @@
 		4D17ECC21C425E6E0027E280 /* spline_mesh_2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = spline_mesh_2.xcodeproj; path = ../spline_mesh_2/xcode/spline_mesh_2.xcodeproj; sourceTree = "<group>"; };
 		4D17ECC51C425E6E0027E280 /* strange_perlin_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = strange_perlin_1.xcodeproj; path = ../strange_perlin_1/xcode/strange_perlin_1.xcodeproj; sourceTree = "<group>"; };
 		4D17ECC81C425E6E0027E280 /* template.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = template.xcodeproj; path = ../_template/xcode/template.xcodeproj; sourceTree = "<group>"; };
-		4D17ECCB1C425E6E0027E280 /* testTbbPerlin.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = testTbbPerlin.xcodeproj; path = ../testTbbPerlin/xcode/testTbbPerlin.xcodeproj; sourceTree = "<group>"; };
 		4D17ECCE1C425E6E0027E280 /* USB_DMX_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = USB_DMX_1.xcodeproj; path = ../USB_DMX_1/xcode/USB_DMX_1.xcodeproj; sourceTree = "<group>"; };
 		4D17ECD11C425E6F0027E280 /* wave_fft_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_fft_1.xcodeproj; path = ../wave_fft_1/xcode/wave_fft_1.xcodeproj; sourceTree = "<group>"; };
 		4D17ECD41C425E6F0027E280 /* wave_fft_2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_fft_2.xcodeproj; path = ../wave_fft_2/xcode/wave_fft_2.xcodeproj; sourceTree = "<group>"; };
 		4D17ECD71C425E6F0027E280 /* wave_graph_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_graph_1.xcodeproj; path = ../wave_graph_1/xcode/wave_graph_1.xcodeproj; sourceTree = "<group>"; };
 		4D17ECDA1C425E6F0027E280 /* wave_graph_2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_graph_2.xcodeproj; path = ../wave_graph_2/xcode/wave_graph_2.xcodeproj; sourceTree = "<group>"; };
 		4D17ECDD1C425E6F0027E280 /* wave_graph_3.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_graph_3.xcodeproj; path = ../wave_graph_3/xcode/wave_graph_3.xcodeproj; sourceTree = "<group>"; };
-		4D17ECE01C425E6F0027E280 /* wave_graph_4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_graph_4.xcodeproj; path = ../wave_graph_5/xcode/wave_graph_4.xcodeproj; sourceTree = "<group>"; };
+		4D17ECE01C425E6F0027E280 /* wave_graph_5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_graph_5.xcodeproj; path = ../wave_graph_5/xcode/wave_graph_5.xcodeproj; sourceTree = "<group>"; };
 		4D17ECE31C425E6F0027E280 /* wave_graph_4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_graph_4.xcodeproj; path = ../wave_graph_4/xcode/wave_graph_4.xcodeproj; sourceTree = "<group>"; };
 		4D17ECE61C425E6F0027E280 /* wave_graph_6.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_graph_6.xcodeproj; path = ../wave_graph_6/xcode/wave_graph_6.xcodeproj; sourceTree = "<group>"; };
 		4D17ECE91C425E6F0027E280 /* wave_handle_1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = wave_handle_1.xcodeproj; path = ../wave_handle_1/xcode/wave_handle_1.xcodeproj; sourceTree = "<group>"; };
@@ -642,7 +589,7 @@
 		4D17ECA21C425E6E0027E280 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D17ED0E1C425E700027E280 /* contour_1.app */,
+				4D17ED0E1C425E700027E280 /* contour_rot_1.app */,
 				4D17ED101C425E700027E280 /* contour_1 copy.app */,
 				4D17ED121C425E700027E280 /* contour_1 copy 2.app */,
 			);
@@ -686,14 +633,6 @@
 			children = (
 				4D17ED251C425E700027E280 /* point_0.app */,
 				4D17ED271C425E700027E280 /* point_0 copy.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		4D17ECB41C425E6E0027E280 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4D17ED211C425E700027E280 /* point_0.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -757,14 +696,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4D17ECCC1C425E6E0027E280 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4D17ED481C425E700027E280 /* testTbbPerlin.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4D17ECCF1C425E6E0027E280 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,15 +744,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4D17ECE11C425E6F0027E280 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4D17ED641C425E700027E280 /* wave_graph_4.app */,
-				4D17ED661C425E700027E280 /* wave_graph_4 copy.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4D17ECE41C425E6F0027E280 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,8 +757,8 @@
 			isa = PBXGroup;
 			children = (
 				4D17ED6B1C425E700027E280 /* wave_graph_6.app */,
-				4D17ED6D1C425E700027E280 /* wave_spectrum_1 copy.app */,
-				4D17ED6F1C425E700027E280 /* wave_spectrum_1 copy 2.app */,
+				4D17ED6D1C425E700027E280 /* wave_graph_6_2.app */,
+				4D17ED6F1C425E700027E280 /* wave_graph_6_3.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -901,7 +823,7 @@
 				4D17ECAA1C425E6E0027E280 /* line_2.xcodeproj */,
 				4D17ECAD1C425E6E0027E280 /* moving_center_1.xcodeproj */,
 				4D17ECB01C425E6E0027E280 /* point_0.xcodeproj */,
-				4D17ECB31C425E6E0027E280 /* point_0.xcodeproj */,
+				4D17ECB31C425E6E0027E280 /* point_3.xcodeproj */,
 				4D17ECB61C425E6E0027E280 /* point_1.xcodeproj */,
 				4D17ECB91C425E6E0027E280 /* point_2.xcodeproj */,
 				4D17ECBC1C425E6E0027E280 /* red_particle_1.xcodeproj */,
@@ -909,14 +831,13 @@
 				4D17ECC21C425E6E0027E280 /* spline_mesh_2.xcodeproj */,
 				4D17ECC51C425E6E0027E280 /* strange_perlin_1.xcodeproj */,
 				4D17ECC81C425E6E0027E280 /* template.xcodeproj */,
-				4D17ECCB1C425E6E0027E280 /* testTbbPerlin.xcodeproj */,
 				4D17ECCE1C425E6E0027E280 /* USB_DMX_1.xcodeproj */,
 				4D17ECD11C425E6F0027E280 /* wave_fft_1.xcodeproj */,
 				4D17ECD41C425E6F0027E280 /* wave_fft_2.xcodeproj */,
 				4D17ECD71C425E6F0027E280 /* wave_graph_1.xcodeproj */,
 				4D17ECDA1C425E6F0027E280 /* wave_graph_2.xcodeproj */,
 				4D17ECDD1C425E6F0027E280 /* wave_graph_3.xcodeproj */,
-				4D17ECE01C425E6F0027E280 /* wave_graph_4.xcodeproj */,
+				4D17ECE01C425E6F0027E280 /* wave_graph_5.xcodeproj */,
 				4D17ECE31C425E6F0027E280 /* wave_graph_4.xcodeproj */,
 				4D17ECE61C425E6F0027E280 /* wave_graph_6.xcodeproj */,
 				4D17ECE91C425E6F0027E280 /* wave_handle_1.xcodeproj */,
@@ -934,7 +855,7 @@
 		6A8A980F1BE62D62006BD10C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				TargetAttributes = {
 					6A8A991A1BE62E7A006BD10C = {
 						CreatedOnToolsVersion = 6.4;
@@ -980,10 +901,6 @@
 					ProjectRef = 4D17ECAD1C425E6E0027E280 /* moving_center_1.xcodeproj */;
 				},
 				{
-					ProductGroup = 4D17ECB41C425E6E0027E280 /* Products */;
-					ProjectRef = 4D17ECB31C425E6E0027E280 /* point_0.xcodeproj */;
-				},
-				{
 					ProductGroup = 4D17ECB11C425E6E0027E280 /* Products */;
 					ProjectRef = 4D17ECB01C425E6E0027E280 /* point_0.xcodeproj */;
 				},
@@ -1016,10 +933,6 @@
 					ProjectRef = 4D17ECC81C425E6E0027E280 /* template.xcodeproj */;
 				},
 				{
-					ProductGroup = 4D17ECCC1C425E6E0027E280 /* Products */;
-					ProjectRef = 4D17ECCB1C425E6E0027E280 /* testTbbPerlin.xcodeproj */;
-				},
-				{
 					ProductGroup = 4D17ECCF1C425E6E0027E280 /* Products */;
 					ProjectRef = 4D17ECCE1C425E6E0027E280 /* USB_DMX_1.xcodeproj */;
 				},
@@ -1046,10 +959,6 @@
 				{
 					ProductGroup = 4D17ECE41C425E6F0027E280 /* Products */;
 					ProjectRef = 4D17ECE31C425E6F0027E280 /* wave_graph_4.xcodeproj */;
-				},
-				{
-					ProductGroup = 4D17ECE11C425E6F0027E280 /* Products */;
-					ProjectRef = 4D17ECE01C425E6F0027E280 /* wave_graph_4.xcodeproj */;
 				},
 				{
 					ProductGroup = 4D17ECE71C425E6F0027E280 /* Products */;
@@ -1116,7 +1025,7 @@
 			remoteRef = 4D17ED081C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4D17ED0E1C425E700027E280 /* contour_1.app */ = {
+		4D17ED0E1C425E700027E280 /* contour_rot_1.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = contour_rot_1.app;
@@ -1163,13 +1072,6 @@
 			fileType = wrapper.application;
 			path = moving_center_1.app;
 			remoteRef = 4D17ED1D1C425E700027E280 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4D17ED211C425E700027E280 /* point_0.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = point_0.app;
-			remoteRef = 4D17ED201C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		4D17ED251C425E700027E280 /* point_0.app */ = {
@@ -1256,13 +1158,6 @@
 			remoteRef = 4D17ED441C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4D17ED481C425E700027E280 /* testTbbPerlin.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = testTbbPerlin.app;
-			remoteRef = 4D17ED471C425E700027E280 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		4D17ED4B1C425E700027E280 /* USB_DMX_1.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -1319,20 +1214,6 @@
 			remoteRef = 4D17ED5F1C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4D17ED641C425E700027E280 /* wave_graph_4.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = wave_graph_4.app;
-			remoteRef = 4D17ED631C425E700027E280 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4D17ED661C425E700027E280 /* wave_graph_4 copy.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "wave_graph_4 copy.app";
-			remoteRef = 4D17ED651C425E700027E280 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		4D17ED6B1C425E700027E280 /* wave_graph_6.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -1340,17 +1221,17 @@
 			remoteRef = 4D17ED6A1C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4D17ED6D1C425E700027E280 /* wave_spectrum_1 copy.app */ = {
+		4D17ED6D1C425E700027E280 /* wave_graph_6_2.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			path = "wave_spectrum_1 copy.app";
+			path = wave_graph_6_2.app;
 			remoteRef = 4D17ED6C1C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4D17ED6F1C425E700027E280 /* wave_spectrum_1 copy 2.app */ = {
+		4D17ED6F1C425E700027E280 /* wave_graph_6_3.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			path = "wave_spectrum_1 copy 2.app";
+			path = wave_graph_6_3.app;
 			remoteRef = 4D17ED6E1C425E700027E280 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1446,11 +1327,6 @@
 			name = point_0;
 			targetProxy = 4D307D761C42A89F00F9DD26 /* PBXContainerItemProxy */;
 		};
-		4D307D791C42A89F00F9DD26 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = point_0;
-			targetProxy = 4D307D781C42A89F00F9DD26 /* PBXContainerItemProxy */;
-		};
 		4D307D7B1C42A89F00F9DD26 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = point_1;
@@ -1486,11 +1362,6 @@
 			name = template;
 			targetProxy = 4D307D861C42A89F00F9DD26 /* PBXContainerItemProxy */;
 		};
-		4D307D891C42A89F00F9DD26 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = testTbbPerlin;
-			targetProxy = 4D307D881C42A89F00F9DD26 /* PBXContainerItemProxy */;
-		};
 		4D307D8B1C42A89F00F9DD26 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = USB_DMX_1;
@@ -1520,11 +1391,6 @@
 			isa = PBXTargetDependency;
 			name = wave_graph_3;
 			targetProxy = 4D307D941C42A89F00F9DD26 /* PBXContainerItemProxy */;
-		};
-		4D307D971C42A89F00F9DD26 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = wave_graph_4;
-			targetProxy = 4D307D961C42A89F00F9DD26 /* PBXContainerItemProxy */;
 		};
 		4D307D991C42A89F00F9DD26 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1567,6 +1433,8 @@
 		6A8A98131BE62D62006BD10C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};

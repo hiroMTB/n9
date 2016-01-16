@@ -16,6 +16,7 @@ build/
 xcuserdata
 *.xccheckout
 *.moved-aside
+.xcscmblueprint
 DerivedData
 *.hmap
 *.ipa
@@ -104,3 +105,5 @@ _settings.xml
 
 *.zip
 *.gml
+
+*.xcscmblueprint

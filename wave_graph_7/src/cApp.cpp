@@ -1,4 +1,4 @@
-//#define RENDER
+#define RENDER
 //#defin AUDIO
 
 #include "cinder/app/AppNative.h"
@@ -59,10 +59,10 @@ class cApp : public AppNative {
     const unsigned int wW =  1080*4;
     const unsigned int wH =  1920;
     
-    unsigned int frame = 6845;
-    unsigned int endFrame = 7095;
+    unsigned int frame = 6845 + 50;
+    unsigned int endFrame = 7096;
     
-    unsigned int dispSample = 1920*2;
+    unsigned int dispSample = 1920*4;
     unsigned int updateSample = 48000 / 25;
     unsigned int audioPos = 0;
     
@@ -76,7 +76,8 @@ class cApp : public AppNative {
     vector<VboSet> vboWave;
     
     float xscale;
-    float yscale;
+    float yscale = 7000; //2600;
+
     
     VboSet pulse;
     VboSet line;
@@ -93,6 +94,9 @@ class cApp : public AppNative {
         Vec2i(480,192), Vec2i(840,576), Vec2i(120,960), Vec2i(840,1344), Vec2i(480,1728),       // L
         Vec2i(2640,192), Vec2i(2280,576), Vec2i(3000,960), Vec2i(2280,1344), Vec2i(2640,1728)   // R
     };
+    
+    vector<Vec2i> pivot;
+
 };
 
 void cApp::setupFromBlender(){
@@ -120,11 +124,6 @@ void cApp::setupFromBlender(){
     }
 }
 
-/*
- csv file format
- L1:x1, L1:laserOnoff, L2:x1, L2:laserOnoff, ..., R5:x1, R1:laserOnoff
- each line number = frame number (25fps)
- */
 void cApp::loadCsv( fs::path path, vector<vector<float>> & array, bool print ){
     
     ifstream file ( path.string() );
@@ -166,10 +165,7 @@ void cApp::setup(){
     mPln.setOctaves(4);
     mPln.setSeed( mt::getSeed() );
     
-    
-    
     setupFromBlender();
-    
     
     vector<fs::path> filePath;
     filePath.push_back( mt::getAssetPath()/"snd"/"timeline"/"n5_2mix.aif"  );
@@ -184,8 +180,7 @@ void cApp::setup(){
             vboWave.push_back( VboSet() );
     }
     
-    yscale = 2600; //1200; //(float)wH * 0.6;
-
+  
     makePulse();
 
     
@@ -203,11 +198,14 @@ void cApp::setup(){
 #endif
     
 #ifdef RENDER
-    //mExp.startRender();
+    mExp.startRender();
 #endif
 }
 
 void cApp::update(){
+    
+    
+    if(frame>=endFrame) quit();
     
 #ifndef RENDER
 #ifdef AUDIO
@@ -216,19 +214,29 @@ void cApp::update(){
 #endif
     
     
-    for( int i=0; i<axis.size(); i++){
-        axis[i].update( frame );
-        axis[i].check();
-    }
-    
-    
     for( auto & w : vboWave ){
         w.resetPos();
         w.resetCol();
         w.resetVbo();
     }
     
+    pivot.clear();
+    for( int i=0; i<axis.size(); i++){
+        axis[i].update( frame );
+        if( axis[i].power > 200 ){
+            pivot.push_back( axis[i].pos );
+        }
+    }
     
+    if( pivot.size() == 0){
+        pulse.resetVbo();
+        prep.resetVbo();
+        line.resetVbo();
+        line2.resetVbo();
+        line3.resetVbo();
+        return;
+    }
+
     bool remake = false;
 
     int vboIndex = 0;
@@ -268,8 +276,6 @@ void cApp::update(){
                     red = 1;
                     s += 4;
                 }
-
-                float minus = (d<0)?-1.0f:1.0f;
                 
                 if( red*green*blue>2.9){
                     d = 1;
@@ -277,15 +283,15 @@ void cApp::update(){
                 
                 pastd = d;
 
-                float offset = pulse.getPos()[s].y;
+                float offset = pulse.getPos()[s].y * 2.2;
 
-                float gap = 384/8;
+                float gap = 384/8/2;
                 if( 0.5<a && a< 0.9){
                         switch( vboIndex ){
                             case 0 : d = 1; break;
                             case 1 : offset += gap*1; d=abs(d); break;
-                            case 2 : offset += gap*2; d=1.0-abs(d);     break;
-                            case 3 : offset += gap*3; d=d*d;    break;
+                            case 2 : offset += gap*2; /*d=1.0-abs(d);*/     break;
+                            case 3 : offset += gap*3; d=d*d*d;    break;
                             case 4 : offset -= gap*1; break;
                             case 5 : offset -= gap*2; break;
                             case 6 : offset -= gap*3; break;
@@ -316,19 +322,23 @@ void cApp::update(){
                     finalx += xscale*3;
                     red = 1;
                 }
+                
                 float finaly = d*yscale*inout*red + offset*inout;
                 
-                {
-                    float lim = 384*2;
-                    if( finaly < -lim){
-                        finaly = -lim;
-                        remake = true;
-                    }else if( finaly>lim){
-                        finaly = lim;
-                        remake = true;
-
-                    }
-                }
+//                if( s==0 ){
+//                    finaly = pivot[0].y;
+//                }
+                
+//                {
+//                    float lim = 384*2;
+//                    if( finaly < -lim){
+//                        finaly = -lim;
+//                        remake = true;
+//                    }else if( finaly>lim){
+//                        finaly = lim;
+//                        remake = true;
+//                    }
+//                }
                 
                 if( abs(d) > 0.01 ){
                     vboWave[vboIndex].addPos( Vec3f( finalx, finaly, 0) );
@@ -641,8 +651,8 @@ void cApp::keyDown(KeyEvent e){
 #ifndef RENDER
     bool reset = false;
     switch( e.getCode() ){
-        case e.KEY_RIGHT:   dispSample *= 2; reset=true; break;
-        case e.KEY_LEFT:    dispSample /= 2; reset=true; break;
+        case e.KEY_RIGHT:   frame++; break; //dispSample *= 2; reset=true; break;
+        case e.KEY_LEFT:    frame--; break; //dispSample /= 2; reset=true; break;
         case e.KEY_UP:      yscale *= 2;     break;
         case e.KEY_DOWN:    yscale /= 2;     break;
     }

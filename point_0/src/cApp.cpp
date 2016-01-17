@@ -313,12 +313,12 @@ void cApp::draw(){
         gl::rotate( Vec3f(90,0,0) );
         
         // draw rf
-        if( mDg.mLine ){
-            glLineWidth( 1 );
-            gl::draw( mDg.mLine );
-        }
+//        if( mDg.mLine ){
+//            glLineWidth( 1 );
+//            gl::draw( mDg.mLine );
+//        }
 
-        gl::enableAdditiveBlending();
+        //gl::enableAdditiveBlending();
         if( mDg.mDot ){
             glPointSize( 1 );
             gl::draw( mDg.mDot );
@@ -343,7 +343,7 @@ void cApp::draw(){
     gl::drawString("Frame :    " + to_string(frame), Vec2f(20, 20) );
     gl::drawString("nParticle: " + to_string(loadNum), Vec2f(20, 40) );
 
-    frame += 3;
+    frame += 2;
 
 }
 

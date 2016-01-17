@@ -1,4 +1,4 @@
-#define RENDER
+//#define RENDER
 //#defin AUDIO
 
 #include "cinder/app/AppNative.h"
@@ -56,6 +56,7 @@ class cApp : public AppNative {
     
     bool debug = false;
     bool bShowRail = true;
+    bool bStart = false;
     
     const unsigned int wW =  1080*4;
     const unsigned int wH =  1920;
@@ -86,8 +87,7 @@ class cApp : public AppNative {
     vector<VboSet> vboWave;
     
     float xscale;
-    float yscale = 2600;
-
+    float yscale = 2000;
     
     VboSet pulse;
     VboSet line;
@@ -214,6 +214,7 @@ void cApp::setup(){
 
 void cApp::update(){
     
+    if( !bStart ) return;
     
     if(frame>=endFrame) quit();
     
@@ -234,12 +235,12 @@ void cApp::update(){
     
     for( int i=0; i<axis.size(); i++){
         axis[i].update( frame );
+        if( axis[i].power > 200){
+            pivot.push_back( axis[i].pos );
+        }
     }
 
-    pivot.push_back( axis[2].pos );
-    pivot.push_back( axis[7].pos );
-    
-    waveLength = axis[7].pos.x - axis[2].pos.x;
+    waveLength = pivot[1].x - pivot[0].x;
     
     bool remake = false;
 
@@ -249,6 +250,7 @@ void cApp::update(){
         for ( int c=0; c<wave[w].nCh; c++ ) {
 
             float pastx = 0;
+            
             xscale = (float)waveLength / (dispSample-1);
 
             const float * ch = wave[w].buf->getChannel( c );
@@ -265,7 +267,7 @@ void cApp::update(){
                 float green = pulse.getCol()[s].g;
                 float blue  = pulse.getCol()[s].b;
                 float a  = pulse.getCol()[s].a;
-
+                
                 red = red*1.4f;
 
                 // lowpass
@@ -287,8 +289,12 @@ void cApp::update(){
                 
                 pastd = d;
 
-                float offset = pulse.getPos()[s].y * 2.2;
-
+                float offset = pulse.getPos()[s].y * 2.2 - 1920/2;
+                
+                bool minus = d<0;
+                d = log10(10.0f+abs(d)*990.0f)/log10(1000.0f);
+                d *= minus ? -1:1;
+                
                 float gap = 384/8;
                 if( 0.5<a && a< 0.9){
                         switch( vboIndex ){
@@ -296,8 +302,8 @@ void cApp::update(){
                             case 1 : offset += gap*1; d=abs(d); break;
                             case 2 : offset += gap*2; d=1.0-abs(d);   break;
                             case 3 : offset += gap*3; d=d*d;    break;
-                            case 4 : offset -= gap*1; break;
-                            case 5 : offset -= gap*2; break;
+                            case 4 : offset -= gap*1; /*d = log10(10.0f+d*490.0f)/log10(500.0f);*/ break;
+                            case 5 : offset -= gap*2; d = pow(d, 2) * 2.0; break;
                             case 6 : offset -= gap*3; break;
                             case 7 : d = -1; break;
                         }
@@ -314,30 +320,37 @@ void cApp::update(){
                     break;
                 }
 
-                float area = 360;// waveLength*0.2;
-                if( finalx<area ){
-                    inout = finalx/area;
-                    inout = pow(inout, 3);
+                finalx += pivot[0].x;
+                
+                float piv = 1920/2;
+                float area = 400; //360;// waveLength*0.2;
+                if( finalx<area+pivot[0].x ){
+                    inout = (finalx-pivot[0].x)/area;
+                    inout = pow(inout, 2);
                     offset = 0;
-                    finalx += xscale*3;
+                    finalx += xscale*20;
                     red = 1;
-                }else if( (waveLength-area)<finalx ){
-                    inout = (waveLength-finalx)/area ;
-                    inout = pow(inout, 3);
+                    piv = pivot[0].y;
+                    d = abs(d) * (mPln.noise(frame*0.7)>0.0 ? -1 : 1);
+                }else if( (pivot[1].x-area)<finalx ){
+                    inout = (pivot[1].x-finalx)/area ;
+                    inout = pow(inout, 2);
                     offset = 0;
-                    finalx += xscale*3;
+                    finalx += xscale*20;
                     red = 1;
+                    piv = pivot[1].y;
+                    d = abs(d) * (mPln.noise(frame*0.334)>0.0 ? -1:1);
                 }
                 
-                float finaly = d*yscale*inout*red + offset*inout;
+                float finaly = d*yscale*inout*red + offset*inout + piv;
                 
                 {
-                    float lim = 384*2;
-                    if( finaly < -lim){
-                        finaly = -lim+384.0f*randFloat(-1.0f,1.0f);
+                    float lim = 100;
+                    if( finaly < 100){
+                        //finaly = lim*randFloat(-1.0f,1.0f);
                         remake = true;
-                    }else if( finaly>lim){
-                        finaly = lim+384.0f*randFloat(-1.0f,1.0f);
+                    }else if( finaly>1920-100){
+                        //finaly = 1920-lim*randFloat(-1.0f,1.0f);
                         remake = true;
                     }
                 }
@@ -382,18 +395,19 @@ void cApp::makePulse(){
     
     for (int i=0; i<dispSample; i++) {
 
-        int cntMax = dispSample*randFloat(0.05, 0.3);
+        int cntMax = dispSample*randFloat(0.2, 0.6);
 
         if( cnt >cntMax ){
             if( mPln.noise( 0.2+frame*0.01, i*0.2 )>0.15 ){
-                float noise = abs( mPln.noise( frame*0.001, i*0.05 ) );
-                noise *= minus?-1.0f:1.0f;
-                if( abs(y) >= 2.0 ){
-                    y = 2.0f*(y<0?-1.0f:1.0f);
-                }
+                float noise = abs( mPln.noise(frame*0.001, i*0.05) );
+                //noise *= minus?-1.0f:1.0f;
+                //if( abs(y) >= 2.0 ){
+                //    y = 2.0f*(y<0?-1.0f:1.0f);
+                //}
                 
+                y = noise;
                 // y = y*0.9 + noise*0.1;
-                y += noise;
+                //y += noise + 0.07;
                 minus = !minus;
                 cnt = 0;
                 
@@ -413,13 +427,13 @@ void cApp::makePulse(){
             }
         }
         
-        y = (int)(y/0.1) * 0.1;
+       // y = (int)(y/0.1) * 0.1;
         
         float xpos = i*xscale;
         //if( vboWave[0].getPos().size() > i ){
         //    xpos = vboWave[0].getPos()[i].x;
         //}
-        pulse.addPos( Vec3f(xpos, y*wH*0.45, 0) );
+        pulse.addPos( Vec3f(xpos, y*wH*0.5, 0) );
         pulse.addCol( ColorAf(red,green,blue,alpha));
     }
     pulse.init(GL_POINTS);
@@ -434,27 +448,27 @@ void cApp::makePrep(){
             const Vec3f & p1 = pulse.getPos()[j];
             const Vec3f & p2 = vboWave[i].getPos()[j];
     
-            if( mPln.noise(p2.x, p2.y, frame*0.1) > 0.5)
+            if( mPln.noise(p2.x*0.01, p2.y*0.01, frame*0.1) > 0.2)
                 continue;
             
             float x = p2.x;
             float y = p1.y;
             float area = 360;
             float inout = 1;
-            if( x<area ){
-                inout = x/area;
-                inout = pow(inout, 2) * 0.1;
-                y *= inout;
-            }else if( (waveLength-area)<x ){
-                inout = (waveLength-x)/area ;
-                inout = pow(inout, 2) * 0.1;
-                y *= inout;
+            if( x-pivot[0].x<area ){
+                inout = (x-pivot[0].x)/area;
+                inout = pow(inout, 2) * 0.05;
+                y = pivot[0].y;
+            }else if( (pivot[1].x-area)<x ){
+                inout = (pivot[1].x-x)/area ;
+                inout = pow(inout, 2) * 0.05;
+                y = pivot[1].y;
             }
 
             prep.addPos( Vec3f( x, y, 0) );
             prep.addPos( p2 );
-            prep.addCol( ColorAf(0,0,0,0.15) );
-            prep.addCol( ColorAf(0,0,0,0.15) );
+            prep.addCol( ColorAf(0,0,0,0.1) );
+            prep.addCol( ColorAf(0,0,0,0.1) );
         }
     }
     
@@ -588,7 +602,7 @@ void cApp::draw(){
         gl::pushMatrices(); {
             gl::clear( Color(1,1,1) );
             
-            glTranslatef( pivot[0].x, wH/2, 0);
+            //glTranslatef( 0, wH/2, 0);
             
             if( debug ) pulse.draw();
 
@@ -611,22 +625,24 @@ void cApp::draw(){
             }
         } gl::popMatrices();
 
+        gl::color(0, 1, 0);
+        
+        if(bShowRail && !mExp.bRender) {
+            for( auto & pv: pivot){
+                glLineWidth(3);
+                gl::drawStrokedCircle(pv, 10);
+            }
+            
+            drawAxis();
+        }
+
     } mExp.end();
 
     mExp.draw();
     
-    if(bShowRail){
-        gl::pushMatrices();
-        {
-            gl::scale(0.5, 0.5);
-            drawAxis();
-        }
-        gl::popMatrices();
-    }
-
     drawInfo();
 
-    frame++;
+    if(bStart)frame++;
     audioPos = frame*updateSample;
 }
 
@@ -659,9 +675,10 @@ void cApp::keyDown(KeyEvent e){
         case 'd': debug = !debug; break;
         case 'p': makePulse(); break;
         case 'S': mExp.startRenderFrom( frame ); break;
-        case 'f': frame += 25*10; break;
-        case 'o': ortho = !ortho; break;
+        case 'f': frame += 25*10; break;    
+        case 'o': ortho = !ortho;         break;
         case 'r': bShowRail = !bShowRail; break;
+        case ' ': bStart = !bStart;       break;
 
     }
 
@@ -676,8 +693,8 @@ void cApp::drawAxis(){
         
         const n5::Axis & ax = axis[i];
         
-        glPointSize(5);
-        glLineWidth(2);
+        glPointSize(6);
+        glLineWidth(3 );
         glColor3f( 0.1,0.1,0.1 );
         
         // draw rail

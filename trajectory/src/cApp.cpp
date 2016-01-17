@@ -44,7 +44,7 @@ void cApp::setup(){
     setFrameRate(25);
     assetDir = mt::getAssetPath();
     
-    mExp.setup( mW, mH, 0, 2999, GL_RGB, mt::getRenderPath(), 0, true );
+    mExp.setup( mW, mH, 0, 2999, GL_RGB, mt::getRenderPath(), 0 );
     
     setupFromBlender();
     
@@ -58,7 +58,7 @@ void cApp::setup(){
 void cApp::setupFromBlender(){
     
     vector<vector<float>> csv;
-    loadCsv( assetDir/"csv"/"n5_timeline_v6_export_csv", csv );
+    loadCsv( assetDir/"csv"/"n5_timeline_v9.1_allframe.csv", csv );
 
     // fill
     for( int i=0; i<10; i++){

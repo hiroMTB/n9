@@ -12,6 +12,18 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		4DAC4D191C4B55A300045273 /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8498E3CA1C3D0973008CDA94 /* MyCamera.cpp */; };
+		4DAC4D1A1C4B55A300045273 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8498E3C01C3D0973008CDA94 /* ContourMap.cpp */; };
+		4DAC4D1B1C4B55A300045273 /* MonitorNodeNL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8498E3C61C3D0973008CDA94 /* MonitorNodeNL.cpp */; };
+		4DAC4D1C1C4B55A300045273 /* cApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444894A18C4C457A91266DCA /* cApp.cpp */; };
+		4DAC4D1E1C4B55A300045273 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		4DAC4D1F1C4B55A300045273 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		4DAC4D201C4B55A300045273 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		4DAC4D211C4B55A300045273 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		4DAC4D221C4B55A300045273 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		4DAC4D231C4B55A300045273 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		4DAC4D241C4B55A300045273 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		4DAC4D251C4B55A300045273 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		8498E3D41C3D0973008CDA94 /* ContourMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8498E3C01C3D0973008CDA94 /* ContourMap.cpp */; };
@@ -37,6 +49,8 @@
 		4D17EC721C41BE3A0027E280 /* TbbNpFinder1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TbbNpFinder1.h; path = ../src/TbbNpFinder1.h; sourceTree = "<group>"; };
 		4D17EC731C41BE6F0027E280 /* TbbNpFinder2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TbbNpFinder2.h; path = ../src/TbbNpFinder2.h; sourceTree = "<group>"; };
 		4D17EC751C4251DC0027E280 /* libtbb.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtbb.dylib; path = "../../../blocks/tbb/lib/libc++/libtbb.dylib"; sourceTree = "<group>"; };
+		4DAC4D2A1C4B55A300045273 /* wave_graph_7 copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wave_graph_7 copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DAC4D2B1C4B55A300045273 /* wave_graph_7 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "wave_graph_7 copy-Info.plist"; path = "/Users/matobahiroshi/Desktop/n5/cinder_0.8.6_n5/_node/wave_graph_7/xcode/wave_graph_7 copy-Info.plist"; sourceTree = "<absolute>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		6AAB06D01B12587200AC8B49 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; lineEnding = 0; name = debug.xcconfig; path = config/debug.xcconfig; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.xcconfig; };
@@ -66,6 +80,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4DAC4D1D1C4B55A300045273 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC4D1E1C4B55A300045273 /* Cocoa.framework in Frameworks */,
+				4DAC4D1F1C4B55A300045273 /* OpenGL.framework in Frameworks */,
+				4DAC4D201C4B55A300045273 /* CoreVideo.framework in Frameworks */,
+				4DAC4D211C4B55A300045273 /* QTKit.framework in Frameworks */,
+				4DAC4D221C4B55A300045273 /* Accelerate.framework in Frameworks */,
+				4DAC4D231C4B55A300045273 /* AudioToolbox.framework in Frameworks */,
+				4DAC4D241C4B55A300045273 /* AudioUnit.framework in Frameworks */,
+				4DAC4D251C4B55A300045273 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* wave_graph_7.app */,
+				4DAC4D2A1C4B55A300045273 /* wave_graph_7 copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +166,7 @@
 				01B97315FEAEA392516A2CEA /* Blocks */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				4DAC4D2B1C4B55A300045273 /* wave_graph_7 copy-Info.plist */,
 			);
 			name = contour_0;
 			sourceTree = "<group>";
@@ -192,6 +223,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4DAC4D161C4B55A300045273 /* wave_graph_7 copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DAC4D271C4B55A300045273 /* Build configuration list for PBXNativeTarget "wave_graph_7 copy" */;
+			buildPhases = (
+				4DAC4D171C4B55A300045273 /* Resources */,
+				4DAC4D181C4B55A300045273 /* Sources */,
+				4DAC4D1D1C4B55A300045273 /* Frameworks */,
+				4DAC4D261C4B55A300045273 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "wave_graph_7 copy";
+			productInstallPath = "$(HOME)/Applications";
+			productName = contour_0;
+			productReference = 4DAC4D2A1C4B55A300045273 /* wave_graph_7 copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8D1107260486CEB800E47090 /* wave_graph_7 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_graph_7" */;
@@ -234,11 +284,19 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* wave_graph_7 */,
+				4DAC4D161C4B55A300045273 /* wave_graph_7 copy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4DAC4D171C4B55A300045273 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,9 +320,33 @@
 			shellPath = /bin/sh;
 			shellScript = "cp -f ../../../blocks/tbb/lib/libc++/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libtbb.dylib\";\n\ninstall_name_tool -change libtbb.dylib @executable_path/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n\n\n\n\n\n\n";
 		};
+		4DAC4D261C4B55A300045273 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -f ../../../blocks/tbb/lib/libc++/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libtbb.dylib\";\n\ninstall_name_tool -change libtbb.dylib @executable_path/libtbb.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\";\n\n\n\n\n\n\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4DAC4D181C4B55A300045273 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DAC4D191C4B55A300045273 /* MyCamera.cpp in Sources */,
+				4DAC4D1A1C4B55A300045273 /* ContourMap.cpp in Sources */,
+				4DAC4D1B1C4B55A300045273 /* MonitorNodeNL.cpp in Sources */,
+				4DAC4D1C1C4B55A300045273 /* cApp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +361,60 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		4DAC4D281C4B55A300045273 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "wave_graph_7 copy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4DAC4D291C4B55A300045273 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NDEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "wave_graph_7 copy-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_GENERATE_MAP_FILE = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SYMROOT = ./build;
+				USER_HEADER_SEARCH_PATHS = "$(inherited)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,6 +512,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4DAC4D271C4B55A300045273 /* Build configuration list for PBXNativeTarget "wave_graph_7 copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DAC4D281C4B55A300045273 /* Debug */,
+				4DAC4D291C4B55A300045273 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "wave_graph_7" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

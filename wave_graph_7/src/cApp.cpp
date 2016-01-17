@@ -1,4 +1,4 @@
-#define RENDER
+//#define RENDER
 //#defin AUDIO
 
 #include "cinder/app/AppNative.h"
@@ -236,15 +236,17 @@ void cApp::update(){
         axis[i].update( frame );
     }
 
-    pivot.push_back( axis[2].pos );
-    pivot.push_back( axis[7].pos );
+    pivot.push_back( axis[4].pos );
+    pivot.push_back( axis[5].pos );
     
-    waveLength = axis[7].pos.x - axis[2].pos.x;
+    waveLength = pivot[1].x - pivot[0].x;
     
     bool remake = false;
 
     int vboIndex = 0;
     float pastd = 0;
+    
+    
     for ( int w=0; w<wave.size(); w++ ) {
         for ( int c=0; c<wave[w].nCh; c++ ) {
 
@@ -255,7 +257,10 @@ void cApp::update(){
             
             //for ( int s=0; s<dispSample; s++) {
             int s = 0;
-            while( pastx < waveLength ){
+            vboWave[vboIndex].addPos( Vec3f( pivot[0].x, pivot[0].y, 0) );
+            vboWave[vboIndex].addCol( ColorAf(0,0,0,0.3) );
+            
+            while( 1 ){
                 
                 if( (audioPos+s) > 8*60*25*48000 )
                     break;
@@ -287,7 +292,7 @@ void cApp::update(){
                 
                 pastd = d;
 
-                float offset = pulse.getPos()[s].y * 2.2;
+                float offset = pulse.getPos()[s].y;
 
                 float gap = 384/8;
                 if( 0.5<a && a< 0.9){
@@ -310,37 +315,73 @@ void cApp::update(){
                 float finalx = pastx + addx;
                 pastx = finalx;
                 
-                if (finalx>waveLength) {
+                finalx += pivot[0].x;
+
+                if (finalx>=pivot[1].x) {
                     break;
                 }
 
-                float area = 360;// waveLength*0.2;
-                if( finalx<area ){
-                    inout = finalx/area;
-                    inout = pow(inout, 3);
+                
+                float piv = 1920/2;
+                float area = 400; //360;// waveLength*0.2;
+                if( finalx<area+pivot[0].x ){
+                    inout = (finalx-pivot[0].x)/area;
+                    inout = pow(inout, 2);
                     offset = 0;
-                    finalx += xscale*3;
+                    finalx += xscale*20;
                     red = 1;
-                }else if( (waveLength-area)<finalx ){
-                    inout = (waveLength-finalx)/area ;
-                    inout = pow(inout, 3);
+                    piv = pivot[0].y;
+                    d = abs(d) * (mPln.noise(frame*0.7)>0.0 ? -1 : 1);
+                }else if( (pivot[1].x-area)<finalx ){
+                    inout = (pivot[1].x-finalx)/area ;
+                    inout = pow(inout, 2);
                     offset = 0;
-                    finalx += xscale*3;
+                    finalx += xscale*20;
                     red = 1;
+                    piv = pivot[1].y;
+                    d = abs(d) * (mPln.noise(frame*0.334)>0.0 ? -1:1);
                 }
                 
-                float finaly = d*yscale*inout*red + offset*inout;
+                float finaly = d*yscale*inout*red + offset*inout + piv;
                 
                 {
-                    float lim = 384*2;
-                    if( finaly < -lim){
-                        finaly = -lim+384.0f*randFloat(-1.0f,1.0f);
+                    float lim = 100;
+                    if( finaly < 100){
+                        //finaly = lim*randFloat(-1.0f,1.0f);
                         remake = true;
-                    }else if( finaly>lim){
-                        finaly = lim+384.0f*randFloat(-1.0f,1.0f);
+                    }else if( finaly>1920-100){
+                        //finaly = 1920-lim*randFloat(-1.0f,1.0f);
                         remake = true;
                     }
                 }
+                
+//                float area = 360;// waveLength*0.2;
+//                if( finalx<area ){
+//                    inout = finalx/area;
+//                    inout = pow(inout, 3);
+//                    offset = 0;
+//                    finalx += xscale*3;
+//                    red = 1;
+//                }else if( (waveLength-area)<finalx ){
+//                    inout = (waveLength-finalx)/area ;
+//                    inout = pow(inout, 3);
+//                    offset = 0;
+//                    finalx += xscale*3;
+//                    red = 1;
+//                }
+//                
+//                float finaly = d*yscale*inout*red + offset*inout;
+//                
+//                {
+//                    float lim = 384*2;
+//                    if( finaly < -lim){
+//                        finaly = -lim+384.0f*randFloat(-1.0f,1.0f);
+//                        remake = true;
+//                    }else if( finaly>lim){
+//                        finaly = lim+384.0f*randFloat(-1.0f,1.0f);
+//                        remake = true;
+//                    }
+//                }
                 
                 if( abs(d) > 0.01 ){
                     vboWave[vboIndex].addPos( Vec3f( finalx, finaly, 0) );
@@ -349,6 +390,10 @@ void cApp::update(){
                 s++;
 
             }
+            
+            vboWave[vboIndex].addPos( Vec3f( pivot[1].x, pivot[1].y, 0) );
+            vboWave[vboIndex].addCol( ColorAf(0,0,0,0.3) );
+
             
             vboWave[vboIndex].init( GL_POINTS );
             vboIndex++;
@@ -393,7 +438,7 @@ void cApp::makePulse(){
                 }
                 
                 // y = y*0.9 + noise*0.1;
-                y += noise;
+                y = noise;
                 minus = !minus;
                 cnt = 0;
                 
@@ -451,7 +496,7 @@ void cApp::makePrep(){
                 y *= inout;
             }
 
-            prep.addPos( Vec3f( x, y, 0) );
+            prep.addPos( Vec3f( x, y+wH, 0) );
             prep.addPos( p2 );
             prep.addCol( ColorAf(0,0,0,0.15) );
             prep.addCol( ColorAf(0,0,0,0.15) );
@@ -588,7 +633,7 @@ void cApp::draw(){
         gl::pushMatrices(); {
             gl::clear( Color(1,1,1) );
             
-            glTranslatef( pivot[0].x, wH/2, 0);
+            //glTranslatef( pivot[0].x, wH/2, 0);
             
             if( debug ) pulse.draw();
 
@@ -610,19 +655,23 @@ void cApp::draw(){
                 }
             }
         } gl::popMatrices();
+        
+        gl::color(0, 1, 0);
+        
+        if(bShowRail && !mExp.bRender) {
+            for( auto & pv: pivot){
+                glLineWidth(3);
+                gl::drawStrokedCircle(pv, 10);
+            }
+            
+            drawAxis();
+        }
 
     } mExp.end();
 
     mExp.draw();
     
-    if(bShowRail){
-        gl::pushMatrices();
-        {
-            gl::scale(0.5, 0.5);
-            drawAxis();
-        }
-        gl::popMatrices();
-    }
+
 
     drawInfo();
 

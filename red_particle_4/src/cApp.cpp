@@ -83,13 +83,13 @@ void cApp::setup(){
     mExp.setup( mW, mH, 0, 1000-1, GL_RGB, mt::getRenderPath(), 0);
     
 
-    for( int i=0; i<4; i++){
+    for( int i=0; i<1; i++){
         mPln.push_back( Perlin(4, mt::getSeed() + 111*i) );
         ptcls.push_back( vector<Particle>() );
         vbos.push_back( VboSet() );
     }
     
-    mt::loadColorSample( "img/colorSample/n5pickCol_0.png", picker );
+    //mt::loadColorSample( "img/colorSample/n5pickCol_0.png", picker );
     
 #ifdef RENDER
     mExp.startRender();
@@ -132,15 +132,15 @@ void cApp::add_particle(){
 
 void cApp::update_particle(){
     
+    Vec3f mag1(-9519.0, 9051.0, -123.0);
+    Vec3f mag2(123.4, 129845.6, -1239.1);
+    
     int np = -1;
     for( auto & ptcl : ptcls ){
         
         np++;
         int loadNum = ptcl.size();
         int substep = 1;
-        
-        int imgw = picker.size();
-        int imgh = picker[0].size();
         
         for( int j=0; j<substep; j++){
             parallel_for( blocked_range<size_t>(0, loadNum), [&](const blocked_range<size_t>& r) {
@@ -155,7 +155,8 @@ void cApp::update_particle(){
                     pt.life--;
                     
                     if( 0 ){
-                        
+                        int imgw = picker.size();
+                        int imgh = picker[0].size();
                         int idx = (int)abs(p.x)%imgw;
                         int idy = (int)abs(p.y)%imgh;
                         Colorf & c = picker[idx][idy];
@@ -171,36 +172,20 @@ void cApp::update_particle(){
                         //
                         // Perlin base
                         //
-                        Vec2f p2d(p.x, p.z);
-                        float dist = p2d.length();
-                        //float noiseScale = lmap(dist, 0.0f, 4320.0f*0.1f, 0.02f, 0.002f);
+                        float noiseScale = 0.02;
+                        float timeScale  = 0.2;
+                        Vec3f nx = mPln[np].dfBm( p.x*noiseScale, p.y*noiseScale, frame*timeScale );
+                        Vec3f ny = mPln[np].dfBm( p.x*noiseScale, p.y*noiseScale, frame*timeScale );
+                        Vec3f nz = mPln[np].dfBm( p.x*noiseScale, p.y*noiseScale, frame*timeScale );
                         
-                        float noiseScale = 0.002;//- dist*0.00001;
+                        Vec2f vel;
+                        vel.x = nx.y-nx.z;
+                        vel.y = nx.z-nx.x;
                         
-                        float amp = 15;
+                        v.x += vel.x;
+                        v.y += vel.y;
                         
-                        float ox = 10;
-                        float oy = 10;
-                        float oz = 10;
-                        
-                        Vec3f n = mPln[np].dfBm( ox+p.x*noiseScale, oy+p.y*noiseScale, oz+frame*(0.002 - dist*0.000001) );
-                        Vec2f n2d(n.x, n.y);
-                        if( n2d.length()<0.4)
-                            n = n.safeNormalized()*0.4;
-                        
-//                        n.x += randFloat(-1.0f,1.0f) * 0.1;
-//                        n.y += randFloat(-1.0f,1.0f) * 0.1;
-//                        n.z += randFloat(-1.0f,1.0f) * 0.1;
-                        
-                        f = f*0.5 + n*amp * 0.5;
-                        v = v*0.5 + f*0.5;
-                        
-                        float vlen = v.length();
-                        vlen = MAX(vlen, 1.0);
-                        
-                        v = (v.normalized()+dir_n).normalized() * vlen;
-                        
-                        p += v;
+                        p += v*0.2;
                         p.z = 0;
                         
                     }

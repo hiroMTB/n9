@@ -86,7 +86,7 @@ void cApp::setup(){
     
     for( int w=0; w<8; w++ ){
         mWave.push_back( Wave() );
-        mWave[w].create( "snd/samples/192k/3s1e_192k_" + toString(w+1) + ".wav");
+        mWave[w].create( mt::getAssetPath().string() + "/snd/samples/192k/3s1e_192k_" + toString(w+1) + ".wav");
         mWave[w].pos.assign( mFpb, Vec3f(0,0,0) );
         mWave[w].color.assign( mFpb, ColorAf(0.5,0.5,0.5,1) );
         

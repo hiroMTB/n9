@@ -39,19 +39,34 @@ public:
 };
 
 class cApp : public AppNative {
+    
+    
   public:
 	void setup();
     void update();
     void draw();
-    
-    void loadCsv( fs::path path, vector<vector<KeyData>> & kd, vector<vector<KeyData>> & kd2, bool print=false );
-    void setupFromBlender();
     void keyDown( KeyEvent e );
     
+    void loadCsv( fs::path path, vector<vector<KeyData>> & kd, vector<vector<KeyData>> & kd2, bool print=false );
+    void calcPos();
+    void calcOnoff();
     void calcSpeed();
     void calcAccel();
     
     void draw_rect();
+    void drawRabel( string s );
+    
+    const double pixelPerM = 4320.0/18.0;
+    const double mmPerPixel = 18.0 / 4320.0;
+    const string csv_name = "n5_timeline_v9.3.1.csv";   // delimiter=
+
+    double toM( double pix ){
+        return mmPerPixel * pix;
+    }
+    
+    double toPixel( double m ){
+        return pixelPerM * m;
+    }
     
     Exporter mExp;
     const int mW = 2500;
@@ -80,13 +95,20 @@ class cApp : public AppNative {
     vector<VboSet> vbos_acl;
     
     vector<int> activeFrame;
+    vector<pair<int, float>> maxSpeeds;
+    vector<pair<int, float>> maxAccels;
     
-    float gWidth  = 12000/5; //mW * 0.9;
+    float gWidth  = 12000/4; //mW * 0.9;
     float gHeight = mH * 0.15;
     
     int dispRail = 0;
     
     vector<string> railName = { "L1", "L2", "L3", "L4", "L5", "R1", "R2", "R3", "R4", "R5" };
+    
+    
+    float graphMaxSpeed = 5.0f;
+    float graphMaxAccel = 50.0f;
+
 };
 
 void cApp::setup(){
@@ -103,6 +125,8 @@ void cApp::setup(){
     aclData.assign(10, vector<AccelData>());
     
     activeFrame.assign(10, float() );
+    maxSpeeds.assign(10, pair<int, float>(-123, numeric_limits<float>::min()) );
+    maxAccels.assign(10, pair<int, float>(-123, numeric_limits<float>::min()) );
     
     // draw
     vbos_pos.assign( 10, VboSet() );
@@ -112,71 +136,85 @@ void cApp::setup(){
     
     mExp.setup( mW, mH, 0, 2, GL_RGB, mt::getRenderPath(), 0 );
     
-    setupFromBlender();
-    
+    loadCsv( assetDir/"csv"/csv_name, posKeys, onoffKeys, false );
+
+    calcPos();
+    calcOnoff();
     calcSpeed();
     calcAccel();
     
 }
 
-void cApp::setupFromBlender(){
+void cApp::calcPos(){
     
-    
-    loadCsv( assetDir/"csv"/"n5_timeline_v9.1.csv", posKeys, onoffKeys, false );
+    for( int i=0; i<posKeys.size(); i++){
+        
+        const vector<KeyData> & pk = posKeys[i];
+        
+        for( int j=0; j<pk.size()-1; j++){
+            
+            int frame1 = pk[j].frame;
+            float val1 = pk[j].val;
+            float xrate1 = (float)frame1/12000.0f;
+            float yrate1 = (val1 - leftpos[i].x)/1200.0f;
 
-    for( int k=0; k<2; k++){
-        
-        vector<vector<KeyData>> & keys = (k==0) ? posKeys : onoffKeys;
-        vector<VboSet> & vbos = (k==0) ? vbos_pos : vbos_onoff;
-        
-        for( int i=0; i<keys.size(); i++){
+            int frame2 = pk[j+1].frame;
+            float val2 = pk[j+1].val;
+            float xrate2 = (float)frame2/12000.0f;
+            float yrate2 = (val2 - leftpos[i].x)/1200.0f;
+
+            vbos_pos[i].addPos( Vec3f(gWidth*xrate1, -gHeight*yrate1, 0));
+            vbos_pos[i].addPos( Vec3f(gWidth*xrate2, -gHeight*yrate2, 0));
+
+            ColorAf col( 0,0,1,1);
+            if(val1 == val2){
+                col.set(0.6, 0.6, 0.6, 1);
+            }
             
-            const vector<KeyData> & pk = keys[i];
+            vbos_pos[i].addCol( col );
+            vbos_pos[i].addCol( col );
+        }
+    }
+
+    for( int i=0; i<vbos_pos.size(); i++){
+        vbos_pos[i].init( GL_LINES );
+    }
+}
+
+void cApp::calcOnoff(){
+    
+    for( int i=0; i<onoffKeys.size(); i++){
+        
+        const vector<KeyData> & pk = onoffKeys[i];
+        
+        for( int j=0; j<pk.size(); j++){
             
-            for( int j=0; j<pk.size(); j++){
+            int frame = pk[j].frame;
+            float val = pk[j].val;
+            
+            float xrate = (float)frame/12000.0f;
+            float yrate;
+            ColorAf col( 1, 0.2, 0.7, 1);    // pink
+            if( j>0 ){
                 
-                int frame = pk[j].frame;
-                float val = pk[j].val;
-                
-                float xrate = (float)frame/12000.0f;
-                float yrate;
-                switch (k) {
-                    case 0:
-                    {
-                        ColorAf col( 0,0,1,1);
-                        yrate = (val - leftpos[i].x)/1200.0f;
-                        vbos[i].addPos( Vec3f(gWidth*xrate, -gHeight*yrate, 0));
-                        vbos[i].addCol( col );
-                        break;
-                    }
-                        
-                    case 1:
-                    {
-                        ColorAf col( 1,0,0,1);
-                        if( j>0 ){
-                            
-                            // check previous frame to make ON/OFF square wave
-                            const KeyData & pkey = pk[j-1];
-                            if( pkey.val != val ){
-                                float valp = val==0?255:0;
-                                float xratep = (float)frame/12000.0f;
-                                float yratep = valp/255.0f;
-                                vbos[i].addPos( Vec3f(gWidth*xratep, -gHeight*yratep, 0));
-                                vbos[i].addCol( col );
-                            }
-                        }
-                        yrate = val/255.0f;
-                        vbos[i].addPos( Vec3f(gWidth*xrate, -gHeight*yrate, 0));
-                        vbos[i].addCol( col );
-                        break;
-                    }
+                // check previous frame to make ON/OFF square wave
+                const KeyData & pkey = pk[j-1];
+                if( pkey.val != val ){
+                    float valp = val==0?255:0;
+                    float xratep = (float)frame/12000.0f;
+                    float yratep = valp/255.0f;
+                    vbos_onoff[i].addPos( Vec3f(gWidth*xratep, -gHeight*yratep, 0));
+                    vbos_onoff[i].addCol( col );
                 }
             }
+            yrate = val/255.0f;
+            vbos_onoff[i].addPos( Vec3f(gWidth*xrate, -gHeight*yrate, 0));
+            vbos_onoff[i].addCol( col );
         }
-        
-        for( int i=0; i<vbos.size(); i++){
-            vbos[i].init( GL_LINE_STRIP );
-        }
+    }
+
+    for( int i=0; i<vbos_onoff.size(); i++){
+        vbos_onoff[i].init( GL_LINE_STRIP );
     }
 }
 
@@ -208,6 +246,12 @@ void cApp::calcSpeed(){
             m.speed = pix_dist / dur_sec;
             mds.push_back( m );
             
+            float abs_speed = abs(m.speed);
+            if(abs_speed > maxSpeeds[i].second ){
+                maxSpeeds[i].first = m.sFrame;
+                maxSpeeds[i].second = abs_speed;
+            }
+            
             bool isStop = abs(m.speed) == 0;
             if( !isStop ){
                 af += dur_frame;
@@ -220,9 +264,18 @@ void cApp::calcSpeed(){
         printf("rail %d : active frame= %d, %0.3f%%\n", i, af, (float)af/12000.0f * 100.0f);
     }
     
+    for (int i=0; i<maxSpeeds.size(); i++) {
+        int f = maxSpeeds[i].first;
+        float speed = maxSpeeds[i].second;
+        
+        printf("rail %d : Max speed = %0.3f m/s at %d frame\n", i, toM(speed), f);
+    }
+    
     for( int i=0; i<spdData.size(); i++){
         vector<SpeedData> & mds = spdData[i];
         VboSet & vbo = vbos_spd[i];
+        
+        int maxSpeedFrame = maxSpeeds[i].first;
         
         for( int j=0; j<mds.size(); j++){
 
@@ -230,7 +283,7 @@ void cApp::calcSpeed(){
             float xrate1 = (float)m.sFrame/12000.0f;
             float xrate2 = (float)m.eFrame/12000.0f;
 
-            float maxSpeed = 4320/2;  // 4320/2 pix = 9000mm
+            float maxSpeed = toPixel(graphMaxSpeed); //4320/2;  // 4320/2 pix = 9000mm
             float yrate1 = (float) -m.speed/(maxSpeed) * 0.5;
             
             Vec3f spd1( xrate1*gWidth, yrate1*gHeight - gHeight*0.5, 0);
@@ -240,6 +293,10 @@ void cApp::calcSpeed(){
             vbo.addPos(spd2);
             
             ColorAf c(0,0.5,0,1);
+            
+            if( m.sFrame == maxSpeedFrame ){
+                c.set(1,0,0,1);
+            }
             vbo.addCol( c );
             vbo.addCol( c );
         }
@@ -285,7 +342,21 @@ void cApp::calcAccel(){
             acl.eSpeed = eSpeed;
             acl.accel = accel;
             acls.push_back(acl);
+            
+            float abs_accel = abs(acl.accel);
+            if(abs_accel > maxAccels[i].second ){
+                maxAccels[i].first = acl.sFrame;
+                maxAccels[i].second = abs_accel;
+            }
+
         }
+    }
+    
+    for (int i=0; i<maxAccels.size(); i++) {
+        int f = maxAccels[i].first;
+        float acl = maxAccels[i].second;
+        
+        printf("rail %d : Max Accel = %0.3f m/ss at %d frame\n", i, toM(acl), f);
     }
     
     for( int i=0; i<aclss.size(); i++){
@@ -298,7 +369,7 @@ void cApp::calcAccel(){
             float xrate1 = (float)a.sFrame/12000.0f;
             float xrate2 = (float)a.eFrame/12000.0f;
             
-            float maxAccel = 40.0f/18.0f*4320.0f;    // 40m/s2, 9599pix/s2
+            float maxAccel = toPixel(graphMaxAccel); //50.0f/18.0f*4320.0f;    // 50m/s2, 9599pix/s2
             float yrate1 = (float) -a.accel/maxAccel * 0.5;
             
             Vec3f acl1a( xrate1*gWidth, yrate1*gHeight - gHeight*0.5, 0);
@@ -310,14 +381,14 @@ void cApp::calcAccel(){
             vbo.addPos(acl1a);
             vbo.addPos(acl1b);
             
-//            vbo.addPos(acl2a);
-//            vbo.addPos(acl2b);
+            ColorAf c1(0,0,0,1);
+            ColorAf c2(0,0,0,1);
+            if(a.sFrame == maxAccels[i].first){
+                c1.set(1,0,0,1);
+            }
             
-            ColorAf c(0,0,0,1);
-            vbo.addCol( c );
-            vbo.addCol( c );
-//            vbo.addCol( c );
-//            vbo.addCol( c );
+            vbo.addCol( c1 );
+            vbo.addCol( c2 );
         }
         vbo.init(GL_LINES);
     }
@@ -409,8 +480,9 @@ void cApp::draw_rect(){
     gl::color(0.9,0.9,0.9);
     gl::drawSolidRect( Rectf(0,0,gWidth,-gHeight) );
     gl::color(1,1,1);
-    for( int i=1;i<8; i++){
-        gl::drawLine(Vec2f((float)i*gWidth/8.0, 0), Vec2f((float)i*gWidth/8.0, -gHeight) );
+    float sep = 8.0f;
+    for( int i=1;i<sep; i++){
+        gl::drawLine(Vec2f((float)i*gWidth/sep, 0), Vec2f((float)i*gWidth/sep, -gHeight) );
     }
 }
 
@@ -429,37 +501,65 @@ void cApp::draw(){
             int gap = 70;
             
             glTranslatef( (mW-gWidth)/2, 0, 0 );
-            glTranslatef( 0, gHeight+gap, 0 );
+
+            glTranslatef( 0, gap, 0 );
+            drawRabel("Position: 0m - 5m");
+            glTranslatef( 0, gHeight, 0 );
+
             draw_rect();
             vbos_pos[dispRail].draw();
-        
-            glTranslatef( 0, gHeight+gap, 0 );
+            
+            glTranslatef( 0, gap, 0 );
+            drawRabel("Laser ON/OFF");
+            glTranslatef( 0, gHeight, 0 );
             draw_rect();
             vbos_onoff[dispRail].draw();
             
-            glTranslatef( 0, gHeight+gap, 0 );
+            
+            glTranslatef( 0, gap, 0 );
+            drawRabel("Speed : -" + toString((int)graphMaxSpeed)+ "m - +" + toString((int)graphMaxSpeed) + "m");
+            glTranslatef( 0, gHeight, 0 );
+
             draw_rect();
             gl::color(0.7, 0.7, 0.7);
             gl::drawLine(Vec2f(0, -gHeight/2), Vec2f(gWidth, -gHeight/2) );
             vbos_spd[dispRail].draw();
 
-            glTranslatef( 0, gHeight+gap, 0 );
+            glTranslatef( 0, gap, 0 );
+            drawRabel("Acceleration : -" + toString((int)graphMaxAccel)+ "m - +"+ toString((int)graphMaxAccel) + "m");
+            glTranslatef( 0, gHeight, 0 );
+            
             draw_rect();
             gl::color(0.7, 0.7, 0.7);
             gl::drawLine(Vec2f(0, -gHeight/2), Vec2f(gWidth, -gHeight/2) );
-            glLineWidth(2);
+            glLineWidth(1);
             vbos_acl[dispRail].draw();
 
             // info
             glTranslatef( 0, gap, 0 );
             gl::color(0,0,0,1);
-            gl::drawSolidRect(Rectf(0,0,600,30) );
-            gl::drawString("Rail: " + railName[dispRail], Vec2i(15,15) );
-            gl::drawString("Active frames: " + to_string(activeFrame[dispRail]), Vec2i(215,15) );
-            gl::drawString( to_string(activeFrame[dispRail]/12000.0f*100.0f) + "%", Vec2i(415,15) );
-
+            gl::drawSolidRect(Rectf(0,0,1000,30) );
+            gl::drawString( "Axis: " + railName[dispRail], Vec2i(15,15) );
+            gl::drawString( "Active frames: " + to_string(activeFrame[dispRail]) + "f / 12000f", Vec2i(215,15) );
+            gl::drawString( "Duty : " + to_string(activeFrame[dispRail]/12000.0f*100.0f) + " %", Vec2i(415,15) );
+            gl::drawString( "Max Speed : " + to_string( toM(maxSpeeds[dispRail].second)) + " m/s", Vec2i(615,15) );
+            gl::drawString( "Max Accel : " + to_string( toM(maxAccels[dispRail].second)) + " m/s2", Vec2i(815,15) );
+       
+            gl::pushMatrices();
+            glTranslatef( mW-(mW-gWidth)/2-50, 0, 0 );
+            gl::drawSolidRect(Rectf(0,0,-50,30) );
+            gl::drawString( "8 min", Vec2i(-50+10,15) );
+            gl::color(0, 0, 0, 1);
+            gl::drawLine(Vec2f(0,0), Vec2f(0,-gap));
+            gl::popMatrices();
+            
         }
         gl::popMatrices();
+
+        glTranslatef( mW-150, 0, 0 );
+        gl::color(0,0,0,1);
+        gl::drawSolidRect(Rectf(0,0,150,20) );
+        gl::drawString( csv_name, Vec2i(15,8) );
 
     }
     mExp.end();
@@ -468,6 +568,13 @@ void cApp::draw(){
     
     if(bAllSaveMode) dispRail++;
 
+}
+
+void cApp::drawRabel( string s ){
+    gl::color(0, 0, 0, 1);
+    gl::drawSolidRect(Rectf(0,-3,200,-20) );
+    gl::color(1, 1, 1, 1);
+    gl::drawString(s, Vec2i(10,-12) );
 }
 
 void cApp::keyDown( KeyEvent e){

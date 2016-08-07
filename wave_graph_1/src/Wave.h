@@ -25,7 +25,7 @@ public:
     
     void create( string path ){
         auto ctx = audio::Context::master();
-        audio::SourceFileRef sourceFile = audio::load( loadAsset( path ), ctx->getSampleRate() );
+        audio::SourceFileRef sourceFile = audio::load( loadFile( path ), ctx->getSampleRate() );
         samplingRate = sourceFile->getSampleRate();
         buf = sourceFile->loadBuffer();
         ch0 = buf->getChannel(0);

@@ -69,7 +69,8 @@ void cApp::setup(){
     mWaves.assign( 1, Wave() );
     
     for( int i=0; i<mWaves.size(); i++ ){
-        mWaves[i].create( "snd/samples/192k/beach_ostend_01__192k.wav");
+        string p = mt::getAssetPath().string()+"/snd/samples/192k/beach_ostend_01__192k.wav";
+        mWaves[i].create( p );
         mWaves[i].pos.assign( mFpb, Vec3f(0,0,0) );
         mWaves[i].color.assign( mFpb, ColorAf(0.5,0.5,0.5,1) );
         

@@ -95,10 +95,13 @@ class cApp : public AppNative {
     vector<VboSet> vbos_acl;
     
     vector<int> activeFrame;
+    vector<int> totalTravelPix;
+    vector<float> totalTravelMeter;
+    
     vector<pair<int, float>> maxSpeeds;
     vector<pair<int, float>> maxAccels;
     
-    float gWidth  = 12000/4; //mW * 0.9;
+    float gWidth  = mW - 100;
     float gHeight = mH * 0.15;
     
     int dispRail = 0;
@@ -125,6 +128,8 @@ void cApp::setup(){
     aclData.assign(10, vector<AccelData>());
     
     activeFrame.assign(10, float() );
+    totalTravelPix.assign(10, 0 );
+    totalTravelMeter.assign(10, 0.0f );
     maxSpeeds.assign(10, pair<int, float>(-123, numeric_limits<float>::min()) );
     maxAccels.assign(10, pair<int, float>(-123, numeric_limits<float>::min()) );
     
@@ -224,11 +229,12 @@ void cApp::calcSpeed(){
     vector<vector<KeyData>> & keys = posKeys;
     
     for( int i=0; i<keys.size(); i++){
+        
         const vector<KeyData> & keyvec = keys[i];
         vector<SpeedData> & mds = spdData[i];
         
         int & af = activeFrame[i];
-        
+
         for( int j=0; j<keyvec.size()-1; j++){
             
             const KeyData & key1 = keyvec[j];
@@ -256,7 +262,20 @@ void cApp::calcSpeed(){
             if( !isStop ){
                 af += dur_frame;
             }
+            
+            //
+            // calculate total travel distance
+            //
+            totalTravelPix[i] += abs(pix_dist);
         }
+        
+        totalTravelMeter[i] = toM( totalTravelPix[i] );
+        
+
+    }
+
+    for (int i=0; i<totalTravelPix.size(); i++) {
+        printf("rail %d : total travel : %dpx, %0.3fm\n", i, totalTravelPix[i], totalTravelMeter[i]);
     }
     
     for (int i=0; i<activeFrame.size(); i++) {
@@ -536,15 +555,25 @@ void cApp::draw(){
             vbos_acl[dispRail].draw();
 
             // info
-            glTranslatef( 0, gap, 0 );
-            gl::color(0,0,0,1);
-            gl::drawSolidRect(Rectf(0,0,1000,30) );
-            gl::drawString( "Axis: " + railName[dispRail], Vec2i(15,15) );
-            gl::drawString( "Active frames: " + to_string(activeFrame[dispRail]) + "f / 12000f", Vec2i(215,15) );
-            gl::drawString( "Duty : " + to_string(activeFrame[dispRail]/12000.0f*100.0f) + " %", Vec2i(415,15) );
-            gl::drawString( "Max Speed : " + to_string( toM(maxSpeeds[dispRail].second)) + " m/s", Vec2i(615,15) );
-            gl::drawString( "Max Accel : " + to_string( toM(maxAccels[dispRail].second)) + " m/s2", Vec2i(815,15) );
-       
+            {
+                glTranslatef( 0, gap, 0 );
+                gl::color(0,0,0,1);
+                gl::drawSolidRect(Rectf(0,0,1300,30) );
+                
+                char rail[255];     sprintf(rail,   "Axis: %s",                     railName[dispRail].c_str() );
+                char aframe[255];   sprintf(aframe, "Active frames: %d f / 12000f", activeFrame[dispRail]);
+                char duty[255];     sprintf(duty,   "Duty :  %0.3f%%",              activeFrame[dispRail]/12000.0f*100.0f );
+                char speed[255];    sprintf(speed,  "Max Speed : %0.3f m/s",        toM(maxSpeeds[dispRail].second) );
+                char accel[255];    sprintf(accel,  "Max Accel : %0.3f m/s2",       toM(maxAccels[dispRail].second) );
+                char travel[255];   sprintf(travel, "Total travel : %d px, %0.3f m", totalTravelPix[dispRail], totalTravelMeter[dispRail]);
+                gl::drawString( rail,   Vec2i(15,15) );
+                gl::drawString( aframe, Vec2i(215,15) );
+                gl::drawString( duty,   Vec2i(415,15) );
+                gl::drawString( speed,  Vec2i(615,15) );
+                gl::drawString( accel,  Vec2i(815,15) );
+                gl::drawString( travel, Vec2i(1015,15) );
+            }
+            
             gl::pushMatrices();
             glTranslatef( mW-(mW-gWidth)/2-50, 0, 0 );
             gl::drawSolidRect(Rectf(0,0,-50,30) );
@@ -552,8 +581,8 @@ void cApp::draw(){
             gl::color(0, 0, 0, 1);
             gl::drawLine(Vec2f(0,0), Vec2f(0,-gap));
             gl::popMatrices();
-            
         }
+        
         gl::popMatrices();
 
         glTranslatef( mW-150, 0, 0 );
